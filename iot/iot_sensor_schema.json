@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://smart-eco-pharma-hub.example.com/schemas/iot_sensor/v1.0.0",
+  "title": "Smart Eco-Pharma Hub — IoT Sensor Reading",
+  "description": "Schema for serial JSON emitted by Arduino/Wokwi sensors. Validated by Phase 3 FastAPI ingestion endpoint.",
+  "$comment": "When serialized by ArduinoJson 6.x (compact, no whitespace), the complete payload MUST be under 512 bytes to fit Arduino serial buffer. Use Serial.println(doc) or doc.measureJson() to verify at runtime. Example files above are pretty-printed for readability and exceed 512 bytes in text form — that is expected. The actual serial output is compact JSON.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "reading_id",
+    "device_id",
+    "storage_location_id",
+    "sequence_number",
+    "timestamp_utc",
+    "transmission_mode",
+    "sensor_payload",
+    "device_status",
+    "alert_flags"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "default": "1.0.0",
+      "description": "Semver schema version. Must match backend expected version."
+    },
+    "reading_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for deduplication. Arduino uses a pre-generated UUID v4 from a lookup table or random seed."
+    },
+    "device_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Simulated Arduino device identifier, e.g. WOKWI-SIM-001."
+    },
+    "storage_location_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Maps to otc_inventory.storage_location_identifier in Phase 1 schema."
+    },
+    "sequence_number": {
+      "type": "integer",
+      "minimum": 0,
+      "$comment": "Increment strategy: initialize from EEPROM on boot (addr 0x00), increment before each reading, persist after transmit. On Wokwi simulation, a local variable suffices since there is no EEPROM persistence. Used server-side for gap detection and deduplication with reading_id.",
+      "description": "Monotonically increasing per device. Arduino increments in EEPROM or variable on each reading. Used for out-of-order / gap detection."
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time",
+      "$comment": "Arduino boards have no RTC by default. For Wokwi simulation, inject via simulator time. For real hardware, use DS3231 RTC module or derive from millis() offset after manual sync. ISO 8601 with millisecond precision, always UTC (Z suffix).",
+      "description": "ISO 8601 timestamp with millisecond precision, UTC."
+    },
+    "transmission_mode": {
+      "type": "string",
+      "enum": ["serial", "http_post"],
+      "description": "Whether data was sent over serial (Wokwi/Arduino IDE monitor) or HTTP POST (ESP8266/ESP32 WiFi)."
+    },
+    "sensor_payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "temperature_celsius",
+        "humidity_percent",
+        "inventory_trigger"
+      ],
+      "properties": {
+        "temperature_celsius": {
+          "type": "number",
+          "minimum": -20.0,
+          "maximum": 60.0,
+          "description": "Temperature in Celsius. Pharmaceutical cold chain range per WHO guidelines: 2-8°C for vaccines, wider range for other meds."
+        },
+        "humidity_percent": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 100.0,
+          "description": "Relative humidity percentage. Target range 30-65% for pharmaceutical storage."
+        },
+        "inventory_trigger": {
+          "type": "boolean",
+          "description": "true = physical shelf/IR sensor detected stock level is low. Maps to otc_inventory reorder logic."
+        },
+        "light_lux": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000,
+          "description": "Ambient light level in lux. DASHBOARD ONLY — no corresponding Phase 1 schema field. Used for UI display only."
+        },
+        "door_open": {
+          "type": "boolean",
+          "description": "true = medicine cabinet door is currently open. DASHBOARD ONLY — no corresponding Phase 1 schema field. Used for UI display only."
+        }
+      }
+    },
+    "device_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "battery_level_percent",
+        "signal_quality",
+        "firmware_version"
+      ],
+      "properties": {
+        "battery_level_percent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Simulated battery level. On real hardware, read from ADC pin with voltage divider."
+        },
+        "signal_quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Simulated RSSI proxy for WiFi signal quality. 0 = no signal, 100 = excellent."
+        },
+        "firmware_version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "description": "Semver firmware version running on the device."
+        }
+      }
+    },
+    "alert_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "temperature_out_of_range",
+        "humidity_out_of_range",
+        "inventory_threshold_breached"
+      ],
+      "properties": {
+        "temperature_out_of_range": {
+          "type": "boolean",
+          "description": "Pre-computed by Arduino: true when temperature_celsius < 2.0 or > 8.0."
+        },
+        "humidity_out_of_range": {
+          "type": "boolean",
+          "description": "Pre-computed by Arduino: true when humidity_percent < 30.0 or > 65.0."
+        },
+        "inventory_threshold_breached": {
+          "type": "boolean",
+          "description": "Pre-computed by Arduino: true when inventory_trigger == true or stock count below reorder threshold."
+        }
+      }
+    }
+  }
+}
