@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "reading_id": "b4e8d3f2-9c5e-4f0a-c7d6-2e3f4a5b6c7d",
+  "device_id": "WOKWI-001",
+  "storage_location_id": "SHELF-A3-B2",
+  "sequence_number": 143,
+  "timestamp_utc": "2026-07-15T10:31:00.456Z",
+  "transmission_mode": "serial",
+  "sensor_payload": {
+    "temperature_celsius": 12.3,
+    "humidity_percent": 72.5,
+    "inventory_trigger": true,
+    "light_lux": 180.0,
+    "door_open": true
+  },
+  "device_status": {
+    "battery_level_percent": 85,
+    "signal_quality": 90,
+    "firmware_version": "1.0.0"
+  },
+  "alert_flags": {
+    "temperature_out_of_range": true,
+    "humidity_out_of_range": true,
+    "inventory_threshold_breached": true
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "tools": [
+    {
+      "name": "lookup_drug_inventory",
+      "description": "Look up current inventory status for a pharmaceutical drug, including stock quantity, reorder status, and storage conditions.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "drug_name": {
+            "type": "string",
+            "description": "Fuzzy search on drug_name field in drug_master."
+          },
+          "drug_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Exact lookup by drug UUID from drug_master."
+          },
+          "storage_location_id": {
+            "type": "string",
+            "description": "Filter results by storage location identifier (e.g., SHELF-A3)."
+          }
+        },
+        "required": [],
+        "anyOf": [
+          { "required": ["drug_name"] },
+          { "required": ["drug_id"] }
+        ]
+      }
+    },
+    {
+      "name": "check_drug_interactions",
+      "description": "Check for known drug interactions between two or more drugs, returning risk grades and clinical management recommendations.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "drug_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "minItems": 2,
+            "maxItems": 5,
+            "description": "List of drug UUIDs to check for interactions (2 to 5 drugs)."
+          }
+        },
+        "required": ["drug_ids"]
+      }
+    },
+    {
+      "name": "get_risk_grade",
+      "description": "Retrieve the risk grade for a specific drug-drug interaction pair, returning the most recent assessment including clinical consequence and management recommendation.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "drug_a_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the first drug."
+          },
+          "drug_b_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the second drug."
+          }
+        },
+        "required": ["drug_a_id", "drug_b_id"]
+      }
+    },
+    {
+      "name": "get_iot_sensor_status",
+      "description": "Get the latest IoT sensor readings for a specific storage location, including temperature, humidity, and alert status.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "storage_location_id": {
+            "type": "string",
+            "description": "Storage location identifier to query (e.g., SHELF-A3, FRIDGE-02)."
+          }
+        },
+        "required": ["storage_location_id"]
+      }
+    }
+  ]
+}
