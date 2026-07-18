@@ -218,10 +218,10 @@ Each team member below has specific assumptions that require your sign-off befor
 | # | Task | Priority | Status |
 |---|---|---|---|
 | 1 | ~~Revoke old OpenRouter API key~~ | HIGH | COMPLETED |
-| 2 | Add yourself to `team_members` table in Supabase SQL Editor | HIGH | PENDING |
-| 3 | Set Render env vars (SUPABASE_URL, keys, CORS_ORIGINS) | HIGH | PENDING |
+| 2 | Add yourself to `team_members` table in Supabase SQL Editor | HIGH | COMPLETED |
+| 3 | Set Render env vars (SUPABASE_URL, keys, CORS_ORIGINS) | HIGH | COMPLETED |
 | 4 | Collect domain validation responses from team | HIGH | IN PROGRESS |
-| 5 | Deploy to Render.com (Dockerfile + render.yaml ready) | MEDIUM | PENDING |
+| 5 | Deploy to Render.com (Dockerfile + render.yaml ready) | MEDIUM | IN PROGRESS |
 
 **SQL to add yourself to team_members:**
 ```sql
