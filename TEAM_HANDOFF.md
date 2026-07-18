@@ -1,9 +1,10 @@
 # Smart Eco-Pharma Hub — Team Handoff Document
 
 **Project:** Smart Eco-Pharma Hub Backend
-**Date:** 2026-07-15
+**Date:** 2026-07-18
 **Prepared by:** Ahmed El-Desouky, Technical Governance & AI Architecture Lead
 **Status:** Phase 1–3 Complete | Phase 4 Pending Domain Validation
+**Repo:** https://github.com/Eldasoky1/ECO-Pharma
 
 ---
 
@@ -15,26 +16,94 @@ Each team member below has specific assumptions that require your sign-off befor
 
 ---
 
-## 1. Eman Ayman — Quality Control Lead
+## Team Responsibility Table — Who Works on What
+
+**Find your name below. The "Files" column tells you exactly which files to open and review/work on.**
+
+| Team Member | Role | Status | Files You Must Review | Your Action |
+|---|---|---|---|---|
+| **Eman Ayman** | QA / Quality Control | ✅ VALIDATED (test_method done) | `smart_eco_pharma/schema/schema_contract.md` (section 3: purity_classification) | Confirm the 7 enum values cover your analytical methods. Reply if any method is missing. |
+| **Fatma Mohamed** | Clinical Pharmacy / Inventory | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 4: otc_inventory), `smart_eco_pharma/schema/assumption_log.md`, `iot/assumption_log.md` | Validate 10 assumptions (storage format, temperature zones, thresholds). Reply with decisions. |
+| **Dr. Mohamed Ibrahim** | Pharmacovigilance | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 5: drug_interactions), `smart_eco_pharma/schema/assumption_log.md`, `docs/GAPS.md` | Validate or correct `risk_grade` enum values. **Patient safety critical.** |
+| **Fagr Ahmed** | IoT / Hardware Engineer | ⏳ PENDING | `iot/iot_sensor_schema.json`, `iot/iot_example_normal.json`, `iot/iot_example_alert.json`, `iot/fagr_handoff_note.md`, `iot/assumption_log.md` | Confirm sensor data format matches Wokwi simulator. Sign off IoT contract. |
+| **Zeina Wael** | Cybersecurity Auditor | ⏳ WAITING | `security/architecture_summary.md`, `security/gap_list.md`, `security/audit_signoff.md`, `smart_eco_pharma/auth.py` | Review fixed gaps. Schedule audit when HIGH/MEDIUM gaps are closed. |
+| **Omar Hindawi** | Backend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API. QC endpoints not scoped yet. |
+| **Aya El-Hariry** | Frontend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API for UI form design. |
+| **Ahmed El-Desouky** | Technical Governance & AI Lead | 🔧 OWNER | ALL FILES | Run migration SQL, deploy to Render, collect team responses. |
+
+---
+
+## Quick File Reference — Full Repo Map
+
+| Folder | File | What It Is | Who Needs It |
+|---|---|---|---|
+| `smart_eco_pharma/schema/` | `migration.sql` | Original schema (5 tables, 6 enums, RLS) | Ahmed (already run) |
+| `smart_eco_pharma/schema/` | `migration_002_eman_validation.sql` | **NEW** — Eman's test_method enum override | **Eman** (run in SQL Editor) |
+| `smart_eco_pharma/schema/` | `iot_migration.sql` | IoT tables (iot_readings, iot_alerts) | Ahmed (already run) |
+| `smart_eco_pharma/schema/` | `schema_contract.md` | Human-readable field model (all 5 tables) | **Everyone** |
+| `smart_eco_pharma/schema/` | `assumption_log.md` | 20 domain assumptions | Eman, Fatma, Dr. Mohamed |
+| `iot/` | `iot_sensor_schema.json` | IoT payload contract (JSON Schema) | **Fagr** |
+| `iot/` | `iot_example_normal.json` | Example normal sensor reading | **Fagr** |
+| `iot/` | `iot_example_alert.json` | Example alert sensor reading | **Fagr** |
+| `iot/` | `fagr_handoff_note.md` | Integration guide for Arduino | **Fagr** |
+| `iot/` | `assumption_log.md` | 12 IoT assumptions | Fagr, Fatma |
+| `docs/` | `GAPS.md` | Known gaps & action items | Ahmed, Dr. Mohamed |
+| `docs/` | `api_contract.md` | 16 API endpoints documentation | Omar, Aya |
+| `docs/` | `mcp_tool_schemas.json` | MCP tool definitions | Ahmed |
+| `security/` | `architecture_summary.md` | System architecture & data flow | **Zeina** |
+| `security/` | `gap_list.md` | 15 security gaps with status | **Zeina**, Ahmed |
+| `security/` | `audit_signoff.md` | Audit sign-off document (DRAFT) | **Zeina**, Ahmed |
+| `smart_eco_pharma/` | `main.py` | FastAPI app entry point | Omar |
+| `smart_eco_pharma/` | `auth.py` | JWT authentication | Zeina, Omar |
+| `smart_eco_pharma/` | `config.py` | Settings (env vars) | Omar |
+| `smart_eco_pharma/` | `database.py` | Supabase client setup | Omar |
+| `smart_eco_pharma/models/` | `drug.py` | Drug Pydantic models | Omar |
+| `smart_eco_pharma/models/` | `inventory.py` | Inventory Pydantic models | Omar |
+| `smart_eco_pharma/models/` | `interaction.py` | Interaction Pydantic models | Omar |
+| `smart_eco_pharma/models/` | `iot.py` | IoT Pydantic models | Omar |
+| `smart_eco_pharma/models/` | `pharmacovigilance.py` | GPT-4o pipeline models | Omar |
+| `smart_eco_pharma/routers/` | `inventory.py` | Inventory API endpoints | Omar |
+| `smart_eco_pharma/routers/` | `interactions.py` | Interaction API endpoints | Omar |
+| `smart_eco_pharma/routers/` | `iot_ingestion.py` | IoT ingestion endpoints | Omar |
+| `smart_eco_pharma/routers/` | `pharmacovigilance.py` | PV GPT-4o endpoints | Omar |
+| `smart_eco_pharma/services/` | `inventory_service.py` | Inventory business logic | Omar |
+| `smart_eco_pharma/services/` | `iot_service.py` | IoT business logic | Omar |
+| `smart_eco_pharma/services/` | `pv_service.py` | GPT-4o pipeline service | Omar |
+| `smart_eco_pharma/mcp_server/` | `server.py` | MCP server (4 tools) | Ahmed |
+| `smart_eco_pharma/tests/` | `test_inventory.py` | Inventory tests (6 tests) | Omar |
+| `smart_eco_pharma/tests/` | `test_iot_ingestion.py` | IoT tests (4 tests) | Omar |
+| `smart_eco_pharma/tests/` | `test_drug.py` | Drug tests (3 tests) | Omar |
+| `smart_eco_pharma/tests/` | `test_pv_pipeline.py` | Pipeline tests (3 tests) | Omar |
+| Root | `Dockerfile` | Container build config | Ahmed |
+| Root | `render.yaml` | Render.com deployment | Ahmed |
+| Root | `requirements.txt` | Python dependencies | Omar |
+| Root | `.github/workflows/ci.yml` | CI/CD pipeline | Ahmed |
+| Root | `TEAM_HANDOFF.md` | This document | **Everyone** |
+| Root | `TEAM_CREDENTIALS.md` | Login credentials | **Everyone** (keep secure) |
+| Root | `PHASE_PROGRESS_REPORT.md` | Full progress report | Ahmed |
+
+---
+
+## 1. Eman Ayman — Quality Control Lead ✅ VALIDATED
 
 **Phase:** 1 — Schema Design (Purity Classification)
-**What I need from you:** Validate the purity/QC field definitions in the database schema. These fields directly impact how you record and query quality control data.
+**Status:** `test_method` override COMPLETE — migration ready to apply.
 
-**Assumptions to validate:**
+**What was done:**
+- `test_method` converted from free-text to controlled enum (`test_method_type`)
+- 7 values: `hplc`, `gc`, `uv_vis`, `ftir`, `titration`, `mass_spectrometry`, `other`
+- New escape-hatch column: `test_method_other_description` (for when `test_method = 'other'`)
+- `purity_grade`, `purity_percent`, `unit`, `qc_protocol_ref` — confirmed as-is, untouched
 
-| # | Assumption | Your Decision Needed |
-|---|---|---|
-| ASSUMPTION-001 | `purity_grade` is free-text (e.g. "USP Grade", "Analytical Grade") | Should this be a fixed ENUM or free-text? |
-| ASSUMPTION-002 | `purity_percent` uses NUMERIC(5,2) — supports up to 999.99% | Do you need higher precision (e.g. 99.999% for ultra-pure standards)? |
-| ASSUMPTION-003 | `purity_percent` unit defaults to "%" | Do you use concentration-based metrics (mg/mL) instead? |
-| ASSUMPTION-004 | `qc_protocol_ref` is free-text (e.g. "QC-PROT-001") | Should this link to digital documents or remain a reference string? |
-| ASSUMPTION-005 | `test_method` is free-text (e.g. "HPLC", "UV Spectroscopy") | Should this be a controlled vocabulary (ENUM) or free-text? |
+**Your action NOW:**
+1. Run `migration_002_eman_validation.sql` in Supabase SQL Editor:
+   → https://supabase.com/dashboard/project/drzrxfmrxiitopjamchh/sql/new
+2. Confirm the 7 enum values cover your team's standard analytical methods
+3. If you need additional methods added permanently, reply and I'll create a migration to extend the enum
 
 **Files to review:**
-- `smart_eco_pharma/schema/schema_contract.md` — Human-readable field model (Section: Purity Classification)
-- `smart_eco_pharma/schema/assumption_log.md` — ASSUMPTION-001 through 005
-
-**Action required:** Reply with your decisions for each assumption. Mark as VALIDATED or OVERRIDE with your preferred values.
+- `smart_eco_pharma/schema/schema_contract.md` — Section 3 (purity_classification) — updated for your review
+- `smart_eco_pharma/schema/migration_002_eman_validation.sql` — the SQL to run
 
 ---
 
