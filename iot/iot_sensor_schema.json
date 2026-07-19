@@ -27,8 +27,9 @@
     },
     "reading_id": {
       "type": "string",
-      "format": "uuid",
-      "description": "Unique identifier for deduplication. Arduino uses a pre-generated UUID v4 from a lookup table or random seed."
+      "minLength": 1,
+      "maxLength": 128,
+      "description": "Unique identifier for deduplication. Must be unique per device. Current Arduino implementation generates composite string: DEVICE_ID-YYYYMMDDHHMMSS-SEQUENCE. Backend accepts any unique string — UUID format is NOT required."
     },
     "device_id": {
       "type": "string",
@@ -51,7 +52,7 @@
     "timestamp_utc": {
       "type": "string",
       "format": "date-time",
-      "$comment": "Arduino boards have no RTC by default. For Wokwi simulation, inject via simulator time. For real hardware, use DS3231 RTC module or derive from millis() offset after manual sync. ISO 8601 with millisecond precision, always UTC (Z suffix).",
+      "$comment": "Arduino boards have no RTC by default. Current implementation uses DS1307 RTC module (Wokwi-compatible). For real hardware, can migrate to DS3231 with minimal code changes. ISO 8601 format, always UTC (Z suffix). Millisecond precision optional — backend accepts both with and without milliseconds.",
       "description": "ISO 8601 timestamp with millisecond precision, UTC."
     },
     "transmission_mode": {
