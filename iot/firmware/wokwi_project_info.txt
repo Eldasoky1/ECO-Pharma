@@ -1,3 +1,6 @@
-Downloaded from https://wokwi.com/projects/469911290745914369
+Wokwi Projects (both contain identical firmware):
 
-Simulate this project on https://wokwi.com
+1. Original: https://wokwi.com/projects/469911290745914369
+2. Copy:     https://wokwi.com/projects/469925819658449921
+
+Simulate either project on https://wokwi.com

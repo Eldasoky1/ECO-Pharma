@@ -18,18 +18,18 @@ Each team member below has specific assumptions that require your sign-off befor
 
 ## Team Responsibility Table — Who Works on What
 
-**Find your name below. The "Files" column tells you exactly which files to open and review/work on.**
+**Find your name below. The "Files" column tells you exactly which files to open and review/work on. The "Deliver To" column tells you who to send your work to when you're done.**
 
-| Team Member | Role | Status | Files You Must Review | Your Action |
-|---|---|---|---|---|
-| **Eman Ayman** | QA / Quality Control | ✅ VALIDATED (test_method done) | `smart_eco_pharma/schema/schema_contract.md` (section 3: purity_classification) | Confirm the 7 enum values cover your analytical methods. Reply if any method is missing. |
-| **Fatma Mohamed** | Clinical Pharmacy / Inventory | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 4: otc_inventory), `smart_eco_pharma/schema/assumption_log.md`, `iot/assumption_log.md` | Validate 10 assumptions (storage format, temperature zones, thresholds). Reply with decisions. |
-| **Dr. Mohamed Ibrahim** | Pharmacovigilance | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 5: drug_interactions), `smart_eco_pharma/schema/assumption_log.md`, `docs/GAPS.md` | Validate or correct `risk_grade` enum values. **Patient safety critical.** |
-| **Fagr Ahmed** | IoT / Hardware Engineer | ✅ FIRMWARE DONE | `iot/firmware/sketch.ino`, `iot/firmware/wokwi_diagram.json`, `iot/firmware/README.md`, `iot/iot_sensor_schema.json` | Payload size < 512 bytes? Confirm reading_id format acceptable. |
-| **Zeina Wael** | Cybersecurity Auditor | ⏳ WAITING | `security/architecture_summary.md`, `security/gap_list.md`, `security/audit_signoff.md`, `smart_eco_pharma/auth.py` | Review fixed gaps. Schedule audit when HIGH/MEDIUM gaps are closed. |
-| **Omar Hindawi** | Backend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API. QC endpoints not scoped yet. |
-| **Aya El-Hariry** | Frontend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API for UI form design. |
-| **Ahmed El-Desouky** | Technical Governance & AI Lead | 🔧 OWNER | ALL FILES | Run migration SQL, deploy to Render, collect team responses. |
+| Team Member | Role | Status | Files You Must Review | Your Action | Deliver To (When Done) |
+|---|---|---|---|---|---|
+| **Eman Ayman** | QA / Quality Control | ✅ VALIDATED (test_method done) | `smart_eco_pharma/schema/schema_contract.md` (section 3: purity_classification) | Confirm the 7 enum values cover your analytical methods. Reply if any method is missing. | **Reply to Ahmed** — confirm enum values are complete. Ahmed will add missing methods if needed. |
+| **Fatma Mohamed** | Clinical Pharmacy / Inventory | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 4: otc_inventory), `smart_eco_pharma/schema/assumption_log.md`, `iot/assumption_log.md` | Validate 10 assumptions (storage format, temperature zones, thresholds). Reply with decisions. | **Reply to Ahmed** — send your 10 decisions. Ahmed will create `migration_003_fatma_validation.sql`. |
+| **Dr. Mohamed Ibrahim** | Pharmacovigilance | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 5: drug_interactions), `smart_eco_pharma/schema/assumption_log.md`, `docs/GAPS.md` | Validate or correct `risk_grade` enum values. **Patient safety critical.** | **Reply to Ahmed** — send your corrected `risk_grade` enum. Ahmed will update schema + GAPS.md. |
+| **Fagr Ahmed** | IoT / Hardware Engineer | ✅ FIRMWARE DONE | `iot/firmware/sketch.ino`, `iot/firmware/wokwi_diagram.json`, `iot/firmware/README.md`, `iot/iot_sensor_schema.json` | Payload size < 512 bytes? Confirm reading_id format acceptable. | **Reply to Ahmed** — confirm payload size + reading_id format. Ahmed will update schema if needed. |
+| **Zeina Wael** | Cybersecurity Auditor | ⏳ WAITING | `security/architecture_summary.md`, `security/gap_list.md`, `security/audit_signoff.md`, `smart_eco_pharma/auth.py` | Review fixed gaps. Schedule audit when HIGH/MEDIUM gaps are closed. | **Reply to Ahmed** — confirm audit schedule. Ahmed will coordinate timing with the team. |
+| **Omar Hindawi** | Backend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API. QC endpoints not scoped yet. | **Push to GitHub** — create a branch, push your code, open a PR. Ahmed reviews and merges. |
+| **Aya El-Hariry** | Frontend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API for UI form design. | **Push to GitHub** — create a branch, push your code, open a PR. Ahmed reviews and merges. |
+| **Ahmed El-Desouky** | Technical Governance & AI Lead | 🔧 OWNER | ALL FILES | Run migration SQL, deploy to Render, collect team responses. | **Push to GitHub** — after collecting all responses, push final changes and deploy. |
 
 ---
 
