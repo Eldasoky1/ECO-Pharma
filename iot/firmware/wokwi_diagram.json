@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "author": "Fagr Ahmed",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": -203, "left": -88.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 10.2, "left": -0.6, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -120,
+      "left": -180,
+      "attrs": { "temperature": "53.7", "humidity": "100" }
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": 140, "left": -180, "attrs": {} },
+    {
+      "type": "wokwi-hx711",
+      "id": "hx1",
+      "top": -131.8,
+      "left": 300.2,
+      "attrs": { "type": "50kg" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -180,
+      "left": 136.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [] ],
+    [ "dht1:GND", "uno:GND.1", "black", [] ],
+    [ "dht1:SDA", "uno:2", "green", [] ],
+    [ "rtc1:VCC", "uno:5V", "red", [] ],
+    [ "rtc1:GND", "uno:GND.2", "black", [] ],
+    [ "rtc1:SDA", "uno:A4", "blue", [] ],
+    [ "rtc1:SCL", "uno:A5", "yellow", [] ],
+    [ "hx1:VCC", "uno:5V", "red", [] ],
+    [ "hx1:GND", "uno:GND.3", "black", [] ],
+    [ "hx1:DT", "uno:3", "green", [] ],
+    [ "hx1:SCK", "uno:4", "orange", [] ],
+    [ "bz1:1", "uno:8", "purple", [] ],
+    [ "bz1:2", "uno:GND", "black", [] ],
+    [ "uno:GND.1", "bb1:17t.a", "black", [ "v0" ] ],
+    [ "bz1:2", "bb1:16t.a", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

@@ -25,7 +25,7 @@ Each team member below has specific assumptions that require your sign-off befor
 | **Eman Ayman** | QA / Quality Control | ✅ VALIDATED (test_method done) | `smart_eco_pharma/schema/schema_contract.md` (section 3: purity_classification) | Confirm the 7 enum values cover your analytical methods. Reply if any method is missing. |
 | **Fatma Mohamed** | Clinical Pharmacy / Inventory | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 4: otc_inventory), `smart_eco_pharma/schema/assumption_log.md`, `iot/assumption_log.md` | Validate 10 assumptions (storage format, temperature zones, thresholds). Reply with decisions. |
 | **Dr. Mohamed Ibrahim** | Pharmacovigilance | ⏳ PENDING | `smart_eco_pharma/schema/schema_contract.md` (section 5: drug_interactions), `smart_eco_pharma/schema/assumption_log.md`, `docs/GAPS.md` | Validate or correct `risk_grade` enum values. **Patient safety critical.** |
-| **Fagr Ahmed** | IoT / Hardware Engineer | ⏳ PENDING | `iot/iot_sensor_schema.json`, `iot/iot_example_normal.json`, `iot/iot_example_alert.json`, `iot/fagr_handoff_note.md`, `iot/assumption_log.md` | Confirm sensor data format matches Wokwi simulator. Sign off IoT contract. |
+| **Fagr Ahmed** | IoT / Hardware Engineer | ✅ FIRMWARE DONE | `iot/firmware/sketch.ino`, `iot/firmware/wokwi_diagram.json`, `iot/firmware/README.md`, `iot/iot_sensor_schema.json` | Payload size < 512 bytes? Confirm reading_id format acceptable. |
 | **Zeina Wael** | Cybersecurity Auditor | ⏳ WAITING | `security/architecture_summary.md`, `security/gap_list.md`, `security/audit_signoff.md`, `smart_eco_pharma/auth.py` | Review fixed gaps. Schedule audit when HIGH/MEDIUM gaps are closed. |
 | **Omar Hindawi** | Backend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API. QC endpoints not scoped yet. |
 | **Aya El-Hariry** | Frontend Developer | 📖 AWARENESS | `smart_eco_pharma/schema/schema_contract.md`, `docs/api_contract.md`, `docs/GAPS.md` | Review schema + API for UI form design. |
@@ -42,11 +42,16 @@ Each team member below has specific assumptions that require your sign-off befor
 | `smart_eco_pharma/schema/` | `iot_migration.sql` | IoT tables (iot_readings, iot_alerts) | Ahmed (already run) |
 | `smart_eco_pharma/schema/` | `schema_contract.md` | Human-readable field model (all 5 tables) | **Everyone** |
 | `smart_eco_pharma/schema/` | `assumption_log.md` | 20 domain assumptions | Eman, Fatma, Dr. Mohamed |
-| `iot/` | `iot_sensor_schema.json` | IoT payload contract (JSON Schema) | **Fagr** |
-| `iot/` | `iot_example_normal.json` | Example normal sensor reading | **Fagr** |
-| `iot/` | `iot_example_alert.json` | Example alert sensor reading | **Fagr** |
+| `iot/` | `iot_sensor_schema.json` | IoT payload contract (JSON Schema) — updated: reading_id accepts any unique string | **Fagr**, Omar |
+| `iot/` | `iot_example_normal.json` | Example normal sensor reading — updated: device_id = WOKWI-SIM-001 | **Fagr**, Omar |
+| `iot/` | `iot_example_alert.json` | Example alert sensor reading — updated: device_id = WOKWI-SIM-001 | **Fagr**, Omar |
 | `iot/` | `fagr_handoff_note.md` | Integration guide for Arduino | **Fagr** |
 | `iot/` | `assumption_log.md` | 12 IoT assumptions | Fagr, Fatma |
+| `iot/firmware/` | `sketch.ino` | **NEW** — Main Arduino firmware (Wokwi) | **Fagr** |
+| `iot/firmware/` | `wokwi_diagram.json` | **NEW** — Wokwi circuit diagram | **Fagr** |
+| `iot/firmware/` | `libraries.txt` | **NEW** — Wokwi library dependencies | **Fagr** |
+| `iot/firmware/` | `wokwi_project_info.txt` | **NEW** — Wokwi source URL | **Fagr** |
+| `iot/firmware/` | `README.md` | **NEW** — Firmware documentation & pin config | **Fagr**, Omar |
 | `docs/` | `GAPS.md` | Known gaps & action items | Ahmed, Dr. Mohamed |
 | `docs/` | `api_contract.md` | 16 API endpoints documentation | Omar, Aya |
 | `docs/` | `mcp_tool_schemas.json` | MCP tool definitions | Ahmed |
@@ -162,31 +167,43 @@ Each team member below has specific assumptions that require your sign-off befor
 
 ---
 
-## 4. Fagr — IoT/Hardware Engineer
+## 4. Fagr Ahmed — IoT/Hardware Engineer ✅ FIRMWARE COMPLETE
 
 **Phase:** 2 — IoT Sensor Integration
-**What I need from you:** Validate the IoT payload contract and Arduino implementation assumptions. These determine whether the Wokwi simulator output matches what the backend expects.
+**Status:** Arduino firmware COMPLETE — Wokwi simulator running, JSON payload matches schema.
 
-**Assumptions to validate:**
+**What was done:**
+- Full Arduino firmware: `iot/firmware/sketch.ino`
+- Wokwi circuit diagram: `iot/firmware/wokwi_diagram.json`
+- Hardware: Arduino Uno + DHT22 + DS1307 RTC + HX711 load cell + Buzzer
+- JSON payload matches `iot_sensor_schema.json` — all required fields present
+- Alert logic computed on Arduino (temp, humidity, inventory thresholds)
+- Buzzer activates on any alert condition
+- Timestamps via DS1307 RTC (ISO 8601)
+- Sequence number via EEPROM (resets in Wokwi simulator — works on real hardware)
 
-| # | Assumption | Your Decision Needed |
+**Assumptions resolved:**
+
+| # | Assumption | Fagr's Decision |
 |---|---|---|
-| IOT-003 | Transmission modes: serial + http_post | Which mode will you implement first? |
-| IOT-004 | Device ID: "WOKWI-SIM-001" | Confirm the device_id in your Arduino sketch |
-| IOT-006 | Timestamp: placeholder (no RTC module) | Will you add a DS3231 RTC module? |
-| IOT-007 | Sequence number persists via EEPROM | Confirm Wokwi supports EEPROM simulation |
-| IOT-008 | Alert flags computed on Arduino | Confirm you implement alert logic in sketch |
-| IOT-009 | Payload size < 512 bytes minified | Confirm actual minified payload size |
-| IOT-011 | Duplicate detection via UUID reading_id | Confirm you generate unique UUIDs per reading |
+| IOT-003 | Transmission mode | ✅ `serial` implemented (HTTP POST requires ESP32 migration) |
+| IOT-004 | Device ID | ✅ `WOKWI-SIM-001` confirmed in firmware |
+| IOT-006 | Timestamp | ✅ DS1307 RTC module implemented (not DS3231 — Wokwi limitation) |
+| IOT-007 | EEPROM sequence | ✅ Implemented — resets in Wokwi, persists on real hardware |
+| IOT-008 | Alert flags | ✅ Computed on Arduino before transmission |
+| IOT-009 | Payload size | ⏳ Needs measurement — confirm < 512 bytes when minified |
+| IOT-011 | reading_id format | ❓ **OPEN** — Fagr generates composite string, not UUID. Backend must confirm this is acceptable. |
 
 **Files to review:**
-- `iot/iot_sensor_schema.json` — Complete payload schema (JSON Schema draft-07)
-- `iot/iot_example_normal.json` — Example normal reading
-- `iot/iot_example_alert.json` — Example alert reading
-- `iot/fagr_handoff_note.md` — Integration guide for your Arduino implementation
-- `iot/assumption_log.md` — IOT-ASSUMPTION-003, 004, 006–009, 011
+- `iot/firmware/sketch.ino` — Main Arduino firmware
+- `iot/firmware/wokwi_diagram.json` — Circuit diagram
+- `iot/firmware/libraries.txt` — Library dependencies
+- `iot/firmware/README.md` — Full documentation
+- `iot/iot_sensor_schema.json` — Updated: reading_id now accepts any unique string (not just UUID)
 
-**Action required:** Reply with your decisions. Confirm device_id, transmission mode, and payload size.
+**Action required:**
+1. Confirm minified payload size < 512 bytes
+2. Backend team: confirm `reading_id` composite string format is acceptable
 
 ---
 
