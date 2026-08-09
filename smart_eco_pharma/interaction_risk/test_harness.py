@@ -16,13 +16,17 @@ tools are live, swap build_retrieval_context() for real MCP calls — the
 prompt, schema, test set, and grading logic don't need to change.
 
 USAGE
-    export OPENAI_API_KEY=sk-...
+    export OPENROUTER_API_KEY=sk-or-v1-...     # reuse the project's existing OpenRouter key
     python test_harness.py                    # run the full suite
     python test_harness.py --limit 5           # smoke test the first 5 cases
     python test_harness.py --case TC-MAJ-01     # run a single case
     python test_harness.py --dry-run            # exercise the harness with a mock model — no API key or network needed
     python test_harness.py --model gpt-5.2       # point at a different model (see the design doc's note on GPT-4o's status)
     python test_harness.py --verbose             # print full JSON for failing cases
+
+Runs through OpenRouter (base_url OPENROUTER_BASE_URL, default
+https://openrouter.ai/api/v1) using the project's existing OPENROUTER_API_KEY.
+Set the live model id with --model (or the OPENROUTER_MODEL env var).
 
 Requires: pip install openai  (not needed for --dry-run)
 """
@@ -34,7 +38,7 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-DEFAULT_MODEL = "gpt-4o-2024-08-06"
+DEFAULT_MODEL = os.environ.get("OPENROUTER_MODEL", "gpt-4o-2024-08-06")
 SEVERITY_ORDER = ["MAJOR", "MODERATE", "MINOR", "NONE_KNOWN"]
 
 
@@ -144,7 +148,8 @@ def call_model(system_prompt, user_message, schema, model, dry_run, oracle_resul
         return oracle_result  # deterministic mock — see build_oracle_result()
 
     from openai import OpenAI  # imported lazily so --dry-run has no dependency
-    client = OpenAI()
+    base_url = os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+    client = OpenAI(base_url=base_url, api_key=os.environ["OPENROUTER_API_KEY"])
     response = client.chat.completions.create(
         model=model,
         temperature=0.1,
@@ -270,8 +275,8 @@ def main():
     parser.add_argument("--verbose", action="store_true", help="Print full JSON responses for failing cases")
     args = parser.parse_args()
 
-    if not args.dry_run and not os.environ.get("OPENAI_API_KEY"):
-        print("ERROR: OPENAI_API_KEY is not set. Export it, or run with --dry-run to test the harness itself.", file=sys.stderr)
+    if not args.dry_run and not os.environ.get("OPENROUTER_API_KEY"):
+        print("ERROR: OPENROUTER_API_KEY is not set. Export it (reuse the project .env), or run with --dry-run to test the harness itself.", file=sys.stderr)
         sys.exit(1)
 
     system_prompt, schema, reference_data, test_cases = load_assets()
