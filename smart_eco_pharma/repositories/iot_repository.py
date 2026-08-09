@@ -28,7 +28,7 @@ async def store_reading(data: dict) -> IoTIngestionResponse:
 
     if duplicate_check.data:
         return IoTIngestionResponse(
-            reading_id=UUID(reading_id),
+            reading_id=reading_id,
             accepted=False,
             duplicate=True,
         )
@@ -37,7 +37,7 @@ async def store_reading(data: dict) -> IoTIngestionResponse:
     service_client.table("iot_readings").insert(insert_data).execute()
 
     return IoTIngestionResponse(
-        reading_id=UUID(reading_id),
+        reading_id=reading_id,
         accepted=True,
         duplicate=False,
     )

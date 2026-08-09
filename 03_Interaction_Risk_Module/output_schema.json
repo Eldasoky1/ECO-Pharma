@@ -1,0 +1,89 @@
+{
+  "name": "interaction_assessment",
+  "strict": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "query_type": {
+        "type": "string",
+        "enum": ["pairwise", "basket", "single_lookup"]
+      },
+      "products_input": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "resolved_ingredients": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "product": { "type": "string" },
+            "active_ingredients": { "type": "array", "items": { "type": "string" } },
+            "resolved": { "type": "boolean" }
+          },
+          "required": ["product", "active_ingredients", "resolved"],
+          "additionalProperties": false
+        }
+      },
+      "interactions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "product_pair": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "ingredient_pair": {
+              "type": "array",
+              "items": { "type": "string" },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "severity": {
+              "type": "string",
+              "enum": ["MAJOR", "MODERATE", "MINOR", "NONE_KNOWN"]
+            },
+            "source": {
+              "type": "string",
+              "enum": ["verified_reference", "inferred_pharmacology"]
+            },
+            "confidence": {
+              "type": "string",
+              "enum": ["high", "medium", "low"]
+            },
+            "mechanism": { "type": "string" },
+            "recommendation": { "type": "string" }
+          },
+          "required": ["product_pair", "ingredient_pair", "severity", "source", "confidence", "mechanism", "recommendation"],
+          "additionalProperties": false
+        }
+      },
+      "highest_severity": {
+        "type": "string",
+        "enum": ["MAJOR", "MODERATE", "MINOR", "NONE_KNOWN"]
+      },
+      "escalate_to_pharmacist": { "type": "boolean" },
+      "urgent_flag": { "type": "boolean" },
+      "unresolved_products": {
+        "type": "array",
+        "items": { "type": "string" }
+      },
+      "disclaimer": { "type": "string" }
+    },
+    "required": [
+      "query_type",
+      "products_input",
+      "resolved_ingredients",
+      "interactions",
+      "highest_severity",
+      "escalate_to_pharmacist",
+      "urgent_flag",
+      "unresolved_products",
+      "disclaimer"
+    ],
+    "additionalProperties": false
+  }
+}
