@@ -13,7 +13,10 @@ import pytest
 from smart_eco_pharma.models.drug import DrugDetail, RegulatoryStatus
 from smart_eco_pharma.models.interaction import (
     EvidenceLevel,
+    InteractionConfidence,
     InteractionDetail,
+    InteractionSeverity,
+    InteractionSource,
     RiskGrade,
 )
 from smart_eco_pharma.models.pharmacovigilance import (
@@ -69,6 +72,9 @@ def created_interaction() -> InteractionDetail:
         evidence_level=EvidenceLevel.established,
         mechanism="CYP2C9 competitive inhibition",
         management_recommendation="Avoid combination. If unavoidable, reduce warfarin dose by 25% and monitor INR weekly.",
+        severity=InteractionSeverity.MODERATE,
+        source=InteractionSource.verified_reference,
+        confidence=InteractionConfidence.high,
         ai_generated=True,
         gpt_model_version="openai/gpt-4o",
         source_reference=None,
@@ -99,11 +105,36 @@ async def test_analyze_interaction_success(
     mock_ix_repo.create_interaction = AsyncMock(return_value=created_interaction)
 
     llm_response = {
-        "risk_grade": "grade_3_severe",
-        "clinical_consequence": "Significantly increased risk of major bleeding events.",
-        "management_recommendation": "Avoid combination. If unavoidable, reduce warfarin dose by 25% and monitor INR weekly.",
-        "evidence_level": "established",
-        "mechanism": "CYP2C9 competitive inhibition",
+        "query_type": "pairwise",
+        "products_input": ["Warfarin", "Aspirin"],
+        "resolved_ingredients": [
+            {
+                "product": "Warfarin",
+                "active_ingredients": ["Warfarin sodium"],
+                "resolved": True,
+            },
+            {
+                "product": "Aspirin",
+                "active_ingredients": ["Acetylsalicylic acid"],
+                "resolved": True,
+            },
+        ],
+        "interactions": [
+            {
+                "product_pair": ["Warfarin", "Aspirin"],
+                "ingredient_pair": ["Warfarin sodium", "Acetylsalicylic acid"],
+                "severity": "MODERATE",
+                "source": "verified_reference",
+                "confidence": "high",
+                "mechanism": "CYP2C9 competitive inhibition",
+                "recommendation": "Avoid combination. If unavoidable, reduce warfarin dose by 25% and monitor INR weekly.",
+            }
+        ],
+        "highest_severity": "MODERATE",
+        "escalate_to_pharmacist": False,
+        "urgent_flag": False,
+        "unresolved_products": [],
+        "disclaimer": "Automated assessment; confirm with reference guide.",
     }
 
     svc = PVService()
@@ -120,6 +151,9 @@ async def test_analyze_interaction_success(
 
     assert isinstance(result, PVAnalysisResponse)
     assert result.risk_grade == RiskGrade.grade_3_severe
+    assert result.severity == InteractionSeverity.MODERATE
+    assert result.source == InteractionSource.verified_reference
+    assert result.confidence == InteractionConfidence.high
     assert result.ai_generated is True
     assert result.tokens_used == 350
     mock_ix_repo.create_interaction.assert_awaited_once()

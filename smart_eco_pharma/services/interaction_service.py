@@ -20,6 +20,13 @@ _RISK_SORT_ORDER: dict[str, int] = {
     "grade_1_minimal": 1,
 }
 
+_SEVERITY_SORT_ORDER: dict[str, int] = {
+    "MAJOR": 4,
+    "MODERATE": 3,
+    "MINOR": 2,
+    "NONE_KNOWN": 1,
+}
+
 
 class InteractionService:
     """Facade over the interaction repository."""
@@ -63,7 +70,12 @@ class InteractionService:
         ]
 
         matched.sort(
-            key=lambda ix: _RISK_SORT_ORDER.get(ix.risk_grade, 0), reverse=True
+            key=lambda ix: (
+                _SEVERITY_SORT_ORDER.get(ix.severity.value, 0)
+                if ix.severity
+                else _RISK_SORT_ORDER.get(ix.risk_grade.value, 0)
+            ),
+            reverse=True,
         )
 
         return InteractionCheckResponse(

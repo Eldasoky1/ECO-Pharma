@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class SensorPayload(BaseModel):
@@ -28,7 +28,7 @@ class AlertFlags(BaseModel):
 
 class IoTSensorReadingBase(BaseModel):
     schema_version: str
-    reading_id: UUID
+    reading_id: str = Field(min_length=1, max_length=128)
     device_id: str
     storage_location_id: str
     sequence_number: int
@@ -44,7 +44,7 @@ class IoTSensorReadingRequest(IoTSensorReadingBase):
 
 
 class IoTIngestionResponse(BaseModel):
-    reading_id: UUID
+    reading_id: str
     accepted: bool
     duplicate: bool = False
     alerts_triggered: list[str] = []
