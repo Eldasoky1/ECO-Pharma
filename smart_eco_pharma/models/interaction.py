@@ -14,6 +14,24 @@ class RiskGrade(str, Enum):
     grade_4_contraindicated = "grade_4_contraindicated"
 
 
+class InteractionSeverity(str, Enum):
+    MAJOR = "MAJOR"
+    MODERATE = "MODERATE"
+    MINOR = "MINOR"
+    NONE_KNOWN = "NONE_KNOWN"
+
+
+class InteractionSource(str, Enum):
+    verified_reference = "verified_reference"
+    inferred_pharmacology = "inferred_pharmacology"
+
+
+class InteractionConfidence(str, Enum):
+    high = "high"
+    medium = "medium"
+    low = "low"
+
+
 class EvidenceLevel(str, Enum):
     established = "established"
     theoretical = "theoretical"
@@ -29,6 +47,9 @@ class InteractionBase(BaseModel):
     evidence_level: EvidenceLevel
     mechanism: str | None = None
     management_recommendation: str | None = None
+    severity: InteractionSeverity | None = None
+    source: InteractionSource | None = None
+    confidence: InteractionConfidence | None = None
 
 
 class InteractionDetail(InteractionBase):

@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "source_document": "Drug Interaction Reference Guide — Smart Eco-Pharma Hub Inventory Cross-Reference",
+    "purpose": "Digitized version of the pharmacy's reference guide. This is the shape of data Ahmed's MCP tools (lookup_product, get_known_interaction) should return, and is used by test_harness.py to stub those tools during prompt-only validation.",
+    "severity_tiers": {
+      "MAJOR": "Poses a serious risk (e.g. life-threatening bleeding, dangerous arrhythmia, organ toxicity, dangerous CNS/respiratory depression). Avoid the combination; if unavoidable, only under direct medical supervision.",
+      "MODERATE": "May worsen a condition, reduce the effectiveness of one or both products, or increase the risk of a clinically meaningful side effect. Use with caution: monitor, adjust dose, or space doses apart.",
+      "MINOR": "Limited clinical significance for most patients. Awareness is generally sufficient and no specific action is usually required.",
+      "NONE_KNOWN": "No meaningful pharmacological overlap identified between the products checked."
+    }
+  },
+
+  "catalog": [
+    { "id": "P01", "name": "Panadol Advance 500mg", "active_ingredients": ["Paracetamol"], "therapeutic_class": "Analgesic / Antipyretic" },
+    { "id": "P02", "name": "Catafast 50mg Sachet", "active_ingredients": ["Diclofenac potassium"], "therapeutic_class": "NSAID" },
+    { "id": "P03", "name": "Brufen 400mg", "active_ingredients": ["Ibuprofen"], "therapeutic_class": "NSAID" },
+    { "id": "P04", "name": "Adolor 15mg/ml Amp", "active_ingredients": ["Ketorolac trometamol"], "therapeutic_class": "NSAID — injectable, potent" },
+    { "id": "P05", "name": "Alphintern", "active_ingredients": ["Trypsin", "Chymotrypsin"], "therapeutic_class": "Proteolytic enzyme (anti-inflammatory)" },
+    { "id": "P06", "name": "Voltaren Emulgel 100g", "active_ingredients": ["Diclofenac diethylamine"], "therapeutic_class": "Topical NSAID" },
+    { "id": "P07", "name": "Ketofan 50mg", "active_ingredients": ["Ketoprofen"], "therapeutic_class": "NSAID" },
+    { "id": "P08", "name": "Cataflam 50mg", "active_ingredients": ["Diclofenac potassium"], "therapeutic_class": "NSAID" },
+    { "id": "P09", "name": "Ambezim-G", "active_ingredients": ["Trypsin", "Chymotrypsin"], "therapeutic_class": "Proteolytic enzyme (anti-inflammatory)" },
+    { "id": "P10", "name": "Antinal 200mg", "active_ingredients": ["Nifuroxazide"], "therapeutic_class": "Intestinal antiseptic / Antidiarrheal" },
+    { "id": "P11", "name": "Gaviscon Double Action", "active_ingredients": ["Sodium alginate", "Sodium bicarbonate", "Calcium carbonate"], "therapeutic_class": "Antacid / Reflux suppressant" },
+    { "id": "P12", "name": "Controloc 40mg", "active_ingredients": ["Pantoprazole"], "therapeutic_class": "Proton pump inhibitor" },
+    { "id": "P13", "name": "Motilium 10mg", "active_ingredients": ["Domperidone"], "therapeutic_class": "Prokinetic / Antiemetic" },
+    { "id": "P14", "name": "Maalox Plus Tablets", "active_ingredients": ["Aluminium hydroxide", "Magnesium hydroxide", "Simethicone"], "therapeutic_class": "Antacid / Antiflatulent" },
+    { "id": "P15", "name": "Spasmo-Digestin", "active_ingredients": ["Digestive enzymes", "Dicyclomine HCl", "Simethicone", "Sodium dehydrocholate"], "therapeutic_class": "Digestive aid / Antispasmodic" },
+    { "id": "P16", "name": "Gastreg 200mg", "active_ingredients": ["Trimebutine maleate"], "therapeutic_class": "GI motility regulator / Antispasmodic" },
+    { "id": "P17", "name": "Visceralgine Ampoules", "active_ingredients": ["Tiemonium methylsulfate"], "therapeutic_class": "Antispasmodic (anticholinergic)" },
+    { "id": "P18", "name": "Streptoquin", "active_ingredients": ["Diiodohydroxyquinoline", "Phthalylsulfathiazole", "Streptomycin", "Homatropine"], "therapeutic_class": "Antidiarrheal combination" },
+    { "id": "P19", "name": "Duphalac Syrup", "active_ingredients": ["Lactulose"], "therapeutic_class": "Osmotic laxative" },
+    { "id": "P20", "name": "Congestal", "active_ingredients": ["Paracetamol", "Chlorpheniramine", "Pseudoephedrine"], "therapeutic_class": "Cold / flu combination" },
+    { "id": "P21", "name": "Zyrtec 10mg", "active_ingredients": ["Cetirizine"], "therapeutic_class": "Antihistamine (2nd-generation)" },
+    { "id": "P22", "name": "Prospan Syrup", "active_ingredients": ["Ivy leaf dry extract"], "therapeutic_class": "Herbal antitussive / expectorant" },
+    { "id": "P23", "name": "Otrivin 0.1% Nasal Spray", "active_ingredients": ["Xylometazoline"], "therapeutic_class": "Topical nasal decongestant" },
+    { "id": "P24", "name": "123 Cold & Flu", "active_ingredients": ["Paracetamol", "Caffeine", "Codeine", "Phenylephrine", "Carbinoxamine"], "therapeutic_class": "Cold / flu combination — contains opioid" },
+    { "id": "P25", "name": "C-Retard 500mg", "active_ingredients": ["Vitamin C"], "therapeutic_class": "Vitamin supplement" },
+    { "id": "P26", "name": "Telfast 120mg", "active_ingredients": ["Fexofenadine"], "therapeutic_class": "Antihistamine (2nd-generation)" },
+    { "id": "P27", "name": "Flurest", "active_ingredients": ["Paracetamol", "Phenylephrine", "Chlorpheniramine"], "therapeutic_class": "Cold / flu combination" },
+    { "id": "P28", "name": "Oplex Syrup", "active_ingredients": ["Oxomemazine", "Guaifenesin", "Paracetamol", "Sodium benzoate"], "therapeutic_class": "Antitussive / expectorant combination" },
+    { "id": "P29", "name": "Sinupret Forte", "active_ingredients": ["Gentian root", "Elderflower", "Primrose", "Sorrel", "Verbena"], "therapeutic_class": "Herbal mucolytic / decongestant" },
+    { "id": "P30", "name": "Flagyl 500mg", "active_ingredients": ["Metronidazole"], "therapeutic_class": "Antiprotozoal / Antibacterial" },
+    { "id": "P31", "name": "Betadine Antiseptic Solution", "active_ingredients": ["Povidone-iodine"], "therapeutic_class": "Topical antiseptic" },
+    { "id": "P32", "name": "Fucidin 2% Cream", "active_ingredients": ["Fusidic acid"], "therapeutic_class": "Topical antibiotic" },
+    { "id": "P33", "name": "Kenacomb Cream", "active_ingredients": ["Triamcinolone", "Neomycin", "Gramicidin", "Nystatin"], "therapeutic_class": "Topical corticosteroid / antibiotic / antifungal" },
+    { "id": "P34", "name": "Strepsils Honey & Lemon", "active_ingredients": ["Amylmetacresol", "2,4-Dichlorobenzyl alcohol"], "therapeutic_class": "Throat lozenge" },
+    { "id": "P35", "name": "Mebo Ointment 30g", "active_ingredients": ["Beta-sitosterol (herbal base)"], "therapeutic_class": "Topical burn / wound ointment" },
+    { "id": "P36", "name": "Daktarin Oral Gel", "active_ingredients": ["Miconazole"], "therapeutic_class": "Antifungal (oral gel)" },
+    { "id": "P37", "name": "Polyderm Cream", "active_ingredients": ["Beclomethasone", "Miconazole", "Neomycin", "Chlorocresol"], "therapeutic_class": "Topical corticosteroid / antifungal / antibiotic" },
+    { "id": "P38", "name": "Neurovit Tablets", "active_ingredients": ["Vitamin B1", "Vitamin B6", "Vitamin B12"], "therapeutic_class": "Vitamin B-complex" },
+    { "id": "P39", "name": "Vitacid Calcium Eff", "active_ingredients": ["Vitamin C", "Calcium"], "therapeutic_class": "Vitamin / mineral supplement" },
+    { "id": "P40", "name": "Clexane 4000 Anti-Xa", "active_ingredients": ["Enoxaparin sodium"], "therapeutic_class": "Anticoagulant (LMWH)" },
+    { "id": "P41", "name": "Virogrip Drops", "active_ingredients": ["Paracetamol", "Phenylephrine", "Chlorpheniramine"], "therapeutic_class": "Pediatric cold / flu drops" },
+    { "id": "P42", "name": "Insulin Mixtard 30/70 Penfill", "active_ingredients": ["Biphasic isophane human insulin (30/70)"], "therapeutic_class": "Antidiabetic (insulin)" }
+  ],
+
+  "known_interactions": [
+    { "id": "INT-MAJ-01", "severity": "MAJOR", "ingredient_a": "Ketorolac trometamol", "ingredient_b_group": ["Enoxaparin sodium"], "mechanism": "Ketorolac inhibits platelet aggregation while enoxaparin adds anticoagulant effect. Official prescribing information specifically warns of increased bleeding risk with concurrent anticoagulant use.", "recommendation": "Avoid the combination. If pain relief is needed in an anticoagulated patient, use paracetamol first-line and involve a physician before considering any NSAID." },
+    { "id": "INT-MAJ-02", "severity": "MAJOR", "ingredient_a": "Ketorolac trometamol", "ingredient_b_group": ["Diclofenac potassium", "Ibuprofen", "Ketoprofen", "Diclofenac diethylamine"], "mechanism": "Additive inhibition of prostaglandin synthesis. Ketorolac already carries the highest GI-bleeding risk among common NSAIDs; adding a second NSAID increases risk without extra pain relief.", "recommendation": "Never co-administer. Use one NSAID only, at the lowest effective dose and for the shortest time." },
+    { "id": "INT-MAJ-03", "severity": "MAJOR", "ingredient_a": "Enoxaparin sodium", "ingredient_b_group": ["Diclofenac potassium", "Ibuprofen", "Ketoprofen"], "mechanism": "NSAID antiplatelet activity combines with enoxaparin's anticoagulant effect, raising the risk of GI and other bleeding.", "recommendation": "Avoid where possible. If unavoidable, use the lowest NSAID dose for the shortest duration and watch closely for bruising or bleeding." },
+    { "id": "INT-MAJ-04", "severity": "MAJOR", "ingredient_a": "Domperidone", "ingredient_b_group": ["Miconazole"], "mechanism": "Miconazole is an azole antifungal that inhibits CYP3A4, the enzyme that clears domperidone, raising domperidone blood levels. Regulatory guidance lists azole antifungals as a high-risk / contraindicated combination with domperidone because of QT-interval prolongation and risk of serious ventricular arrhythmia.", "recommendation": "Avoid the combination. If an antifungal is needed alongside domperidone, ask a physician or pharmacist for an alternative." },
+    { "id": "INT-MAJ-05", "severity": "MAJOR", "ingredient_a": "Codeine", "ingredient_b_group": ["Oxomemazine", "Chlorpheniramine"], "mechanism": "Codeine (an opioid) and sedating first-generation antihistamines / phenothiazines both depress the central nervous system; combined use produces additive sedation and respiratory depression, not just overlapping side effects.", "recommendation": "Do not combine. Avoid use with alcohol or other sedatives. Use particular caution in children and older adults." },
+
+    { "id": "INT-MOD-01", "severity": "MODERATE", "ingredient_a": "Metronidazole", "ingredient_b_group": ["Enoxaparin sodium"], "mechanism": "Metronidazole can potentiate drugs that affect blood clotting. The best-documented version of this interaction is with warfarin-type anticoagulants; with enoxaparin the concern is a more general, additive bleeding tendency.", "recommendation": "Watch for unusual bruising or bleeding when both are used together." },
+    { "id": "INT-MOD-02", "severity": "MODERATE", "ingredient_a": "Biphasic isophane human insulin (30/70)", "ingredient_b_group": ["Diclofenac potassium", "Ibuprofen", "Ketoprofen", "Ketorolac trometamol"], "mechanism": "NSAIDs can enhance the blood-glucose-lowering effect of insulin and may affect renal handling of both drugs.", "recommendation": "Monitor blood glucose more closely whenever an NSAID is started or stopped in an insulin-treated patient." },
+    { "id": "INT-MOD-03", "severity": "MODERATE", "ingredient_a": "Streptomycin", "ingredient_b_group": ["Diclofenac potassium", "Ibuprofen", "Ketoprofen", "Ketorolac trometamol"], "mechanism": "Streptomycin (an aminoglycoside) and NSAIDs can each affect the kidney; combined use adds to nephrotoxic potential, especially with dehydration or existing renal impairment.", "recommendation": "Ensure adequate hydration; avoid prolonged combined use, particularly in older adults or reduced kidney function." },
+    { "id": "INT-MOD-04", "severity": "MODERATE", "ingredient_a": "Domperidone", "ingredient_b_group": ["Tiemonium methylsulfate", "Dicyclomine HCl", "Homatropine"], "mechanism": "Domperidone works by speeding up gut motility; anticholinergic antispasmodics work by slowing it down — the two actions oppose one another.", "recommendation": "Avoid routine combination. If both effects are genuinely needed, space doses apart and reassess if symptoms persist." },
+    { "id": "INT-MOD-05", "severity": "MODERATE", "ingredient_a": "Miconazole", "ingredient_b_group": ["Pantoprazole", "Sodium alginate", "Sodium bicarbonate", "Calcium carbonate", "Aluminium hydroxide", "Magnesium hydroxide"], "mechanism": "Reduced stomach acidity can impair dissolution and absorption of a swallowed azole antifungal.", "recommendation": "Separate dosing times where practical; monitor the clinical response to the antifungal." },
+    { "id": "INT-MOD-06", "severity": "MODERATE", "ingredient_a_group": ["Sodium alginate", "Sodium bicarbonate", "Calcium carbonate", "Aluminium hydroxide", "Magnesium hydroxide"], "ingredient_b_group": ["Fexofenadine", "Cetirizine"], "mechanism": "Aluminium, magnesium, and calcium salts in antacids can bind to or alter the absorption of many oral drugs taken together.", "recommendation": "Separate antacid dosing from other oral medicines by at least 2 hours." },
+    { "id": "INT-MOD-07", "severity": "MODERATE", "ingredient_a": "Codeine", "ingredient_b_group": ["Domperidone"], "mechanism": "Opioids slow gut motility, working against domperidone's prokinetic effect, and both increase constipation risk.", "recommendation": "Monitor bowel function; avoid routine combination." },
+    { "id": "INT-MOD-08", "severity": "MODERATE", "ingredient_a": "Biphasic isophane human insulin (30/70)", "ingredient_b_group": ["Triamcinolone", "Beclomethasone"], "mechanism": "Corticosteroid absorbed into the bloodstream can raise blood glucose. Absorption from normal, limited topical use is usually minimal but rises with larger treated areas, broken skin, occlusion, or prolonged use.", "recommendation": "Use the smallest effective area for the shortest duration in patients with diabetes; monitor glucose if extensive or prolonged use is needed." },
+
+    { "id": "INT-MIN-01", "severity": "MINOR", "ingredient_a_group": ["Trypsin", "Chymotrypsin"], "ingredient_b_group": ["Enoxaparin sodium", "Diclofenac potassium", "Ibuprofen", "Ketoprofen", "Ketorolac trometamol", "Diclofenac diethylamine"], "mechanism": "Proteolytic enzymes have been reported to have mild antiplatelet / fibrinolytic activity in some studies; real-world evidence for a bleeding effect is weak and largely theoretical.", "recommendation": "Awareness is generally sufficient. Use added caution in anyone already at higher bleeding risk." },
+    { "id": "INT-MIN-02", "severity": "MINOR", "ingredient_a": "Vitamin C", "ingredient_b_group": ["Pantoprazole"], "mechanism": "High-dose vitamin C can marginally affect gastric pH.", "recommendation": "No action needed at standard doses." },
+    { "id": "INT-MIN-03", "severity": "MINOR", "ingredient_a": "Calcium", "ingredient_b_group": ["Pantoprazole"], "mechanism": "Chronic acid suppression can modestly reduce calcium absorption over months of continuous use.", "recommendation": "Relevant mainly with prolonged PPI therapy; ensure adequate dietary calcium." },
+    { "id": "INT-MIN-04", "severity": "MINOR", "ingredient_a": "Lactulose", "ingredient_b_group": ["Pantoprazole", "Fexofenadine", "Cetirizine", "Domperidone"], "mechanism": "High-dose lactulose speeds gut transit, which could in theory shorten the time available for absorption of another oral drug taken at the same time. This applies generally to co-administered oral medicines, not only the examples listed here.", "recommendation": "Unlikely to be meaningful at recommended doses; no routine action needed." },
+    { "id": "INT-MIN-05", "severity": "MINOR", "ingredient_a_group": ["Oxomemazine", "Guaifenesin"], "ingredient_b_group": ["Ivy leaf dry extract"], "mechanism": "Both loosen mucus, so combining them is redundant rather than dangerous; the antitussive component also works against the purpose of an expectorant.", "recommendation": "Choose one product matched to the symptom (productive vs. dry cough) rather than combining." },
+    { "id": "INT-MIN-06", "severity": "MINOR", "ingredient_a": "Domperidone", "ingredient_b_group": ["Cetirizine", "Fexofenadine"], "mechanism": "Both antihistamines are second-generation with low potential to affect heart rhythm, unlike the azole-antifungal interaction above.", "recommendation": "No specific action needed at standard doses." },
+    { "id": "INT-MIN-07", "severity": "MINOR", "ingredient_a": "Povidone-iodine", "ingredient_b_group": ["*thyroid function tests, on large wounds or prolonged use*"], "mechanism": "Absorbed iodine can transiently interfere with thyroid function tests. This is a lab-test effect, not a drug-drug interaction with other inventory items.", "recommendation": "No action needed for normal short-term topical use; flag iodine exposure if thyroid testing is planned." }
+  ],
+
+  "low_interaction_products": {
+    "note": "These act locally, are not significantly systemically absorbed at normal use, or have no pharmacologically meaningful overlap with anything else currently stocked. Routine caution (checking allergies, following label directions) still applies.",
+    "topical_or_local": ["Betadine Antiseptic Solution", "Fucidin 2% Cream", "Kenacomb Cream (routine use)", "Polyderm Cream (routine use)", "Strepsils Honey & Lemon", "Mebo Ointment 30g", "Voltaren Emulgel 100g (topical — much lower likelihood than oral NSAIDs unless used over large areas or long-term)"],
+    "herbal_low_potential": ["Sinupret Forte", "Prospan Syrup", "Mebo Ointment 30g"],
+    "locally_acting_gi": ["Antinal 200mg", "Gastreg 200mg"],
+    "vitamins_supplements": ["Neurovit Tablets", "C-Retard 500mg", "Vitacid Calcium Eff"],
+    "other": ["Duphalac Syrup", "Zyrtec 10mg (outside specific notes above)", "Telfast 120mg (outside specific notes above)", "Gaviscon Double Action (outside specific notes above)", "Maalox Plus Tablets (outside specific notes above)"]
+  }
+}

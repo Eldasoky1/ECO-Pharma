@@ -59,7 +59,7 @@ async def _handle_get_risk_grade(arguments: dict[str, Any]) -> list[TextContent]
         return [
             TextContent(
                 type="text",
-                text=f'{{"interaction": {{"id": "{row.get("id")}", "drug_a_id": "{row.get("drug_a_id")}", "drug_b_id": "{row.get("drug_b_id")}", "risk_grade": "{row.get("risk_grade")}", "clinical_consequence": "{row.get("clinical_consequence")}", "management_recommendation": "{row.get("management_recommendation")}", "evidence_level": "{row.get("evidence_level")}", "mechanism": {repr(row.get("mechanism"))}, "ai_generated": {str(row.get("ai_generated", False)).lower()}}}}}',
+                text=f'{{"interaction": {{"id": "{row.get("id")}", "drug_a_id": "{row.get("drug_a_id")}", "drug_b_id": "{row.get("drug_b_id")}", "risk_grade": "{row.get("risk_grade")}", "severity": {repr(row.get("severity"))}, "source": {repr(row.get("source"))}, "confidence": {repr(row.get("confidence"))}, "clinical_consequence": "{row.get("clinical_consequence")}", "management_recommendation": "{row.get("management_recommendation")}", "evidence_level": "{row.get("evidence_level")}", "mechanism": {repr(row.get("mechanism"))}, "ai_generated": {str(row.get("ai_generated", False)).lower()}}}}}',
             )
         ]
     except Exception as exc:

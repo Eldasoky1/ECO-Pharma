@@ -4,7 +4,13 @@ from uuid import UUID
 
 from pydantic import BaseModel
 
-from .interaction import EvidenceLevel, RiskGrade
+from .interaction import (
+    EvidenceLevel,
+    InteractionConfidence,
+    InteractionSeverity,
+    InteractionSource,
+    RiskGrade,
+)
 
 
 class PVAnalysisRequest(BaseModel):
@@ -19,6 +25,9 @@ class PVAnalysisResponse(BaseModel):
     clinical_consequence: str
     management_recommendation: str
     evidence_level: EvidenceLevel
+    severity: InteractionSeverity | None = None
+    source: InteractionSource | None = None
+    confidence: InteractionConfidence | None = None
     ai_generated: bool
     model_version: str
     tokens_used: int
