@@ -28,7 +28,8 @@ Completed the full `_analysis/` orchestration (files 01–07):
 - Created branch `ahmed-eldesoky/progress-update-2026-08-09` from `main`
 - **Commit `912fcba`** (9 files, 906 insertions): `smart_eco_pharma/interaction_risk/` (8 files) + `docs/AGENT_SESSION_2026-08-09.md`
 - **Commit `ae0d1d3`**: harness switched to OpenRouter
-- Both pushed to `origin`; PR link: `https://github.com/Eldasoky1/ECO-Pharma/pull/new/ahmed-eldesoky/progress-update-2026-08-09`
+- **Commit `dd09984`** (35 files, +2164/−66): Supabase adoption — migration_003, `reading_id` TEXT, pv_service interaction-risk rewrite, MCP tool updates, session report + action matrix
+- All three pushed to `origin`; branch in sync (0/0 ahead/behind); working tree clean
 
 ### 1.4 Linear reporting
 - EJU-9 comment `126daf88-f02a-444c-a314-2bc84cd94773` — cross-source status + consolidated completion plan (updated to remove Saif, note OpenRouter decision)
@@ -63,24 +64,35 @@ Inspected live project: `migration.sql` + `iot_migration.sql` were **already app
 ### 1.9 Verification
 - **16/16 tests pass**; all modified files compile
 
+### 1.10 Reports & action matrix
+- `05_Reports_And_Comms/2026-08-09_full_session_report.md` — this report
+- `05_Reports_And_Comms/2026-08-09_action_matrix.md` — per-person "who does what next" (Now / This week / Backlog)
+
+### 1.11 GitHub PR opened
+- **PR #1** created: `https://github.com/Eldasoky1/ECO-Pharma/pull/1` (base `main` ← `ahmed-eldesoky/progress-update-2026-08-09`)
+- 3 commits, 44 files changed (+3075/−66)
+- PR body: summary + Supabase changes + code changes + tests + open items
+
 ---
 
 ## 2. Git state at end of day
 
 ```
-ae0d1d3 (HEAD, origin) Run interaction-risk harness via OpenRouter using existing key
+dd09984 (HEAD, origin/ahmed-eldesoky/progress-update-2026-08-09) Apply Supabase adoption: migration_003, reading_id TEXT, interaction-risk in pv_service, reports
+ae0d1d3             Run interaction-risk harness via OpenRouter using existing key
 912fcba             Add Dr. Mohamed's interaction-risk package + agent session notes
 0c44f5f (origin/main) Update TEAM_HANDOFF.md: add Deliver To column
 ```
 
-**Uncommitted** (10 files, +194/−66): the Supabase adoption work above + `schema/migration_003_interaction_risk.sql` (untracked). Committing is pending Ahmed's go-ahead.
+- Branch pushed; working tree **clean**; local == remote (0/0 ahead/behind)
+- PR #1 open
 
 ---
 
 ## 3. What's blocked / needs decision
 
 1. **Model decision** — GPT-4o retired; `OPENROUTER_MODEL` (harness) and `GPT_MODEL` (pv_service) still default to legacy id. Decide final model + set env.
-2. **PR creation** — private repo; branch pushed, needs manual PR creation by Ahmed (`gh` or the link above).
+2. **PR merge** — PR #1 open, awaiting review/merge.
 3. **EJU-14 vs EJU-20 duplicate** — recommend resolving to one issue.
 4. **Dr. Mohamed severity sign-off** — pending reply on EJU-14 comment.
-5. **Render deploy, seed script, MCP lookup tools, `migration_003_fatma_validation.sql`** — not started today.
+5. **Render deploy, seed script, MCP lookup tools, `migration_003_fatma_validation.sql`** — not started yet.
