@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from datetime import datetime
 from unittest.mock import AsyncMock, patch
-from uuid import uuid4
 
 import pytest
 
@@ -23,7 +22,7 @@ from smart_eco_pharma.services.iot_service import IoTService
 def valid_reading_request() -> IoTSensorReadingRequest:
     return IoTSensorReadingRequest(
         schema_version="1.0",
-        reading_id=uuid4(),
+        reading_id="DEVICE-001-20260715100000-42",
         device_id="DEVICE-001",
         storage_location_id="SHELF-A3",
         sequence_number=42,
@@ -53,7 +52,7 @@ def valid_reading_request() -> IoTSensorReadingRequest:
 def alert_reading_request() -> IoTSensorReadingRequest:
     return IoTSensorReadingRequest(
         schema_version="1.0",
-        reading_id=uuid4(),
+        reading_id="DEVICE-001-20260715100500-43",
         device_id="DEVICE-001",
         storage_location_id="SHELF-A3",
         sequence_number=43,
