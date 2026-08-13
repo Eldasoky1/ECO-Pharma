@@ -1,0 +1,50 @@
+﻿drug_name,category,dosage_forms,min_stock_threshold,reorder_quantity,storage_location_id,target_temperature,temp_tolerance,target_humidity,humidity_tolerance
+Panadol Advance 500mg,Analgesic,"{""Tablet""}",20,100,B1-ZN2-SH1-BN1,22,2,45,5
+Catafast 50mg Sac,Analgesic,"{""Sachet""}",30,150,B1-ZN2-SH1-BN2,23,2,40,5
+Brufen 400mg,Analgesic,"{""Tablet""}",25,120,B1-ZN2-SH1-BN3,22,2,45,5
+Adolor 15mg/ml Amp,Analgesic,"{""Ampoule""}",10,40,B1-ZN2-SH1-BN4,21,2,40,5
+Alphintern,Anti_inflammatory,"{""Tablet""}",30,120,B1-ZN2-SH1-BN5,23,2,40,5
+Voltaren Emulgel 100g,Topical_Analgesic,"{""Gel""}",15,50,B1-ZN2-SH1-BN6,22,2,40,5
+Ketofan 50mg,Analgesic,"{""Capsule""}",20,80,B1-ZN2-SH1-BN7,24,2,35,5
+Cataflam 50mg,Analgesic,"{""Tablet""}",30,150,B1-ZN2-SH1-BN9,22,2,40,5
+Ambezim-G,Anti_inflammatory,"{""Tablet""}",25,100,B1-ZN2-SH1-BN10,23,2,45,5
+Antinal 200mg,Antidiarrheal,"{""Capsule""}",25,80,B1-ZN2-SH2-BN1,22,2,45,5
+Gaviscon Double Action,Antacid,"{""Suspension""}",15,50,B1-ZN2-SH2-BN2,20,2,40,5
+Controloc 40mg,Antacid,"{""Tablet""}",20,70,B1-ZN2-SH2-BN3,24,2,35,5
+Motilium 10mg,Antiemetic,"{""Tablet""}",15,60,B1-ZN2-SH2-BN4,22,2,45,5
+Maalox Plus Tablets,Antacid,"{""Tablet""}",15,80,B1-ZN2-SH2-BN5,23,2,40,5
+Spasmo-Digestin,Digestive_Enzyme,"{""Tablet""}",30,100,B1-ZN2-SH2-BN7,22,2,40,5
+Gastreg 200mg,Antispasmodic,"{""Tablet""}",15,60,B1-ZN2-SH2-BN8,23,2,45,5
+Visceralgine Ampoules,Antispasmodic,"{""Ampoule""}",12,50,B1-ZN2-SH2-BN9,22,2,40,5
+Streptoquin,Antidiarrheal,"{""Tablet""}",25,90,B1-ZN2-SH2-BN10,24,2,45,5
+Duphalac Syrup,Laxative,"{""Syrup""}",15,40,B1-ZN2-SH2-BN12,22,2,50,5
+Congestal,Anticold,"{""Tablet""}",40,200,B1-ZN2-SH3-BN1,22,2,50,5
+Zyrtec 10mg,Antihistamine,"{""Tablet""}",15,50,B1-ZN2-SH3-BN3,22,2,40,5
+Prospan Syrup,Antitussive,"{""Syrup""}",20,70,B1-ZN2-SH3-BN4,21,2,45,5
+Otrivin 0.1% Nasal Spray,Decongestant,"{""Spray""}",25,90,B1-ZN2-SH3-BN5,22,2,45,5
+123 Cold & Flu,Anticold,"{""Tablet""}",30,150,B1-ZN2-SH3-BN6,22,2,50,5
+C-Retard 500mg,Vitamin,"{""Capsule""}",35,120,B1-ZN2-SH3-BN7,24,2,40,5
+Telfast 120mg,Antihistamine,"{""Tablet""}",20,80,B1-ZN2-SH3-BN8,22,2,45,5
+Flurest,Anticold,"{""Tablet""}",25,100,B1-ZN2-SH3-BN9,22,2,50,5
+Night & Day,Anticold,"{""Tablet""}",20,80,B1-ZN2-SH3-BN10,23,2,45,5
+Tusskan Syrup,Antitussive,"{""Syrup""}",15,60,B1-ZN2-SH3-BN11,22,2,40,5
+Oplex Syrup,Antitussive,"{""Syrup""}",20,70,B1-ZN2-SH3-BN12,21,2,45,5
+Sinupret Forte,Mucolytic,"{""Tablet""}",10,40,B1-ZN2-SH3-BN13,24,2,35,5
+Flagyl 500mg,Antiprotozoal,"{""Tablet""}",25,100,B1-ZN2-SH4-BN5,24,2,40,5
+Betadine Antiseptic Solution,Antiseptic,"{""Solution""}",10,40,B1-ZN2-SH5-BN1,24,2,35,5
+Fucidin 2% Cream,Antibiotic_Cream,"{""Cream""}",20,80,B1-ZN2-SH5-BN2,23,2,40,5
+Kenacomb Cream,Topical_Corticoid,"{""Cream""}",15,60,B1-ZN2-SH5-BN3,22,2,45,5
+Strepsils Honey & Lemon,Lozenges,"{""Lozenge""}",20,60,B1-ZN2-SH5-BN4,24,2,35,5
+Mebo Ointment 30g,Burn_Ointment,"{""Ointment""}",15,50,B1-ZN2-SH5-BN5,22,2,45,5
+Daktarin Oral Gel,Antifungal,"{""Gel""}",12,40,B1-ZN2-SH5-BN6,23,2,40,5
+Polyderm Cream,Antifungal_Cream,"{""Cream""}",15,50,B1-ZN2-SH5-BN7,22,2,45,5
+Neurovit Tablets,Vitamins,"{""Tablet""}",30,100,B1-ZN2-SH6-BN1,23,2,40,5
+Vitacid Calcium Eff,Vitamin,"{""Tablet""}",20,80,B1-ZN2-SH6-BN2,22,2,40,5
+Clexane 4000 Anti-Xa,Anticoagulant,"{""Syringe""}",10,40,B1-ZN1-SH1-BN1,5,3,55,5
+Virogrip Drops,Anticold,"{""Drops""}",12,50,B1-ZN1-SH1-BN2,5,3,55,5
+Insulin Mixtard 30/70 Penfill,Antidiabetic,"{""Vial""}",8,30,B1-ZN1-SH1-BN3,4,3,60,5
+Paracetamol 500mg,Analgesic,"{""Tablet""}",30,100,B1-ZN2-SH1-BN11,22,2,45,5
+Amoxicillin 500mg,Antibiotic,"{""Capsule""}",20,80,B1-ZN2-SH4-BN6,22,2,45,5
+Metformin 500mg,Antidiabetic,"{""Tablet""}",25,100,B1-ZN2-SH6-BN4,23,2,40,5
+Amlodipine 5mg,Antihypertensive,"{""Tablet""}",20,80,B1-ZN2-SH6-BN5,22,2,40,5
+Omeprazole 20mg,Antacid,"{""Capsule""}",25,90,B1-ZN2-SH2-BN13,24,2,35,5

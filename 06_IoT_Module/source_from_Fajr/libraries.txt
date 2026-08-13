@@ -1,0 +1,8 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+ArduinoJson
+DHT sensor library
+Adafruit Unified Sensor
+RTClib
+HX711
