@@ -1,6 +1,6 @@
 CREATE TABLE iot_readings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    reading_id UUID UNIQUE NOT NULL,
+    reading_id TEXT UNIQUE NOT NULL,
     device_id TEXT NOT NULL,
     storage_location_id TEXT NOT NULL,
     sequence_number INTEGER NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE iot_readings (
 
 CREATE TABLE iot_alerts (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    reading_id UUID NOT NULL REFERENCES iot_readings(id),
+    reading_id TEXT NOT NULL REFERENCES iot_readings(reading_id),
     alert_type TEXT NOT NULL,
     storage_location_id TEXT NOT NULL,
     acknowledged BOOLEAN NOT NULL DEFAULT false,

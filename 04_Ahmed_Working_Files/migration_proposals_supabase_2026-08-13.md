@@ -1,6 +1,6 @@
 # Supabase Schema Proposals — 2026-08-13 (PENDING APPROVAL)
 
-**Status:** PROPOSAL ONLY. Nothing here has been applied to the live database and no tracked file has been silently edited. Each item needs an owner sign-off before execution.
+**Status:** P1 **APPLIED** (2026-08-13, commit on `integrate-mohamed-fajr-omar-2026-08-12`); P2 **VERIFIED** (call-site trace confirms the payload `reading_id` string is written to `iot_alerts.reading_id`). P3 optional / deferred. The live database itself was **not** modified — the change is to the committed DDL so a fresh deployment matches the verified live schema.
 
 **Why this exists:** Fajr's IoT payloads use string `reading_id` values (`WOKWI-SIM-001-20260715103000-142`), and the live Supabase DB already stores them as `TEXT` (verified in the prior session). The committed DDL `smart_eco_pharma/schema/iot_migration.sql` still declares `reading_id UUID` — so a fresh database built from the repo would reject every Fajr payload. This file reconciles the repo DDL with the verified live schema and closes the related alert-FK defect (review item R7).
 
@@ -54,6 +54,6 @@ No code change is proposed to the function itself — once P1 is applied, insert
 
 ---
 
-**Approval checklist:** [ ] P1 DDL edit approved · [ ] P2 backend verify approved · [ ] P3 prompt/schema tweak approved (optional).
+**Approval checklist:** [x] P1 DDL edit approved & applied · [x] P2 backend verify approved & confirmed · [ ] P3 prompt/schema tweak approved (optional — deferred).
 
 **Executor:** Ahmed/backend, via SQL Editor + a normal code commit. Not applied by this agent.
