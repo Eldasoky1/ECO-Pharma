@@ -9,6 +9,10 @@ permissions:
 concurrency:
   group: pages
   cancel-in-progress: false
+env:
+  VITE_SUPABASE_URL: https://drzrxfmrxiitopjamchh.supabase.co
+  VITE_SUPABASE_ANON_KEY: sb_publishable_wjA4UaR5teefeZzGaADjvQ_9n3FOp7b
+  VITE_API_BASE: https://smart-eco-pharma.onrender.com
 jobs:
   deploy:
     environment:
