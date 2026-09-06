@@ -10,7 +10,7 @@ from ..models.drug import DrugDetail
 async def list_drugs(
     limit: int = 50, offset: int = 0, search: str | None = None
 ) -> tuple[list[DrugDetail], int]:
-    query = anon_client.table("drug_master").select("*").eq("deleted_at", None)
+    query = anon_client.table("drug_master").select("*").is_("deleted_at", "null")
 
     if search:
         query = query.or_(

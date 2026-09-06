@@ -20,6 +20,14 @@ _inventory_router = None
 _interactions_router = None
 _iot_ingestion_router = None
 _pharmacovigilance_router = None
+_auth_router = None
+
+try:
+    from .routers import auth as _auth_mod  # type: ignore[import-not-found]
+
+    _auth_router = _auth_mod.router
+except ImportError:
+    pass
 
 try:
     from .routers import inventory as _inventory_mod  # type: ignore[import-not-found]
@@ -143,3 +151,6 @@ if _iot_ingestion_router is not None:
 
 if _pharmacovigilance_router is not None:
     app.include_router(_pharmacovigilance_router, prefix="/api/v1/pharmacovigilance", tags=["pharmacovigilance"])
+
+if _auth_router is not None:
+    app.include_router(_auth_router, prefix="/api/v1/auth", tags=["auth"])
