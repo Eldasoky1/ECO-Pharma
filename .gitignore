@@ -13,3 +13,7 @@ build/
 .idea/
 node_modules/
 *.log
+_supabase_key.tmp
+_supabase_url.tmp
+.env.local
+*.local

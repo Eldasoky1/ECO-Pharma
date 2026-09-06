@@ -18,4 +18,15 @@ services:
       - key: APP_VERSION
         value: 0.1.0
       - key: CORS_ORIGINS
+        value: https://smart-eco-pharma.pages.dev,http://localhost:3000,http://localhost:5173
+      # Email delivery (Resend API key takes priority over generic SMTP).
+      - key: RESEND_API_KEY
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
         sync: false

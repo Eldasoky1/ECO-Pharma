@@ -35,6 +35,26 @@ class Settings(BaseSettings):
     )
     GPT_MODEL: str = Field(default="openai/gpt-4o", description="Model identifier for OpenRouter")
 
+    # Email delivery for the 8-digit verification code (Resend API key takes
+    # priority; otherwise generic SMTP is used).  When neither is configured the
+    # code is returned on the API response in development and logged to the
+    # console in production so the flow is always testable.
+    RESEND_API_KEY: str = Field(default="", description="Resend API key used to send verification emails")
+    SMTP_HOST: str = Field(default="", description="SMTP server host used to send verification emails")
+    SMTP_PORT: int = Field(default=587, description="SMTP server port")
+    SMTP_USER: str = Field(default="", description="SMTP login username")
+    SMTP_PASS: str = Field(default="", description="SMTP login password")
+    SMTP_FROM: str = Field(
+        default="Smart Eco-Pharma Hub <no-reply@smart-eco-pharma.com>",
+        description="Sender shown on verification emails",
+    )
+
+    # Verification codes (8-digit email verification)
+    AUTH_CODE_LENGTH: int = Field(default=8, description="Number of digits in the email verification code")
+    AUTH_CODE_TTL_MINUTES: int = Field(default=10, description="Minutes a verification code stays valid")
+    AUTH_CODE_MAX_ATTEMPTS: int = Field(default=5, description="Max failed attempts before a code is invalidated")
+    AUTH_CODE_RESEND_SECONDS: int = Field(default=60, description="Cooldown between code resend requests")
+
     # -- Derived helpers --------------------------------------------------
 
     @computed_field  # type: ignore[prop-decorator]

@@ -225,6 +225,18 @@ def _seed_interactions(
     if not rows:
         return 0, skipped
 
+    # Idempotency: drop previously-seeded verified reference rows so a re-run
+    # never leaves stale duplicates (drug_interactions has no unique key on
+    # (drug_a_id, drug_b_id), and distinct rules can legitimately flag the
+    # same pair). AI-generated rows (source='inferred_pharmacology') are kept.
+    existing = service_client.table("drug_interactions").select("id").eq(
+        "source", "verified_reference"
+    ).ilike("source_reference", "INT-%").execute()
+    if existing.data:
+        service_client.table("drug_interactions").delete().in_(
+            "id", [row["id"] for row in existing.data]
+        ).execute()
+
     # JUSTIFIED: Reference data bootstrap — same rationale as _seed_products.
     response = service_client.table("drug_interactions").upsert(rows, ignore_duplicates=False).execute()
     return len(response.data or []), skipped
