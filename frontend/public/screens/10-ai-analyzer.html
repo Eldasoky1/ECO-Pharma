@@ -1,0 +1,281 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI Pharmacovigilance Analyzer - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bcc9c5",
+                    "surface-dim": "#d9dad9",
+                    "secondary-container": "#d2e7e3",
+                    "primary": "#00685b",
+                    "on-tertiary-fixed": "#021d32",
+                    "on-primary-fixed": "#00201b",
+                    "on-tertiary-fixed-variant": "#324960",
+                    "on-secondary-fixed-variant": "#384a48",
+                    "tertiary": "#475e76",
+                    "surface-tint": "#006b5d",
+                    "inverse-primary": "#64dac4",
+                    "primary-fixed-dim": "#64dac4",
+                    "outline": "#6d7a76",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#0c1f1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1b",
+                    "on-primary-fixed-variant": "#005046",
+                    "surface-bright": "#f9f9f8",
+                    "surface-variant": "#e2e3e1",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9f8",
+                    "secondary-fixed": "#d2e7e3",
+                    "surface-container-low": "#f3f4f2",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#556865",
+                    "on-primary-container": "#f4fffb",
+                    "tertiary-container": "#607790",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#b1c9e4",
+                    "secondary-fixed-dim": "#b6cbc7",
+                    "on-surface": "#1a1c1b",
+                    "on-tertiary-container": "#fdfcff",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9f9f8",
+                    "surface-container": "#edeeec",
+                    "tertiary-fixed": "#cfe5ff",
+                    "surface-container-high": "#e8e8e7",
+                    "inverse-surface": "#2f3130",
+                    "surface-container-highest": "#e2e3e1",
+                    "inverse-on-surface": "#f0f1ef",
+                    "on-error": "#ffffff",
+                    "primary-container": "#008373",
+                    "primary-fixed": "#82f6e0",
+                    "secondary": "#4f625f",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#3d4946"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "default-padding": "16px",
+                    "margin-desktop": "24px",
+                    "unit": "4px",
+                    "compact-padding": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Plus Jakarta Sans"],
+                    "headline-sm": ["Plus Jakarta Sans"],
+                    "title-lg": ["Plus Jakarta Sans"],
+                    "title-md": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                    "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .loading-spinner {
+            border: 4px solid rgba(0, 104, 91, 0.1);
+            border-left-color: #00685b;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .hide { display: none !important; }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full font-body-md flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-low flex flex-col h-full py-4 border-r border-outline-variant w-72 hidden md:flex shrink-0">
+<div class="px-6 mb-8 flex items-center gap-3">
+<img alt="Pharmacy Logo" class="w-10 h-10 rounded-lg object-cover" data-alt="A clean, modern geometric logo for a pharmacy, featuring overlapping translucent circles in teal and slate blue against a pristine white background. The style is minimalist and corporate, suitable for a high-tech medical environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtZzKUp2xSbSd8uMIuHBcfG5VZdlL9XTZaeekreZE6nv6e83wfj2g9UatkSaaMfEhd5_8HJPj1tf-lxZ28_vEUrWAFQOeD1sLy27QclNz0ank0vLtf2L5Pqml8LxuO--E2osCf72HIplGN3hIlg63PacxhCVGyaivl3rIdLV-yazfG66F-CI3_mkEteAIWp9jPUSUZjWrsqrlbEcWbssSUixMIqk-iNUZvr7BG2eovy2ZNzF8ozNI-hg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Main Branch</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all hover:bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all hover:bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all hover:bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+<span class="font-label-lg text-label-lg">Prescriptions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all hover:bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-lg text-label-lg">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 transition-all hover:bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics" data-weight="fill" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all hover:bg-surface-container-high duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-full font-label-lg text-label-lg hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Prescription
+            </button>
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-16 shrink-0">
+<div class="flex items-center gap-4">
+<button class="md:hidden p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Smart Eco-Pharma Hub</h1>
+</div>
+<div class="flex-1 max-w-md ml-8 mr-4 hidden sm:block">
+<div class="relative relative flex items-center">
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full pl-12 pr-10 py-2 bg-surface-container-lowest rounded-full border border-outline-variant focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant" placeholder="Search patients, drugs..." type="search">
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-[11px] items-center justify-center pointer-events-none">/</kbd>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 transition-transform mr-2">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="Pharmacist profile avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover cursor-pointer hover:ring-2 hover:ring-primary transition-all" data-alt="A professional headshot of a female pharmacist wearing a clean white lab coat over a teal blouse, smiling confidently in a modern clinical setting with soft, bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNwsE1eZxy8BXqrKOdu99GDaG-86fkPpzl7n6myTCyLj6oKC2YzFfkh3DwX9tna2d07SYfgnroG39_MwiYGiJfoNPlhdyXu4jyJGvQO_IDynKZjPYkyVYtZTjh0wEjlnikedT1wDdv_FPsq2TKnEmrgiJfsejHONqNpLGhiZ7hRIcMp9TR96U8rmXhu6bFHUvwuavQk--zi-rI9Nl6LdlRFO48PerLquhd2Mv92KTm2YHAMUtRLQhEdw">
+</div>
+</header>
+<!-- Canvas -->
+<div class="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8">
+<div class="max-w-5xl mx-auto space-y-6">
+<!-- Page Header -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-2">AI Pharmacovigilance Analyzer</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Evaluate potential drug-drug interactions, adverse effects, and personalized clinical risks based on patient context.</p>
+</div>
+<!-- Analysis Configuration Form -->
+<div class="bg-surface-container-low rounded-[12px] border border-outline-variant p-6 shadow-sm">
+<h3 class="font-title-md text-title-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">science</span>
+                        Interaction Parameters
+                    </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<!-- Drug Picker 1 -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block">Primary Medication</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant">medication</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border-b-2 border-outline-variant focus:border-primary focus:outline-none transition-colors rounded-t-DEFAULT font-body-md text-body-md" placeholder="e.g. Atorvastatin" type="text">
+</div>
+</div>
+<!-- Drug Picker 2 -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface-variant block">Secondary Medication (Concomitant)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant">vaccines</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border-b-2 border-outline-variant focus:border-primary focus:outline-none transition-colors rounded-t-DEFAULT font-body-md text-body-md" placeholder="e.g. Clarithromycin" type="text">
+</div>
+</div>
+</div>
+<!-- Clinical Context -->
+<div class="space-y-2 mb-8">
+<label class="font-label-md text-label-md text-on-surface-variant block">Clinical Context &amp; Patient Profile (Optional)</label>
+<textarea class="w-full p-3 bg-surface border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors font-body-md text-body-md resize-none" placeholder="Enter relevant medical history, hepatic/renal function, age, genetics..." rows="3"></textarea>
+</div>
+<!-- Action Area -->
+<div class="flex items-center justify-end gap-4 border-t border-outline-variant pt-6">
+<button class="px-6 py-2.5 rounded-full border border-outline text-primary font-label-lg text-label-lg hover:bg-surface-variant transition-colors">
+                            Clear
+                        </button>
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg flex items-center gap-2 hover:bg-primary-container transition-colors shadow-sm" id="analyzeBtn">
+<span class="material-symbols-outlined">troubleshoot</span>
+<span>Analyze Risk</span>
+</button>
+</div>
+</div>
+<!-- Results State (Hidden by default, shown via JS) -->
+<div class="hide flex flex-col items-center justify-center py-12 bg-surface-container-low rounded-[12px] border border-outline-variant border-dashed" id="loadingState">
+<div class="loading-spinner mb-4"></div>
+<p class="font-body-md text-body-md text-on-surface-variant">Querying pharmacovigilance databases...</p>
+</div>
+</div>
+</div>
+</main>
+<script>
+        document.getElementById('analyzeBtn').addEventListener('click', function() {
+            // Simple interaction logic for demonstration
+            const btn = this;
+            const loading = document.getElementById('loadingState');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<div class="loading-spinner w-5 h-5 border-2 border-on-primary border-l-transparent"></div><span>Analyzing...</span>';
+            btn.classList.add('opacity-80');
+            
+            loading.classList.remove('hide');
+            
+            // Simulate network request
+            setTimeout(() => {
+                loading.classList.add('hide');
+                // Normally we'd unhide results here, but omitted for briefness as requested by low effort
+                btn.disabled = false;
+                btn.innerHTML = '<span class="material-symbols-outlined">troubleshoot</span><span>Analyze Risk</span>';
+                btn.classList.remove('opacity-80');
+            }, 1500);
+        });
+    </script>
+</body></html>

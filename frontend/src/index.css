@@ -1,0 +1,298 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
+
+/* Brand-unified neutral palette: slate re-tinted toward deep pharmacy green.
+   Luminance is preserved so contrast ratios stay identical in both themes. */
+@theme {
+  --color-slate-50: #f2f7f4;
+  --color-slate-100: #e5eeea;
+  --color-slate-200: #cfddd7;
+  --color-slate-300: #adc3b9;
+  --color-slate-400: #8fa79c;
+  --color-slate-500: #647f74;
+  --color-slate-600: #41564c;
+  --color-slate-700: #1c382c;
+  --color-slate-800: #11251c;
+  --color-slate-900: #091a12;
+  --color-slate-950: #05100b;
+}
+
+@layer base {
+  :root {
+    /* Light Mode ("white mode") Surface & Transparency Tokens (0.94 - 0.97 range) */
+    --theme-mode: light;
+    --surface-canvas: rgba(248, 250, 252, 0.96);
+    --surface-card: rgba(255, 255, 255, 0.95);
+    --surface-card-subtle: rgba(248, 250, 252, 0.93);
+    --surface-nav: rgba(255, 255, 255, 0.94);
+    --surface-header: rgba(255, 255, 255, 0.94);
+    --surface-panel: rgba(255, 255, 255, 0.95);
+    --surface-modal: rgba(255, 255, 255, 0.96);
+    --surface-popover: rgba(255, 255, 255, 0.96);
+    --surface-border: rgba(226, 232, 240, 0.85);
+    --surface-backdrop-blur: blur(10px);
+    
+    /* Dark Mode ("black mode") Surface & Transparency Tokens (0.90 - 0.94 range for high contrast preservation) */
+    --surface-canvas-dark: rgba(9, 26, 18, 0.96);
+    --surface-card-dark: rgba(9, 26, 18, 0.92);
+    --surface-card-subtle-dark: rgba(17, 37, 28, 0.88);
+    --surface-nav-dark: rgba(9, 26, 18, 0.93);
+    --surface-header-dark: rgba(9, 26, 18, 0.92);
+    --surface-panel-dark: rgba(9, 26, 18, 0.92);
+    --surface-modal-dark: rgba(9, 26, 18, 0.94);
+    --surface-popover-dark: rgba(17, 37, 28, 0.92);
+    --surface-border-dark: rgba(28, 56, 44, 0.75);
+    --surface-backdrop-blur-dark: blur(12px);
+  }
+
+  .dark {
+    --theme-mode: dark;
+    --surface-canvas: var(--surface-canvas-dark);
+    --surface-card: var(--surface-card-dark);
+    --surface-card-subtle: var(--surface-card-subtle-dark);
+    --surface-nav: var(--surface-nav-dark);
+    --surface-header: var(--surface-header-dark);
+    --surface-panel: var(--surface-panel-dark);
+    --surface-modal: var(--surface-modal-dark);
+    --surface-popover: var(--surface-popover-dark);
+    --surface-border: var(--surface-border-dark);
+    --surface-backdrop-blur: var(--surface-backdrop-blur-dark);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+::selection {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+html.theme-anim body,
+html.theme-anim * {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 300ms;
+}
+
+.dark body {
+  background-color: #05100b;
+}
+
+/* GPU-only slow rotation for the auth pillar (runs on the compositor thread) */
+@keyframes seph-spin {
+  to { transform: rotate(360deg); }
+}
+.seph-spin-slow {
+  animation: seph-spin 70s linear infinite;
+  will-change: transform;
+}
+
+/* Reverse counter-rotation for orbit rings (EarthOrb satellite) */
+.seph-spin-rev {
+  animation: seph-spin 46s linear infinite reverse;
+  will-change: transform;
+}
+
+/* Soft drifting aurora glows — pure CSS, zero JS */
+@keyframes seph-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -6%, 0) scale(1.12); }
+}
+.seph-aurora {
+  animation: seph-drift 14s ease-in-out infinite;
+}
+
+/* ============================================================
+   ThreeUI-inspired design tokens (lemmon/easing/hover polish)
+   ============================================================ */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expand: cubic-bezier(0.32, 0.72, 0, 1);
+  --r-sm: 7px;
+  --r-md: 9px;
+  --r-lg: 12px;
+  --r-xl: 14px;
+  --r-pill: 999px;
+  --hairline: rgba(15, 23, 42, 0.07);
+  --hover-tint: rgba(15, 23, 42, 0.05);
+  --shadow-pop: 0 2.8px 2.2px rgba(15, 23, 42, 0.04), 0 6.7px 5.3px rgba(15, 23, 42, 0.06),
+    0 12.5px 10px rgba(15, 23, 42, 0.07), 0 22.3px 17.9px rgba(15, 23, 42, 0.08);
+  --shadow-card-hover: 0 4px 8px rgba(15, 23, 42, 0.05), 0 12px 24px -4px rgba(16, 185, 129, 0.18);
+  --accent: #10b981;
+}
+
+.dark {
+  --hairline: rgba(255, 255, 255, 0.06);
+  --hover-tint: rgba(255, 255, 255, 0.06);
+  --shadow-pop: 0 2.8px 2.2px rgba(0, 0, 0, 0.34), 0 6.7px 5.3px rgba(0, 0, 0, 0.48),
+    0 12.5px 10px rgba(0, 0, 0, 0.6), 0 22.3px 17.9px rgba(0, 0, 0, 0.72);
+  --shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.5), 0 12px 24px -4px rgba(16, 185, 129, 0.25);
+  --accent: #34d399;
+}
+
+/* Consistent, comfortable hover transitions across BOTH modes */
+a, button, [role="button"], .seph-card, .seph-tile, .seph-nav-item, .seph-input, .seph-btn {
+  transition: background-color 0.18s var(--ease-out), color 0.18s var(--ease-out),
+    border-color 0.18s var(--ease-out), box-shadow 0.18s var(--ease-out),
+    transform 0.15s var(--ease-out), opacity 0.18s var(--ease-out);
+}
+
+/* Cards: lift + glow on hover, press down on active */
+.seph-card {
+  background: var(--surface-card);
+  border: 1px solid var(--hairline);
+  border-radius: var(--r-lg);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+  backdrop-filter: blur(10px);
+}
+.seph-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--hairline));
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+.seph-card:active { transform: translateY(0) scale(0.995); }
+
+/* Hover on interactive chrome */
+.seph-btn:hover {
+  box-shadow: var(--shadow-pop);
+  transform: translateY(-1px);
+}
+.seph-btn:active { transform: translateY(0) scale(0.97); }
+.seph-btn:focus-visible,
+.seph-tile:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 2px;
+}
+
+/* Nav items: soft highlight + accent on hover, shared both modes */
+.seph-nav-item:hover {
+  background: var(--hover-tint);
+}
+.seph-nav-item:hover .seph-nav-icon {
+  color: var(--accent);
+}
+
+/* Inputs: border lift + subtle focus ring */
+.seph-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent);
+  outline: none;
+}
+
+/* ============================================================
+   Eco data-table system — unified headers/rows/footers,
+   adaptive in both light & dark modes
+   ============================================================ */
+.seph-table {
+  width: 100%;
+  text-align: left;
+  font-size: 0.78rem;
+  border-collapse: collapse;
+}
+
+.seph-table thead tr {
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface-card-subtle));
+  border-bottom: 1px solid var(--hairline);
+}
+
+.seph-table thead th {
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #5f7d71;
+  white-space: nowrap;
+}
+
+.dark .seph-table thead th {
+  color: #8fa79c;
+}
+
+.seph-table tbody tr {
+  border-bottom: 1px solid var(--hairline);
+  transition: background-color 0.18s var(--ease-out);
+}
+
+.seph-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.seph-table tbody tr:hover {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.seph-table td {
+  padding: 0.875rem 1rem;
+  vertical-align: middle;
+}
+
+/* Table footer / pagination bar */
+.seph-table-foot {
+  background: var(--surface-card-subtle);
+  border-top: 1px solid var(--hairline);
+  color: #5f7d71;
+}
+.dark .seph-table-foot {
+  color: #8fa79c;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* View Transitions: circular theme reveal (driven from themeTransition.ts) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Subtle glow animations and clinical micro-interactions */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}

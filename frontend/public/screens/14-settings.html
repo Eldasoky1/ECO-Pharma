@@ -1,0 +1,336 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Smart Eco-Pharma Hub - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bcc9c5",
+                        "surface-dim": "#d9dad9",
+                        "secondary-container": "#d2e7e3",
+                        "primary": "#00685b",
+                        "on-tertiary-fixed": "#021d32",
+                        "on-primary-fixed": "#00201b",
+                        "on-tertiary-fixed-variant": "#324960",
+                        "on-secondary-fixed-variant": "#384a48",
+                        "tertiary": "#475e76",
+                        "surface-tint": "#006b5d",
+                        "inverse-primary": "#64dac4",
+                        "primary-fixed-dim": "#64dac4",
+                        "outline": "#6d7a76",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0c1f1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-bright": "#f9f9f8",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f8",
+                        "secondary-fixed": "#d2e7e3",
+                        "surface-container-low": "#f3f4f2",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#556865",
+                        "on-primary-container": "#f4fffb",
+                        "tertiary-container": "#607790",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b1c9e4",
+                        "secondary-fixed-dim": "#b6cbc7",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f8",
+                        "surface-container": "#edeeec",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-container-high": "#e8e8e7",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-highest": "#e2e3e1",
+                        "inverse-on-surface": "#f0f1ef",
+                        "on-error": "#ffffff",
+                        "primary-container": "#008373",
+                        "primary-fixed": "#82f6e0",
+                        "secondary": "#4f625f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3d4946"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "default-padding": "16px",
+                        "margin-desktop": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Mobile Top Bar (Hidden on md) -->
+<header class="md:hidden bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-margin-mobile h-16 shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Smart Eco-Pharma Hub</span>
+<button class="text-primary cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</header>
+<!-- SideNavBar (Web) -->
+<nav class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low shrink-0 w-72">
+<div class="px-6 mb-8 flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover bg-primary-container p-1" data-alt="A small, professional pharmacy logo icon featuring a minimalist leaf and medical cross in teal and white. Modern, corporate aesthetic suitable for a high-end medical dashboard. High contrast, clean vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP3h9MYcAglzaJAIhRCa2hsPFNwkhAocKLXil7Qj9ejq3SW59-2HL0OWHUZ9jybcJCjeltr3kjmuLNnHPE9Ni-5Lq4Impsqaw5C3klE_esS6oPJbUPjfk9zcZAvmuLvi-Ck1g6PsnQiFBx11X9IU9hAjhIQ_V4TEx1qEFpvQTkB2OLSjjJDtSQ9N-VjBk3hxx8afb9eXx-DEBDSeqh9N6hASLKK9OO6aOL--k1BF4wPDgZQTq_Wz612Q">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Main Branch</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-3 rounded-full flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Prescription
+            </button>
+</div>
+<ul class="flex flex-col gap-1 px-2 flex-grow overflow-y-auto">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    Inventory
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+                    Prescriptions
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Patients
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg bg-secondary-container text-on-secondary-container rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto px-2 pt-4 border-t border-outline-variant">
+<ul class="flex flex-col gap-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                        Help Center
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                        Sign Out
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col h-full overflow-hidden bg-background relative">
+<!-- TopAppBar (Web) -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container border-b border-outline-variant shrink-0 z-10 relative">
+<div class="flex items-center gap-4 flex-grow max-w-xl">
+<div class="relative w-full max-w-md">
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none" data-icon="search"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full pl-12 pr-10 py-2 bg-surface-container-lowest rounded-full border border-outline-variant focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant transition-all" placeholder="Search settings..." type="search">
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-[11px] items-center justify-center pointer-events-none">/</kbd>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full text-primary hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A small, professional pharmacist profile avatar. A headshot of a person wearing a white lab coat, well-lit, smiling softly against a neutral grey background. High resolution, corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNZytCKtR2hM9aOtIcftdmPpfQsgQfQS1AEtxeh8My2xhE1Xu8O4KysQPy-eGRoQaxDFsPQu_ISkg6s7IY-pBlyOEhAi3UcFm4ByfdtbWSzWfZlpOmC9_0praU21OHZAkAOBrvzG7dlLHHsZ8GaSLqbwvsVNiqJ0635hHbjjxfu3i4JiqyEPC8S12d96ygLxXzALdzapeL4MouCGYbDizcHTzrI946v-2UHxU_jLucc23NnTVIewav6A">
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-grow overflow-y-auto p-margin-mobile md:p-margin-desktop z-10 relative">
+<div class="mb-8">
+<h1 class="font-headline-lg text-headline-lg text-on-background">System Settings</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage integration endpoints, account details, and system health.</p>
+</div>
+<!-- Bento Grid Layout for Settings -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-6xl">
+<!-- Connection Card / Health Status (Span 8) -->
+<div class="md:col-span-8 bg-surface-container rounded-xl p-default-padding border border-outline-variant flex flex-col justify-between min-h-[160px]">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="hub">hub</span>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface">API Connection Health</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time status of central hub connectivity.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-1.5 rounded-full border border-outline-variant">
+<div class="w-2.5 h-2.5 rounded-full bg-[#00685b] animate-pulse"></div>
+<span class="font-label-md text-label-md text-primary">Connected</span>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 mt-auto pt-4 border-t border-outline-variant/50">
+<div class="flex-1">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Latency</p>
+<p class="font-title-md text-title-md text-on-surface mt-1">24ms</p>
+</div>
+<div class="flex-1 border-t sm:border-t-0 sm:border-l border-outline-variant/50 pt-2 sm:pt-0 sm:pl-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Last Sync</p>
+<p class="font-title-md text-title-md text-on-surface mt-1">Just now</p>
+</div>
+<div class="flex-1 border-t sm:border-t-0 sm:border-l border-outline-variant/50 pt-2 sm:pt-0 sm:pl-4">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Uptime</p>
+<p class="font-title-md text-title-md text-on-surface mt-1">99.98%</p>
+</div>
+</div>
+</div>
+<!-- Account Info (Span 4) -->
+<div class="md:col-span-4 bg-secondary-container/30 rounded-xl p-default-padding border border-outline-variant flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary-container mb-4 overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A close-up profile picture of a senior pharmacist in a clinical setting. The individual is looking directly at the camera with a confident, reassuring expression. Lighting is bright, soft, and professional, reflecting a modern healthcare environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOM8HHx8icB3dDyVzOA62twd9esU26fguV0skO7y9-qsauYS73Gnl4HFuF27tKWlkRPI8Pu_yDaZIKmZYbBxKmqPR2CmoUV34hzDs6_V2nNO1_uZhiCs0fd70SOjJodUXzWOlZevr3AfZI1xfz4swAZ6v2-W5TdN82sfcwiWbZL3kKmRydXtg7vppWtDk9F3XzKfVgEW8spGViEhBpSrsoTsRzzfSbGrUWBaasc3CDGeOwauifYEghPA">
+</div>
+<h3 class="font-title-md text-title-md text-on-surface">Dr. Sarah Jenkins</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Lead Pharmacist, Main Branch</p>
+<button class="mt-auto w-full py-2 px-4 bg-surface rounded-full border border-outline-variant font-label-md text-label-md text-primary hover:bg-surface-variant transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                        Edit Profile
+                    </button>
+</div>
+<!-- API Base URL Configuration (Span 6) -->
+<div class="md:col-span-6 bg-surface rounded-xl p-default-padding border border-outline-variant">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="dns">dns</span>
+<h3 class="font-title-md text-title-md text-on-surface">Endpoint Configuration</h3>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Production Base URL</label>
+<div class="flex">
+<input class="flex-grow bg-surface-container-low border border-outline-variant rounded-l-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" readonly="" type="text" value="https://api.smart-eco-pharma.com/v2">
+<button class="bg-surface-container-high border border-l-0 border-outline-variant rounded-r-lg px-3 py-2 text-on-surface-variant hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Environment</label>
+<select class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-3 py-2 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary appearance-none">
+<option>Production</option>
+<option>Staging</option>
+<option>Development</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Data Summary Counts (Span 6) -->
+<div class="md:col-span-6 grid grid-cols-2 gap-unit">
+<div class="bg-surface-container-low rounded-xl p-default-padding border border-outline-variant flex flex-col justify-center">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="prescriptions">prescriptions</span>
+<p class="font-display-lg text-display-lg text-on-surface leading-none mb-1">1,204</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Active Prescriptions</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-default-padding border border-outline-variant flex flex-col justify-center">
+<span class="material-symbols-outlined text-tertiary mb-2" data-icon="group">group</span>
+<p class="font-display-lg text-display-lg text-on-surface leading-none mb-1">8,430</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Total Patients</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-default-padding border border-outline-variant flex flex-col justify-center">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="inventory_2">inventory_2</span>
+<p class="font-display-lg text-display-lg text-on-surface leading-none mb-1">452</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Low Stock Items</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-default-padding border border-outline-variant flex flex-col justify-center">
+<span class="material-symbols-outlined text-on-surface-variant mb-2" data-icon="receipt_long">receipt_long</span>
+<p class="font-display-lg text-display-lg text-on-surface leading-none mb-1">32k</p>
+<p class="font-label-md text-label-md text-on-surface-variant">Logs Processed</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile Bottom NavBar (Hidden on Web) -->
+<nav class="md:hidden bg-surface-container border-t border-outline-variant flex justify-around items-center w-full h-16 shrink-0 z-20 pb-safe">
+<a class="flex flex-col items-center justify-center w-16 h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-[10px] mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center w-16 h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-[10px] mt-1">Inventory</span>
+</a>
+<a class="flex flex-col items-center justify-center w-16 h-full text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+<span class="font-label-md text-[10px] mt-1">Rx</span>
+</a>
+<a class="flex flex-col items-center justify-center w-16 h-full text-primary" href="#">
+<div class="bg-secondary-container px-4 py-1 rounded-full mb-1">
+<span class="material-symbols-outlined" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+</div>
+<span class="font-label-md text-[10px] font-bold">Settings</span>
+</a>
+</nav>
+</body></html>

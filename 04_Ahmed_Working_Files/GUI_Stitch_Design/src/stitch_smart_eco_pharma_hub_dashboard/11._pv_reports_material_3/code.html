@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pharmacovigilance Reports - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bcc9c5",
+                        "surface-dim": "#d9dad9",
+                        "secondary-container": "#d2e7e3",
+                        "primary": "#00685b",
+                        "on-tertiary-fixed": "#021d32",
+                        "on-primary-fixed": "#00201b",
+                        "on-tertiary-fixed-variant": "#324960",
+                        "on-secondary-fixed-variant": "#384a48",
+                        "tertiary": "#475e76",
+                        "surface-tint": "#006b5d",
+                        "inverse-primary": "#64dac4",
+                        "primary-fixed-dim": "#64dac4",
+                        "outline": "#6d7a76",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0c1f1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-bright": "#f9f9f8",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f8",
+                        "secondary-fixed": "#d2e7e3",
+                        "surface-container-low": "#f3f4f2",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#556865",
+                        "on-primary-container": "#f4fffb",
+                        "tertiary-container": "#607790",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b1c9e4",
+                        "secondary-fixed-dim": "#b6cbc7",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f8",
+                        "surface-container": "#edeeec",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-container-high": "#e8e8e7",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-highest": "#e2e3e1",
+                        "inverse-on-surface": "#f0f1ef",
+                        "on-error": "#ffffff",
+                        "primary-container": "#008373",
+                        "primary-fixed": "#82f6e0",
+                        "secondary": "#4f625f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3d4946"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "default-padding": "16px",
+                        "margin-desktop": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f9f9f8; color: #1a1c1b; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .icon-fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="flex h-screen overflow-hidden bg-background font-body-md text-on-background">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low dark:bg-surface-dim w-72 flex-shrink-0 z-20">
+<div class="px-6 pb-6">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-headline-sm">
+<span class="material-symbols-outlined icon-fill" data-icon="local_pharmacy">local_pharmacy</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Main Branch</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full flex items-center justify-center gap-2 py-3 px-4 bg-primary text-on-primary rounded-full hover:bg-surface-tint transition-colors font-label-lg text-label-lg shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Prescription
+            </button>
+</div>
+<nav class="flex-1 overflow-y-auto px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">medical_information</span>
+<span>Prescriptions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg cursor-pointer active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined icon-fill" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg cursor-pointer" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-2 pt-4 border-t border-outline-variant mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar (Mobile mainly, or header area for desktop if needed. Using it as global header as per JSON) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container border-b border-outline-variant z-10">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Smart Eco-Pharma Hub</h1>
+</div>
+<div class="flex-1 max-w-md mx-8 hidden sm:block">
+<div class="relative flex items-center w-full h-10 rounded-full bg-surface-container-highest border border-outline-variant px-4 focus-within:border-primary focus-within:bg-surface transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder:text-on-surface-variant outline-none" placeholder="Search reports, drugs..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="sensors" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button aria-label="notifications" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 transition-transform relative">
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button aria-label="settings" class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-outline cursor-pointer hover:border-primary transition-colors">
+<img alt="Pharmacist profile avatar" class="w-full h-full object-cover" data-alt="A small circular avatar image showing a professional female pharmacist in a white coat looking slightly off-camera with a friendly expression. The background is a blurred clinical pharmacy setting with clean white and teal lighting. High resolution, modern professional headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaRypMMtvQYD-v-M_SQaJRBvc8cPrskTnLJCz-3dGvTwRxM9MFO4LbUh2IhzCmXFYZfXAkLm9w9o7chrkxOGHRWX4Vb630RCfAJU-c1IV2WYyN3qSy5MJwFp5Xv0Q1tAa3Khp7QlSAvdB5ItJSGJB7GJLUstBtggQyQF0BJ_-O-IHzBocpDsPBgM8sKSfkCj39YpXYwKNja7oVfPQ6l3lin3OTCbE6Yzc2msKkerm_NRFz0VWgeqMZ5g">
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop bg-surface">
+<div class="max-w-6xl mx-auto space-y-6">
+<!-- Header & Filters -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-1">Pharmacovigilance Reports</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Analyze adverse events and potential drug interactions.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative w-full sm:w-64">
+<label class="absolute -top-2 left-3 bg-surface px-1 font-label-md text-label-md text-primary z-10">Target Drug</label>
+<select class="w-full h-12 px-4 rounded-DEFAULT border border-outline bg-transparent text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option>Lisinopril 20mg</option>
+<option>Atorvastatin 40mg</option>
+<option>Metformin 500mg</option>
+<option>Amlodipine 5mg</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-on-surface-variant pointer-events-none" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<button class="h-12 px-4 border border-outline text-primary rounded-DEFAULT hover:bg-surface-container transition-colors flex items-center gap-2 font-label-lg text-label-lg whitespace-nowrap">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+                            Filter
+                        </button>
+</div>
+</div>
+<!-- Bento Grid for Reports -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Report Card 1 - High Risk -->
+<article class="bg-surface-container rounded-xl p-5 hover:bg-surface-container-high transition-colors cursor-pointer border border-transparent hover:border-outline-variant flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-error" data-icon="warning">warning</span>
+<span class="font-label-md text-label-md">Oct 24, 2023</span>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+                                High Risk
+                            </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Ibuprofen Interaction</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-1">
+                            Potential severe interaction detected when combined with Lisinopril. Risk of acute renal failure in dehydrated patients.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant mt-auto">
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="token">token</span>
+                                12 Tokens Used
+                            </div>
+<button class="text-primary hover:text-primary-container font-label-lg text-label-lg flex items-center gap-1">
+                                View Details <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Report Card 2 - Moderate Risk -->
+<article class="bg-surface-container rounded-xl p-5 hover:bg-surface-container-high transition-colors cursor-pointer border border-transparent hover:border-outline-variant flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<span class="font-label-md text-label-md">Oct 22, 2023</span>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-md text-label-md">
+                                Moderate Risk
+                            </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Potassium Supplements</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-1">
+                            Elevated risk of hyperkalemia observed in elderly patients concurrent with ACE inhibitors. Monitoring advised.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant mt-auto">
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="token">token</span>
+                                8 Tokens Used
+                            </div>
+<button class="text-primary hover:text-primary-container font-label-lg text-label-lg flex items-center gap-1">
+                                View Details <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Report Card 3 - Low Risk -->
+<article class="bg-surface-container rounded-xl p-5 hover:bg-surface-container-high transition-colors cursor-pointer border border-transparent hover:border-outline-variant flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+<span class="font-label-md text-label-md">Oct 18, 2023</span>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+                                Low Risk
+                            </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Aspirin 81mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-1">
+                            Minor reduction in hypotensive effect possible. Generally considered safe for concurrent use in standard dosages.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant mt-auto">
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="token">token</span>
+                                5 Tokens Used
+                            </div>
+<button class="text-primary hover:text-primary-container font-label-lg text-label-lg flex items-center gap-1">
+                                View Details <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Report Card 4 - Moderate Risk -->
+<article class="bg-surface-container rounded-xl p-5 hover:bg-surface-container-high transition-colors cursor-pointer border border-transparent hover:border-outline-variant flex flex-col h-full relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary" data-icon="info">info</span>
+<span class="font-label-md text-label-md">Oct 15, 2023</span>
+</div>
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-md text-label-md">
+                                Moderate Risk
+                            </span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-2">Lithium Carbonate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 flex-1">
+                            May reduce lithium excretion leading to toxicity. Serum lithium levels should be monitored frequently.
+                        </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant mt-auto">
+<div class="flex items-center gap-1 font-label-md text-label-md text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="token">token</span>
+                                15 Tokens Used
+                            </div>
+<button class="text-primary hover:text-primary-container font-label-lg text-label-lg flex items-center gap-1">
+                                View Details <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+</div>
+</div>
+</main>
+</div>
+</body></html>
