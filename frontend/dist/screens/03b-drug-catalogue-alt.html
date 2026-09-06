@@ -1,0 +1,544 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>3. Drug Catalogue - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-surface": "#1a1c1b",
+                "surface-container-highest": "#e2e3e1",
+                "surface-tint": "#006b5d",
+                "surface-dim": "#d9dad9",
+                "secondary": "#4f625f",
+                "on-secondary-container": "#556865",
+                "secondary-fixed-dim": "#b6cbc7",
+                "primary": "#00685b",
+                "primary-fixed-dim": "#64dac4",
+                "on-surface-variant": "#3d4946",
+                "on-secondary-fixed-variant": "#384a48",
+                "tertiary-fixed": "#cfe5ff",
+                "primary-fixed": "#82f6e0",
+                "tertiary-container": "#607790",
+                "on-primary-fixed": "#00201b",
+                "on-tertiary-fixed": "#021d32",
+                "secondary-fixed": "#d2e7e3",
+                "surface-variant": "#e2e3e1",
+                "on-background": "#1a1c1b",
+                "tertiary-fixed-dim": "#b1c9e4",
+                "on-primary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "inverse-surface": "#2f3130",
+                "surface": "#f9f9f8",
+                "on-error": "#ffffff",
+                "on-primary-fixed-variant": "#005046",
+                "primary-container": "#008373",
+                "outline-variant": "#bcc9c5",
+                "surface-container": "#edeeec",
+                "on-primary-container": "#f4fffb",
+                "on-secondary-fixed": "#0c1f1c",
+                "surface-bright": "#f9f9f8",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed-variant": "#324960",
+                "surface-container-high": "#e8e8e7",
+                "on-error-container": "#93000a",
+                "on-secondary": "#ffffff",
+                "outline": "#6d7a76",
+                "surface-container-low": "#f3f4f2",
+                "secondary-container": "#d2e7e3",
+                "inverse-primary": "#64dac4",
+                "on-tertiary-container": "#fdfcff",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "tertiary": "#475e76",
+                "inverse-on-surface": "#f0f1ef",
+                "background": "#f9f9f8"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "default-padding": "16px",
+                "margin-desktop": "24px",
+                "gutter": "16px",
+                "compact-padding": "8px",
+                "margin-mobile": "16px",
+                "unit": "4px"
+        },
+        "fontFamily": {
+                "label-md": [
+                        "Inter"
+                ],
+                "label-lg": [
+                        "Inter"
+                ],
+                "title-md": [
+                        "Inter"
+                ],
+                "headline-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "title-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-md": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.5px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "label-lg": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.1px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "title-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.15px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "57px",
+                        {
+                                "lineHeight": "64px",
+                                "letterSpacing": "-0.25px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "title-lg": [
+                        "22px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.25px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.5px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill {
+        font-variation-settings: 'FILL' 1;
+    }
+</style>
+</head>
+<body class="bg-background text-on-background h-full flex font-body-md overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full w-72 bg-surface-container-low border-r border-outline-variant py-4 shrink-0">
+<div class="px-margin-desktop mb-8">
+<div class="flex items-center gap-4 mb-2">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="A modern, abstract logo featuring a stylized green cross or leaf motif, representing a high-tech pharmacy. Clean vector art style, minimalist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbaqZK3AEC4w4BlFGNaqNhrlhlgeU9nn10XcA-zSwsZa3W6JBwbjYri6qlp_Hhl0TjVoYWIqcAdip-1xQVyLsAl0zv9dE1ZQgF17mf8_AsKW4EN8YODtDPQNqbelsR8Jb9egFXqW09E1NflyfGQUQfRIkiai0FaRgB1TTBwScnNbCbnEu67Dtja4IfroL1H3izLTpgToM6HryxLWMUEr2vjAwekrfv8XfpTOjfnIOu0SPD6aQQdvl2sw">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary">Main Branch</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop mb-6">
+<button class="w-full bg-primary text-on-primary rounded-full py-3 px-6 flex items-center justify-center gap-2 hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+<span class="font-label-lg text-label-lg">New Prescription</span>
+</button>
+</div>
+<ul class="flex-1 space-y-2 overflow-y-auto px-2">
+<li>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full bg-secondary-container text-on-secondary-container transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined fill" data-icon="inventory_2" data-weight="fill">inventory_2</span>
+                    Inventory
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+                    Prescriptions
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Patients
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto px-2 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Help Center
+             </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-variant transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Sign Out
+             </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full min-w-0 bg-surface">
+<!-- TopNavBar -->
+<header class="bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-16 shrink-0 z-10">
+<div class="flex items-center gap-4 w-1/3">
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-sm text-headline-sm font-bold text-primary md:hidden">Smart Eco-Pharma Hub</span>
+<div class="hidden md:flex relative w-full max-w-md">
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 md:py-2.5 pl-12 pr-10 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all" placeholder="Search drugs by name, brand, or class..." type="search">
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-[11px] items-center justify-center pointer-events-none">/</kbd>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Sensors" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button aria-label="Notifications" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors cursor-pointer active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button aria-label="Settings" class="text-on-surface-variant hover:bg-surface-container-high p-2 rounded-full transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-tertiary-container overflow-hidden border border-outline-variant">
+<img alt="Pharmacist profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a pharmacist wearing a clean white lab coat, looking approachable and knowledgeable against a neutral grey background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7PX65M2QEnomq_WBL4FTBiegc97xnGqb_51tuOqnB9sn2JOboOrE5HH6nzc-FwgPRqjHBC4D4Av_MixSNoysgHkHs0-A_c34H7D6pfh_qfppSFeYwI0zffAF13rP_rmVcbAi02LCE2R7Xha6hRCjDVMGY6ZugvLEvvM9_DkAKyWeIX4EfLDMdUgjP88-LNle2fc-z7BPTnTgw10rKqxT677aGxIHSD5snmitmSuz6m1Q3WME0148iNA">
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto p-margin-desktop bg-surface">
+<div class="max-w-7xl mx-auto space-y-6">
+<!-- Page Header & Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Drug Catalogue</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage inventory, check statuses, and review dosage forms.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container border border-outline text-on-surface rounded-full py-2 px-4 flex items-center gap-2 hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">download</span> Export
+                        </button>
+<button class="bg-primary text-on-primary rounded-full py-2 px-6 flex items-center gap-2 hover:bg-primary-container transition-colors font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-sm">add</span> Add Drug
+                        </button>
+</div>
+</div>
+<!-- Filters Bento Box -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-high p-6 shadow-sm">
+<div class="flex flex-col lg:flex-row gap-6">
+<!-- Categories -->
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">category</span>
+                                 Therapeutic Class
+                             </h3>
+<div class="flex flex-wrap gap-2">
+<button class="bg-secondary-container text-on-secondary-container rounded-full px-4 py-1.5 font-label-md text-label-md border border-transparent flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">check</span> All
+                                 </button>
+<button class="bg-surface text-on-surface rounded-full px-4 py-1.5 font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors">Antibiotics</button>
+<button class="bg-surface text-on-surface rounded-full px-4 py-1.5 font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors">Statins</button>
+<button class="bg-surface text-on-surface rounded-full px-4 py-1.5 font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors">Analgesics</button>
+<button class="bg-surface text-on-surface rounded-full px-4 py-1.5 font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors">Antihypertensives</button>
+<button class="bg-surface text-on-surface rounded-full px-4 py-1.5 font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors">Antidiabetics</button>
+</div>
+</div>
+<!-- Divider -->
+<div class="hidden lg:block w-px bg-outline-variant/50"></div>
+<!-- Status -->
+<div class="flex-1">
+<h3 class="font-title-md text-title-md text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">verified_user</span>
+                                 Regulatory Status
+                             </h3>
+<div class="flex flex-wrap gap-2">
+<label class="flex items-center gap-2 bg-surface px-3 py-1.5 rounded-full border border-outline-variant cursor-pointer hover:bg-surface-variant">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Prescription Only (Rx)</span>
+</label>
+<label class="flex items-center gap-2 bg-surface px-3 py-1.5 rounded-full border border-outline-variant cursor-pointer hover:bg-surface-variant">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Over-the-Counter (OTC)</span>
+</label>
+<label class="flex items-center gap-2 bg-surface px-3 py-1.5 rounded-full border border-outline-variant cursor-pointer hover:bg-surface-variant">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+<span class="font-label-md text-label-md text-on-surface">Controlled Substance</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant/50 font-label-md text-label-md text-primary font-semibold uppercase tracking-wider">
+<th class="p-compact-padding pl-4 w-10 text-center">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+</th>
+<th class="p-compact-padding font-medium uppercase tracking-wider">Drug Name &amp; Brand</th>
+<th class="p-compact-padding font-medium uppercase tracking-wider">Class</th>
+<th class="p-compact-padding font-medium uppercase tracking-wider">Status</th>
+<th class="p-compact-padding font-medium uppercase tracking-wider">Dosage Forms</th>
+<th class="p-compact-padding font-medium uppercase tracking-wider text-right pr-4">Last Updated</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body-md text-body-md text-on-surface bg-surface-container-lowest">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-compact-padding pl-4 text-center align-top pt-3">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="font-title-md text-title-md font-medium text-on-surface">Amoxicillin</div>
+<div class="text-on-surface-variant text-sm mt-0.5">Amoxil, Trimox</div>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-md text-xs font-medium">Antibiotic</span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="inline-flex items-center gap-1 bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full text-xs font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span> Rx Only
+                                        </span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Capsule</span>
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Suspension</span>
+</div>
+</td>
+<td class="p-compact-padding align-top pt-3 text-right pr-4 text-on-surface-variant text-sm">
+                                        Oct 24, 2023
+                                    </td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-compact-padding pl-4 text-center align-top pt-3">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="font-title-md text-title-md font-medium text-on-surface">Atorvastatin</div>
+<div class="text-on-surface-variant text-sm mt-0.5">Lipitor</div>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-md text-xs font-medium">Statin</span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="inline-flex items-center gap-1 bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full text-xs font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span> Rx Only
+                                        </span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Tablet</span>
+</div>
+</td>
+<td class="p-compact-padding align-top pt-3 text-right pr-4 text-on-surface-variant text-sm">
+                                        Nov 12, 2023
+                                    </td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-compact-padding pl-4 text-center align-top pt-3">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="font-title-md text-title-md font-medium text-on-surface">Ibuprofen</div>
+<div class="text-on-surface-variant text-sm mt-0.5">Advil, Motrin</div>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-md text-xs font-medium">Analgesic (NSAID)</span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="inline-flex items-center gap-1 bg-secondary/10 text-secondary border border-secondary/20 px-2 py-0.5 rounded-full text-xs font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">shopping_basket</span> OTC
+                                        </span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Tablet</span>
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Liquid</span>
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Gelcap</span>
+</div>
+</td>
+<td class="p-compact-padding align-top pt-3 text-right pr-4 text-on-surface-variant text-sm">
+                                        Dec 01, 2023
+                                    </td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-compact-padding pl-4 text-center align-top pt-3">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="font-title-md text-title-md font-medium text-on-surface flex items-center gap-2">
+                                            Oxycodone
+                                            <span class="material-symbols-outlined text-error text-[16px]" title="High Alert">warning</span>
+</div>
+<div class="text-on-surface-variant text-sm mt-0.5">OxyContin, Roxicodone</div>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-md text-xs font-medium">Analgesic (Opioid)</span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container border border-error/20 px-2 py-0.5 rounded-full text-xs font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">lock</span> Controlled (C-II)
+                                        </span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Tablet (ER)</span>
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Solution</span>
+</div>
+</td>
+<td class="p-compact-padding align-top pt-3 text-right pr-4 text-on-surface-variant text-sm">
+                                        Jan 15, 2024
+                                    </td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="p-compact-padding pl-4 text-center align-top pt-3">
+<input class="w-4 h-4 rounded text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface" type="checkbox">
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="font-title-md text-title-md font-medium text-on-surface">Metformin</div>
+<div class="text-on-surface-variant text-sm mt-0.5">Glucophage</div>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="bg-surface-container-high text-on-surface px-2 py-1 rounded-md text-xs font-medium">Antidiabetic</span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<span class="inline-flex items-center gap-1 bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full text-xs font-bold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">local_pharmacy</span> Rx Only
+                                        </span>
+</td>
+<td class="p-compact-padding align-top pt-3">
+<div class="flex flex-wrap gap-1">
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Tablet</span>
+<span class="bg-surface border border-outline-variant text-on-surface-variant px-2 py-0.5 rounded-full text-xs">Tablet (ER)</span>
+</div>
+</td>
+<td class="p-compact-padding align-top pt-3 text-right pr-4 text-on-surface-variant text-sm">
+                                        Feb 02, 2024
+                                    </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface-container border-t border-outline-variant/50 px-4 py-3 flex items-center justify-between sm:px-6">
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant">
+                                    Showing <span class="font-medium text-on-surface">1</span> to <span class="font-medium text-on-surface">5</span> of <span class="font-medium text-on-surface">97</span> results
+                                </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant" for="rows">Rows per page:</label>
+<select class="bg-surface border border-outline-variant text-on-surface font-label-md text-label-md rounded-md py-1 pl-2 pr-6 focus:ring-primary focus:border-primary" id="rows">
+<option>10</option>
+<option>25</option>
+<option>50</option>
+</select>
+</div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<button class="relative inline-flex items-center px-2 py-1 rounded-l-md border border-outline-variant bg-surface text-sm font-medium text-on-surface-variant hover:bg-surface-container-high">
+<span class="sr-only">Previous</span>
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="relative inline-flex items-center px-2 py-1 rounded-r-md border border-outline-variant bg-surface text-sm font-medium text-on-surface-variant hover:bg-surface-container-high">
+<span class="sr-only">Next</span>
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
