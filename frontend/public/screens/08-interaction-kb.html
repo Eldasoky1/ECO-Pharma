@@ -1,0 +1,439 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Interaction Knowledge Base - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bcc9c5",
+                        "surface-dim": "#d9dad9",
+                        "secondary-container": "#d2e7e3",
+                        "primary": "#00685b",
+                        "on-tertiary-fixed": "#021d32",
+                        "on-primary-fixed": "#00201b",
+                        "on-tertiary-fixed-variant": "#324960",
+                        "on-secondary-fixed-variant": "#384a48",
+                        "tertiary": "#475e76",
+                        "surface-tint": "#006b5d",
+                        "inverse-primary": "#64dac4",
+                        "primary-fixed-dim": "#64dac4",
+                        "outline": "#6d7a76",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0c1f1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-bright": "#f9f9f8",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f8",
+                        "secondary-fixed": "#d2e7e3",
+                        "surface-container-low": "#f3f4f2",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#556865",
+                        "on-primary-container": "#f4fffb",
+                        "tertiary-container": "#607790",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b1c9e4",
+                        "secondary-fixed-dim": "#b6cbc7",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f8",
+                        "surface-container": "#edeeec",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-container-high": "#e8e8e7",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-highest": "#e2e3e1",
+                        "inverse-on-surface": "#f0f1ef",
+                        "on-error": "#ffffff",
+                        "primary-container": "#008373",
+                        "primary-fixed": "#82f6e0",
+                        "secondary": "#4f625f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3d4946"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "default-padding": "16px",
+                        "margin-desktop": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background h-full flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low dark:bg-surface-dim docked left-0 h-full w-72 flex-shrink-0 z-20 transition-all duration-300 relative group" id="sidebar">
+<!-- Expand/Collapse Button -->
+<button class="absolute -right-4 top-8 bg-surface-container border border-outline-variant rounded-full w-8 h-8 flex items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-colors shadow-sm z-30 opacity-0 group-hover:opacity-100 focus:opacity-100" id="sidebarToggle">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<div class="px-6 mb-8 sidebar-header transition-opacity duration-300">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary-container" data-weight="fill">local_pharmacy</span>
+</div>
+<div class="overflow-hidden">
+<h1 class="font-headline-sm text-headline-sm text-primary truncate">Main Branch</h1>
+<p class="font-label-md text-label-md text-on-surface-variant truncate">System Active</p>
+</div>
+</div>
+</div>
+<div class="px-4 mb-6 sidebar-cta transition-opacity duration-300">
+<button class="w-full bg-primary text-on-primary rounded-full py-3 px-4 font-label-lg text-label-lg flex items-center justify-center gap-2 hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined">add</span>
+<span class="truncate">New Prescription</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-lg text-label-lg sidebar-text">Dashboard</span>
+</a>
+<a aria-current="page" class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill">inventory_2</span>
+<span class="font-label-lg text-label-lg sidebar-text">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">prescriptions</span>
+<span class="font-label-lg text-label-lg sidebar-text">Prescriptions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-label-lg text-label-lg sidebar-text">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-label-lg text-label-lg sidebar-text">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-lg text-label-lg sidebar-text">Settings</span>
+</a>
+</div>
+<div class="px-2 mt-auto pt-4 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="font-label-lg text-label-lg sidebar-text">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-label-lg text-label-lg sidebar-text">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 overflow-hidden bg-background">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container dark:bg-surface-container docked full-width top-0 bg-surface-container border-b border-outline-variant shrink-0 z-10">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant p-2 -ml-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Smart Eco-Pharma Hub</h2>
+</div>
+<div class="flex-1 max-w-xl mx-8 hidden md:block">
+<!-- Search bar intentionally placed left per JSON instruction, though visually centered in remaining space here for balance -->
+<div class="relative w-full max-w-md mr-auto">
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-2 md:py-2.5 pl-12 pr-10 font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 transition-all placeholder:text-on-surface-variant" placeholder="Global search..." type="search">
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-[11px] items-center justify-center pointer-events-none">/</kbd>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Sensors" class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined">sensors</span>
+</button>
+<button aria-label="Notifications" class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button aria-label="Settings" class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 transition-transform mr-2">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-9 h-9 rounded-full bg-surface-variant overflow-hidden border border-outline-variant cursor-pointer hover:ring-2 hover:ring-primary hover:ring-offset-2 transition-all">
+<img alt="Pharmacist profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a pharmacist in a modern clinic setting. The lighting is bright and clean, typical of a sterile but welcoming medical environment. The background is slightly blurred showing pharmacy shelving. Light mode aesthetic with teal accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYPUzqHLBiRy42mcDgRXXirFOXF1q9r6TpVLr7tMr67Rx-XmoDrrFBB7UF0Q69ByMD9yUf7pkVtjq9-nWazNJVHGn25lRMs7ZyOaj9kiM5E_IJLLqJGE-_2hvTpFE3OLqjDm1qPLU8Psbqo66ueaDBBShKi1foKavzoHrgUTdkA25EdOObd1oluBBPWTLlxhFwCtEeEAXJytvevkzI4rzFXuW2i5OUdSTAhezcnsnlsEliCx0nTVFjjg">
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto p-default-padding md:p-margin-desktop">
+<!-- Page Header -->
+<div class="mb-8">
+<h1 class="font-display-lg text-headline-lg md:text-display-lg text-on-background mb-2">Interaction Knowledge Base</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">Comprehensive database of drug-drug interactions, risk assessments, and clinical evidence. Consult primary literature for unverified combinations.</p>
+</div>
+<!-- Filters Section -->
+<div class="bg-surface-container-low rounded-xl p-6 mb-8 border border-outline-variant/50">
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+<!-- Search Input -->
+<div class="relative w-full md:max-w-md">
+<label class="sr-only" for="drug-search">Search Drugs</label>
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-full py-3 pl-12 pr-10 font-body-md text-body-md text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/25 focus:border-primary transition-all" id="drug-search" placeholder="Search by generic or brand name..." type="search">
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-[11px] items-center justify-center pointer-events-none">/</kbd>
+</div>
+<!-- Risk Grade Filter Chips -->
+<div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+<span class="font-label-md text-label-md text-on-surface-variant mr-2 uppercase tracking-wider">Risk Grade:</span>
+<label class="cursor-pointer relative">
+<input checked="" class="peer sr-only" type="checkbox">
+<div class="px-4 py-1.5 rounded-full border border-outline-variant bg-surface font-label-lg text-label-lg text-on-surface-variant peer-checked:bg-secondary-container peer-checked:text-on-secondary-container peer-checked:border-transparent transition-colors flex items-center gap-2 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-[18px] hidden peer-checked:block">check</span>
+                                All
+                            </div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="px-4 py-1.5 rounded-full border border-outline-variant bg-surface font-label-lg text-label-lg text-on-surface-variant peer-checked:bg-error-container peer-checked:text-on-error-container peer-checked:border-transparent transition-colors flex items-center gap-2 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-[18px] hidden peer-checked:block">check</span>
+                                High (X/D)
+                            </div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="px-4 py-1.5 rounded-full border border-outline-variant bg-surface font-label-lg text-label-lg text-on-surface-variant peer-checked:bg-tertiary-container peer-checked:text-on-tertiary-container peer-checked:border-transparent transition-colors flex items-center gap-2 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-[18px] hidden peer-checked:block">check</span>
+                                Moderate (C)
+                            </div>
+</label>
+<label class="cursor-pointer relative">
+<input class="peer sr-only" type="checkbox">
+<div class="px-4 py-1.5 rounded-full border border-outline-variant bg-surface font-label-lg text-label-lg text-on-surface-variant peer-checked:bg-surface-variant peer-checked:text-on-surface-variant peer-checked:border-transparent transition-colors flex items-center gap-2 hover:bg-surface-variant">
+<span class="material-symbols-outlined text-[18px] hidden peer-checked:block">check</span>
+                                Minor (A/B)
+                            </div>
+</label>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-surface rounded-xl border border-outline-variant/50 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="py-4 px-6 font-title-md text-title-md text-primary font-semibold uppercase tracking-wider">Drug A</th>
+<th class="py-4 px-6 font-title-md text-title-md text-primary font-semibold uppercase tracking-wider">Drug B</th>
+<th class="py-4 px-6 font-title-md text-title-md text-primary font-semibold uppercase tracking-wider">Interaction Type</th>
+<th class="py-4 px-6 font-title-md text-title-md text-primary font-semibold uppercase tracking-wider">Risk Badge</th>
+<th class="py-4 px-6 font-title-md text-title-md text-primary font-semibold uppercase tracking-wider">Evidence</th>
+<th class="py-4 px-6 font-title-md text-title-md text-primary font-semibold uppercase tracking-wider text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1: High Risk -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Warfarin</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Anticoagulant</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Amiodarone</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Antiarrhythmic</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-md text-body-md text-on-surface-variant">Pharmacokinetic (CYP2C9 inhibition)</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                                        Grade X (Avoid)
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                                        Strong
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button aria-label="View Details" class="text-primary hover:bg-primary-container/50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Moderate Risk -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Lisinopril</div>
+<div class="font-label-md text-label-md text-on-surface-variant">ACE Inhibitor</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Spironolactone</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Potassium-sparing Diuretic</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-md text-body-md text-on-surface-variant">Pharmacodynamic (Hyperkalemia risk)</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">info</span>
+                                        Grade C (Monitor)
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                                        Strong
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button aria-label="View Details" class="text-primary hover:bg-primary-container/50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Minor Risk -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Amoxicillin</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Antibiotic</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Omeprazole</div>
+<div class="font-label-md text-label-md text-on-surface-variant">PPI</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-md text-body-md text-on-surface-variant">Minor altered absorption</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md border border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                                        Grade A (No Action)
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-variant text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                                        Moderate
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button aria-label="View Details" class="text-primary hover:bg-primary-container/50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: High Risk -->
+<tr class="hover:bg-surface-container-lowest transition-colors group">
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Simvastatin</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Statin</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-lg text-body-lg text-on-surface">Itraconazole</div>
+<div class="font-label-md text-label-md text-on-surface-variant">Antifungal</div>
+</td>
+<td class="py-4 px-6">
+<div class="font-body-md text-body-md text-on-surface-variant">Pharmacokinetic (CYP3A4 inhibition)</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+                                        Grade D (Modify)
+                                    </span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[14px]">science</span>
+                                        Strong
+                                    </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button aria-label="View Details" class="text-primary hover:bg-primary-container/50 p-2 rounded-full transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">
+<span class="material-symbols-outlined">arrow_forward_ios</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination/Footer -->
+<div class="bg-surface-container-low px-6 py-4 border-t border-outline-variant flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Showing 1-4 of 1,248 interactions</span>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded-full text-on-surface-variant hover:bg-surface-variant disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-1 rounded-full text-on-surface-variant hover:bg-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+        // Simple sidebar toggle script for demonstration
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const sidebarTexts = document.querySelectorAll('.sidebar-text');
+        const sidebarHeader = document.querySelector('.sidebar-header');
+        const sidebarCta = document.querySelector('.sidebar-cta');
+        let isExpanded = true;
+
+        sidebarToggle.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                sidebar.classList.remove('w-20');
+                sidebar.classList.add('w-72');
+                sidebarTexts.forEach(el => el.style.display = 'block');
+                sidebarHeader.style.opacity = '1';
+                sidebarHeader.style.display = 'block';
+                sidebarCta.style.opacity = '1';
+                sidebarCta.style.display = 'block';
+                sidebarToggle.querySelector('span').textContent = 'chevron_left';
+            } else {
+                sidebar.classList.remove('w-72');
+                sidebar.classList.add('w-20');
+                sidebarTexts.forEach(el => el.style.display = 'none');
+                sidebarHeader.style.opacity = '0';
+                setTimeout(() => sidebarHeader.style.display = 'none', 300);
+                sidebarCta.style.opacity = '0';
+                setTimeout(() => sidebarCta.style.display = 'none', 300);
+                sidebarToggle.querySelector('span').textContent = 'chevron_right';
+            }
+        });
+    </script>
+</body></html>

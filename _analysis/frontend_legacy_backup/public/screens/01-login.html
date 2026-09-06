@@ -1,0 +1,188 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Login - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bcc9c5",
+                        "surface-dim": "#d9dad9",
+                        "secondary-container": "#d2e7e3",
+                        "primary": "#00685b",
+                        "on-tertiary-fixed": "#021d32",
+                        "on-primary-fixed": "#00201b",
+                        "on-tertiary-fixed-variant": "#324960",
+                        "on-secondary-fixed-variant": "#384a48",
+                        "tertiary": "#475e76",
+                        "surface-tint": "#006b5d",
+                        "inverse-primary": "#64dac4",
+                        "primary-fixed-dim": "#64dac4",
+                        "outline": "#6d7a76",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0c1f1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-bright": "#f9f9f8",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f8",
+                        "secondary-fixed": "#d2e7e3",
+                        "surface-container-low": "#f3f4f2",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#556865",
+                        "on-primary-container": "#f4fffb",
+                        "tertiary-container": "#607790",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b1c9e4",
+                        "secondary-fixed-dim": "#b6cbc7",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f8",
+                        "surface-container": "#edeeec",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-container-high": "#e8e8e7",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-highest": "#e2e3e1",
+                        "inverse-on-surface": "#f0f1ef",
+                        "on-error": "#ffffff",
+                        "primary-container": "#008373",
+                        "primary-fixed": "#82f6e0",
+                        "secondary": "#4f625f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3d4946"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "default-padding": "16px",
+                        "margin-desktop": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface h-screen w-full flex flex-col justify-between items-center relative overflow-hidden">
+<!-- Background Gradient -->
+<div class="absolute inset-0 z-0 bg-gradient-to-br from-surface to-secondary-container opacity-50"></div>
+<!-- Main Content Canvas -->
+<main class="z-10 flex-grow flex items-center justify-center w-full px-margin-mobile md:px-margin-desktop">
+<!-- Login Card (Surface Container Low, Level 1) -->
+<div class="bg-surface-container-low rounded-xl p-8 w-full max-w-md shadow-sm border border-surface-container shadow-[0_4px_8px_rgba(0,104,91,0.04)]">
+<!-- Brand Header -->
+<div class="text-center mb-8">
+<div class="flex justify-center mb-4 text-primary">
+<span class="material-symbols-outlined" style="font-size: 48px; font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-primary mb-2">Smart Eco-Pharma Hub</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Secure access to pharmacy operations</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-6">
+<!-- Email Field -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="mail">mail</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="email" name="email" placeholder="Enter your email" required="" type="email">
+</div>
+</div>
+<!-- Password Field -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="lock">lock</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="password" name="password" placeholder="Enter your password" required="" type="password">
+</div>
+</div>
+<!-- Remember & Forgot -->
+<div class="flex items-center justify-between px-2">
+<label class="flex items-center space-x-2 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary border-outline-variant rounded focus:ring-primary" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface-variant">Remember me</span>
+</label>
+<a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg rounded-full py-3 px-6 hover:bg-surface-tint active:scale-95 transition-all duration-200 flex items-center justify-center space-x-2" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="mt-8 flex items-center justify-center space-x-4">
+<div class="h-px bg-outline-variant flex-grow"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">Secure Login</span>
+<div class="h-px bg-outline-variant flex-grow"></div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="z-10 w-full py-4 text-center">
+<p class="font-label-md text-label-md text-on-surface-variant">Smart Eco-Pharma Hub v0.1.0 © 2024</p>
+</footer>
+<script>
+        // Simple form interaction prevention for prototype
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Typically this would handle auth, for this UI demo we just prevent default.
+            console.log('Login attempt');
+        });
+    </script>
+</body></html>

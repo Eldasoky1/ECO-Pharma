@@ -1,0 +1,509 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Live Sensors - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+<script id="tailwind-config">
+      tailwind.config = { darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
+                    "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
+                    "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
+                    "primary": "rgb(var(--c-primary) / <alpha-value>)",
+                    "on-tertiary-fixed": "rgb(var(--c-on-tertiary-fixed) / <alpha-value>)",
+                    "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)",
+                    "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
+                    "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
+                    "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
+                    "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
+                    "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
+                    "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
+                    "outline": "rgb(var(--c-outline) / <alpha-value>)",
+                    "error": "rgb(var(--c-error) / <alpha-value>)",
+                    "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
+                    "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
+                    "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
+                    "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
+                    "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
+                    "surface-variant": "rgb(var(--c-surface-variant) / <alpha-value>)",
+                    "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
+                    "surface": "rgb(var(--c-surface) / <alpha-value>)",
+                    "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
+                    "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
+                    "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
+                    "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
+                    "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
+                    "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
+                    "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
+                    "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
+                    "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
+                    "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
+                    "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
+                    "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
+                    "background": "rgb(var(--c-background) / <alpha-value>)",
+                    "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
+                    "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
+                    "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
+                    "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
+                    "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
+                    "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)",
+                    "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
+                    "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
+                    "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
+                    "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
+                    "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
+                    "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)"
+            , "success": "rgb(var(--c-success) / <alpha-value>)", "warning": "rgb(var(--c-warning) / <alpha-value>)", "on-warning": "rgb(var(--c-on-warning) / <alpha-value>)"},
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "default-padding": "16px",
+                    "margin-desktop": "24px",
+                    "unit": "4px",
+                    "compact-padding": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "headline-sm": [
+                            "IBM Plex Sans"
+                    ],
+                    "title-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "title-md": [
+                            "IBM Plex Sans"
+                    ],
+                    "label-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "body-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "display-lg": [
+                            "IBM Plex Sans"
+                    ],
+                    "body-md": [
+                            "IBM Plex Sans"
+                    ],
+                    "label-md": [
+                            "IBM Plex Sans"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "title-lg": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "title-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0.15px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.1px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0.5px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "57px",
+                            {
+                                    "lineHeight": "64px",
+                                    "letterSpacing": "-0.25px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.25px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.5px",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #00685b; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #00685b; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();</script><style>:root{--c-background:249 249 248;--c-error:186 26 26;--c-error-container:255 218 214;--c-inverse-on-surface:240 241 239;--c-inverse-primary:100 218 196;--c-inverse-surface:47 49 48;--c-on-background:26 28 27;--c-on-error:255 255 255;--c-on-error-container:147 0 10;--c-on-primary:255 255 255;--c-on-primary-container:244 255 251;--c-on-primary-fixed:0 32 27;--c-on-primary-fixed-variant:0 80 70;--c-on-secondary:255 255 255;--c-on-secondary-container:85 104 101;--c-on-secondary-fixed:12 31 28;--c-on-secondary-fixed-variant:56 74 72;--c-on-surface:26 28 27;--c-on-surface-variant:61 73 70;--c-on-tertiary:255 255 255;--c-on-tertiary-container:253 252 255;--c-on-tertiary-fixed:2 29 50;--c-on-tertiary-fixed-variant:50 73 96;--c-on-warning:133 77 14;--c-outline:109 122 118;--c-outline-variant:188 201 197;--c-primary:0 104 91;--c-primary-container:0 131 115;--c-primary-fixed:130 246 224;--c-primary-fixed-dim:100 218 196;--c-secondary:79 98 95;--c-secondary-container:210 231 227;--c-secondary-fixed:210 231 227;--c-secondary-fixed-dim:182 203 199;--c-success:52 211 153;--c-surface:249 249 248;--c-surface-bright:249 249 248;--c-surface-container:237 238 236;--c-surface-container-high:232 232 231;--c-surface-container-highest:226 227 225;--c-surface-container-low:243 244 242;--c-surface-container-lowest:255 255 255;--c-surface-dim:217 218 217;--c-surface-tint:0 107 93;--c-surface-variant:226 227 225;--c-tertiary:71 94 118;--c-tertiary-container:96 119 144;--c-tertiary-fixed:207 229 255;--c-tertiary-fixed-dim:177 201 228;--c-warning:254 240 138}.dark{--c-background:16 20 19;--c-error:255 180 171;--c-error-container:147 0 10;--c-inverse-on-surface:47 49 48;--c-inverse-primary:0 104 91;--c-inverse-surface:225 227 224;--c-on-background:225 227 224;--c-on-error:105 0 5;--c-on-error-container:255 218 214;--c-on-primary:0 55 49;--c-on-primary-container:130 246 224;--c-on-primary-fixed:0 32 27;--c-on-primary-fixed-variant:0 80 70;--c-on-secondary:34 54 51;--c-on-secondary-container:210 231 227;--c-on-secondary-fixed:12 31 28;--c-on-secondary-fixed-variant:56 74 72;--c-on-surface:225 227 224;--c-on-surface-variant:190 201 197;--c-on-tertiary:28 51 73;--c-on-tertiary-container:207 229 255;--c-on-tertiary-fixed:2 29 50;--c-on-tertiary-fixed-variant:50 73 96;--c-on-warning:255 223 138;--c-outline:136 146 143;--c-outline-variant:63 73 70;--c-primary:100 218 196;--c-primary-container:0 80 70;--c-primary-fixed:130 246 224;--c-primary-fixed-dim:100 218 196;--c-secondary:182 203 199;--c-secondary-container:56 74 72;--c-secondary-fixed:210 231 227;--c-secondary-fixed-dim:182 203 199;--c-success:52 211 153;--c-surface:16 20 19;--c-surface-bright:54 59 57;--c-surface-container:29 33 31;--c-surface-container-high:39 43 42;--c-surface-container-highest:50 54 52;--c-surface-container-low:25 29 28;--c-surface-container-lowest:11 15 14;--c-surface-dim:16 20 19;--c-surface-tint:100 218 196;--c-surface-variant:63 73 70;--c-tertiary:177 201 228;--c-tertiary-container:50 73 96;--c-tertiary-fixed:207 229 255;--c-tertiary-fixed-dim:177 201 228;--c-warning:122 92 0}:focus-visible{outline:2px solid rgb(var(--c-primary));outline-offset:2px;border-radius:6px}@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style></head>
+<body class="bg-background text-on-background h-full flex overflow-hidden font-body-md text-body-md antialiased">
+<!-- SideNavBar (Hidden on Mobile, Flex on Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low w-72 flex-shrink-0 relative z-20">
+<!-- Header -->
+<div class="px-margin-desktop mb-8 flex items-center gap-4">
+<img class="w-10 h-10 rounded-full object-cover"  src="assets/img/img_18.jpg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Main Branch</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-margin-desktop mb-6">
+<a href="new-inventory-record.html" class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-3 rounded-full flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors shadow-sm">
+<span aria-hidden="true" class="material-symbols-outlined">add</span>
+                New Prescription
+            </a>
+</div>
+<!-- Main Nav -->
+<div class="flex-1 overflow-y-auto space-y-1">
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="dashboard.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full bg-secondary-container text-on-secondary-container transition-colors duration-200" href="live-sensors.html">
+<span aria-hidden="true" class="material-symbols-outlined filled" data-icon="sensors">sensors</span>
+<span class="font-label-lg text-label-lg">Live Sensors</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="drug-catalogue.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="interaction-checker.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="prescriptions">medication</span>
+<span class="font-label-lg text-label-lg">Prescriptions</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="interaction-knowledge-base.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-lg text-label-lg">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="pv-reports.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="settings.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</div>
+<!-- Footer Nav -->
+<div class="mt-auto space-y-1 pt-4">
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="settings.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-lg text-label-lg">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="login.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-lg text-label-lg">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full overflow-hidden relative bg-surface">
+<!-- TopNavBar (Web & Mobile) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container z-10 flex-shrink-0">
+<!-- Mobile Menu & Brand -->
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span aria-hidden="true" class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Smart Eco-Pharma Hub</h1>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80 relative">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-4 w-8 h-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer">
+<img class="w-full h-full object-cover"  src="assets/img/img_19.jpg">
+</div>
+</div>
+<button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80"><span class="material-symbols-outlined block dark:hidden" aria-hidden="true">dark_mode</span><span class="material-symbols-outlined hidden dark:block" aria-hidden="true">light_mode</span></button>
+</header>
+<!-- Canvas Area -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop flex flex-col gap-6">
+<!-- Page Header & Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-1">Live Sensors</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time environmental monitoring across all storage zones.</p>
+</div>
+<div class="flex flex-wrap items-center gap-4">
+<!-- Filters -->
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-1 border border-outline-variant">
+<select class="bg-transparent border-none text-on-surface-variant font-label-lg text-label-lg focus:ring-0 cursor-pointer py-2 pl-3 pr-8 rounded-md hover:bg-surface-variant transition-colors">
+<option value="all">All Locations</option>
+<option value="cold_storage">Cold Storage A</option>
+<option value="vaccine_fridge">Vaccine Fridge 1</option>
+<option value="main_floor">Main Floor</option>
+<option value="quarantine">Quarantine Zone</option>
+</select>
+<div class="w-px h-6 bg-outline-variant"></div>
+<input class="bg-transparent border-none text-on-surface-variant font-label-lg text-label-lg focus:ring-0 cursor-pointer py-2 rounded-md hover:bg-surface-variant transition-colors" type="time" value="08:00">
+</div>
+<!-- Auto Refresh Toggle -->
+<div class="flex items-center gap-2 bg-surface-container-low py-2 px-4 rounded-lg border border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Auto-Refresh</span>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-colors duration-200 ease-in-out checked:translate-x-full checked:border-primary border-outline" id="toggle" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="toggle"></label>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Summary Card 1: Critical Alerts -->
+<div class="bg-error-container text-on-error-container rounded-xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-size: 120px;">warning</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span aria-hidden="true" class="material-symbols-outlined">error</span>
+<h3 class="font-title-md text-title-md">Critical Alerts</h3>
+</div>
+<div>
+<p class="font-display-lg text-display-lg font-bold">2</p>
+<p class="font-label-md text-label-md mt-1">Requires immediate attention</p>
+</div>
+</div>
+<!-- Summary Card 2: Active Sensors -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between shadow-sm border border-outline-variant">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span aria-hidden="true" class="material-symbols-outlined">sensors</span>
+<h3 class="font-title-md text-title-md text-on-surface">Active Sensors</h3>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg font-bold text-on-surface">124</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1"><span class="text-primary font-bold">99.2%</span> uptime today</p>
+</div>
+</div>
+<!-- Summary Card 3: Avg Temp (Cold Storage) -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between shadow-sm border border-outline-variant">
+<div class="flex items-center gap-2 mb-4 text-tertiary">
+<span aria-hidden="true" class="material-symbols-outlined">thermostat</span>
+<h3 class="font-title-md text-title-md text-on-surface">Avg Cold Temp</h3>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg font-bold text-on-surface">4.2°C</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Target range: 2°C - 8°C</p>
+</div>
+</div>
+<!-- Summary Card 4: Network Status -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between shadow-sm border border-outline-variant hidden lg:flex">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span aria-hidden="true" class="material-symbols-outlined">wifi</span>
+<h3 class="font-title-md text-title-md text-on-surface">Network Hub</h3>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg font-bold text-on-surface">Stable</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Latency: 12ms</p>
+</div>
+</div>
+</div>
+<!-- Material DataTable Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant flex-1 flex flex-col overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-title-lg text-title-lg text-on-surface">Sensor Readings Feed</h3>
+<button class="text-primary hover:bg-surface-variant p-2 rounded-full transition-colors flex items-center gap-1 font-label-md text-label-md">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-size: 18px;">download</span> Export CSV
+                    </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-bright">
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Sensor ID</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Location</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Temp (°C)</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Humidity (%)</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Battery</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Signal</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<!-- Row 1: Critical Alert -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors bg-error-container/20">
+<td class="py-3 px-4 font-medium">S-Cold-A1</td>
+<td class="py-3 px-4">Cold Storage A</td>
+<td class="py-3 px-4 text-error font-bold flex items-center gap-1">
+                                    8.5 <span aria-hidden="true" class="material-symbols-outlined" style="font-size: 16px;">arrow_upward</span>
+</td>
+<td class="py-3 px-4">45</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 80%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">80%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_4_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-error text-on-error font-label-md text-label-md">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-size: 14px;">warning</span> High Temp
+                                    </span>
+</td>
+</tr>
+<!-- Row 2: Normal -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-medium">S-Cold-A2</td>
+<td class="py-3 px-4">Cold Storage A</td>
+<td class="py-3 px-4">4.2</td>
+<td class="py-3 px-4">42</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 95%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">95%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_4_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+                                        Stable
+                                    </span>
+</td>
+</tr>
+<!-- Row 3: Normal -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-medium">S-Vac-01</td>
+<td class="py-3 px-4">Vaccine Fridge 1</td>
+<td class="py-3 px-4">3.8</td>
+<td class="py-3 px-4">38</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 45%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">45%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_3_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+                                        Stable
+                                    </span>
+</td>
+</tr>
+<!-- Row 4: Low Battery Warning -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-medium">S-Main-F1</td>
+<td class="py-3 px-4">Main Floor</td>
+<td class="py-3 px-4">22.1</td>
+<td class="py-3 px-4">50</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 15%"></div>
+</div>
+<span class="text-xs text-error font-medium">15%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_4_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md">
+<span aria-hidden="true" class="material-symbols-outlined text-error" style="font-size: 14px;">battery_alert</span> Low Batt
+                                    </span>
+</td>
+</tr>
+<!-- Row 5: Signal Lost -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors bg-surface-variant/30">
+<td class="py-3 px-4 font-medium text-on-surface-variant">S-Quar-02</td>
+<td class="py-3 px-4 text-on-surface-variant">Quarantine Zone</td>
+<td class="py-3 px-4 text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-on-surface-variant"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_connected_no_internet_0_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md border border-outline-variant">
+<span aria-hidden="true" class="material-symbols-outlined" style="font-size: 14px;">wifi_off</span> Offline
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-3 border-t border-outline-variant flex justify-between items-center bg-surface-bright text-on-surface-variant font-label-md text-label-md">
+<span>Showing 1-5 of 124 sensors</span>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-surface-variant disabled:opacity-50"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">chevron_left</span></button>
+<button class="p-1 rounded hover:bg-surface-variant"><span aria-hidden="true" class="material-symbols-outlined" style="font-size: 20px;">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>(function(){var b=document.getElementById('theme-toggle');if(b){function s(){var d=document.documentElement.classList.contains('dark');b.setAttribute('aria-pressed',String(d));}b.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');try{localStorage.setItem('theme',d?'dark':'light')}catch(e){}s();});s();}})();</script></body></html>

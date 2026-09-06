@@ -1,0 +1,377 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Smart Eco-Pharma Hub - Interaction Checker</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bcc9c5",
+                      "surface-dim": "#d9dad9",
+                      "secondary-container": "#d2e7e3",
+                      "primary": "#00685b",
+                      "on-tertiary-fixed": "#021d32",
+                      "on-primary-fixed": "#00201b",
+                      "on-tertiary-fixed-variant": "#324960",
+                      "on-secondary-fixed-variant": "#384a48",
+                      "tertiary": "#475e76",
+                      "surface-tint": "#006b5d",
+                      "inverse-primary": "#64dac4",
+                      "primary-fixed-dim": "#64dac4",
+                      "outline": "#6d7a76",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#0c1f1c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-background": "#1a1c1b",
+                      "on-primary-fixed-variant": "#005046",
+                      "surface-bright": "#f9f9f8",
+                      "surface-variant": "#e2e3e1",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f9f9f8",
+                      "secondary-fixed": "#d2e7e3",
+                      "surface-container-low": "#f3f4f2",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#556865",
+                      "on-primary-container": "#f4fffb",
+                      "tertiary-container": "#607790",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#b1c9e4",
+                      "secondary-fixed-dim": "#b6cbc7",
+                      "on-surface": "#1a1c1b",
+                      "on-tertiary-container": "#fdfcff",
+                      "on-secondary": "#ffffff",
+                      "background": "#f9f9f8",
+                      "surface-container": "#edeeec",
+                      "tertiary-fixed": "#cfe5ff",
+                      "surface-container-high": "#e8e8e7",
+                      "inverse-surface": "#2f3130",
+                      "surface-container-highest": "#e2e3e1",
+                      "inverse-on-surface": "#f0f1ef",
+                      "on-error": "#ffffff",
+                      "primary-container": "#008373",
+                      "primary-fixed": "#82f6e0",
+                      "secondary": "#4f625f",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#3d4946"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "default-padding": "16px",
+                      "margin-desktop": "24px",
+                      "unit": "4px",
+                      "compact-padding": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "title-lg": ["Plus Jakarta Sans"],
+                      "title-md": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                      "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for data tables */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #bcc9c5;
+            border-radius: 4px;
+        }
+        
+        /* Animation for snackbar */
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- Desktop SideNav (hidden on mobile) -->
+<nav class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low dark:bg-surface-dim docked left-0 h-full w-72 flex-shrink-0">
+<!-- Header -->
+<div class="px-6 mb-8 flex items-center gap-4">
+<img alt="Pharmacy Logo" class="w-10 h-10 rounded-lg object-cover" data-alt="A clean, minimalist abstract logo for a modern eco-friendly pharmacy system. The logo uses deep teal primary colors (#00685b) against a pristine white background. It conveys clinical precision, high trust, and sustainability in a corporate medical style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZt1yDyN3nmLaCkFRLxEhRjKtKyZwRgK5337DOBFxgPZvlBvbJfpLaKv1M3Ar7Hd_Kz6V5Ww2AJy3L46XFR2jZnkiczQbNzy-_oGqeaR373niSJaxnvv-vh0OiyQWxre-RZCuwnIFipy2WIMM_C3v4xUzFXFh_Up-IoOPF-hpObMohJ18LA6oi7gYkeLeFReyLG1vhFq5PYX0lHyZn8B1ecTq6xyI2ypsVMHynz1_9Cz12IrTxl1UhVg">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary">Main Branch</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg h-12 rounded-full flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors shadow-sm">
+<span class="material-symbols-outlined">add</span>
+                New Prescription
+            </button>
+</div>
+<!-- Main Nav Links -->
+<div class="flex-1 px-2 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined fill" data-icon="prescriptions" data-weight="fill">prescriptions</span>
+                Prescriptions
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Patients
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</div>
+<!-- Footer Links -->
+<div class="px-2 mt-auto pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container hover:text-on-error-container rounded-full mx-2 font-label-lg text-label-lg transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-full overflow-hidden bg-background relative">
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile h-16 bg-surface-container border-b border-outline-variant docked full-width top-0 z-20">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">Smart Eco-Pharma Hub</span>
+</div>
+<div class="flex items-center gap-2 text-primary">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<img alt="Pharmacist profile avatar" class="w-8 h-8 rounded-full ml-2 object-cover border border-outline-variant" data-alt="A small circular avatar showing a professional pharmacist in a crisp white coat against a light teal background, communicating clinical trust and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApsGKzCGgcT8KDKjln0icfco7OY4_wn1BsyRpjIavzYoda6H5BCaU8H8xMrtsMGHt1x6IVv_M3kTS4inGc4GJ9RtQui0NHP4lsKsqMt8dBD5P-NuvYNK7pL7VuWzQK6umOogeNO878Gc55DfZUi8EWUdAg_BUIQKbibnqPdiDbHEWVmbZWXWPymqR_nztmyGkrTCuJeiKFZZg7N4mOSugsSLT07tfjp1d_U0GY_DFROaGxwf74eGGeLA">
+</div>
+</header>
+<!-- Desktop Top Context Bar -->
+<header class="hidden md:flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container border-b border-outline-variant flex-shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="font-title-lg text-title-lg text-on-surface">Interaction Checker</h2>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 relative">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors active:scale-95 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<img alt="Pharmacist profile avatar" class="w-8 h-8 rounded-full ml-4 object-cover border border-outline-variant" data-alt="A small circular avatar showing a professional pharmacist in a crisp white coat against a light teal background, communicating clinical trust and expertise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ1rE3uZcQ26TrSlB6CtLSQzxU9Oo2YTyjYRKtT5ppvZA5Clyaqy7wU1RylzjUJuiRaBvz8gAJBRphYtczvQhLXfWmIgf9aKTlXkNJSNnOsMQOd2qGmeuHY4q8XGeXXyELlL2v5daqaLw2svNPEX4iOxQQWFItEZYua_4bvLOQf84y-n-zKfQgRJEA_6mK9r3GxFSXmAQLi-m9R-ng1UrurqrlZzTn1K5YlGE6bidWaCthK4mMJX8ffw">
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="max-w-6xl mx-auto space-y-6">
+<!-- Page Header (Mobile Only) -->
+<div class="md:hidden mb-6">
+<h2 class="font-title-lg text-title-lg text-on-surface">Interaction Checker</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Select medications to check for potential contraindications.</p>
+</div>
+<div class="hidden md:block mb-2">
+<p class="font-body-md text-body-md text-on-surface-variant">Select medications to check for potential contraindications.</p>
+</div>
+<!-- Input Section Bento Card -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant p-6 shadow-sm">
+<div class="flex flex-col gap-6">
+<!-- Search / Input -->
+<div class="relative w-full">
+<label class="font-label-md text-label-md text-on-surface-variant absolute -top-2 left-3 bg-surface-container-low px-1" for="drug-search">Add Medication</label>
+<div class="flex items-center border border-outline rounded-[4px] px-3 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary bg-surface h-[56px]">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface font-body-lg placeholder-on-surface-variant outline-none h-full" id="drug-search" placeholder="Type drug name (e.g., Lisinopril)..." type="text">
+</div>
+</div>
+<!-- Selected Chips Area -->
+<div class="min-h-[64px] bg-surface rounded-lg border border-surface-variant p-4 flex flex-wrap gap-2 items-start" id="selected-drugs-container">
+<!-- Pre-populated chips for demonstration -->
+<div class="inline-flex items-center h-8 px-3 rounded-full border border-outline bg-surface text-on-surface font-label-lg text-label-lg gap-1 hover:bg-surface-variant transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[18px]">medication</span>
+                                Lisinopril
+                                <button class="ml-1 text-on-surface-variant group-hover:text-on-surface rounded-full p-0.5 hover:bg-outline-variant focus:outline-none">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="inline-flex items-center h-8 px-3 rounded-full border border-outline bg-surface text-on-surface font-label-lg text-label-lg gap-1 hover:bg-surface-variant transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[18px]">medication</span>
+                                Ibuprofen
+                                <button class="ml-1 text-on-surface-variant group-hover:text-on-surface rounded-full p-0.5 hover:bg-outline-variant focus:outline-none">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="inline-flex items-center h-8 px-3 rounded-full border border-outline bg-surface text-on-surface font-label-lg text-label-lg gap-1 hover:bg-surface-variant transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-[18px]">medication</span>
+                                Warfarin
+                                <button class="ml-1 text-on-surface-variant group-hover:text-on-surface rounded-full p-0.5 hover:bg-outline-variant focus:outline-none">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex justify-end gap-3">
+<button class="px-6 h-10 rounded-full border border-outline text-primary font-label-lg text-label-lg hover:bg-surface-variant transition-colors">
+                                Clear All
+                            </button>
+<button class="px-6 h-10 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-surface-tint transition-colors flex items-center gap-2 shadow-sm" onclick="showResults()">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                Check Interactions
+                            </button>
+</div>
+</div>
+</div>
+<!-- Results Section (Initially Hidden via JS in real app, showing for layout) -->
+<div class="bg-surface-container rounded-xl border border-surface-variant overflow-hidden shadow-sm" id="results-section">
+<div class="p-4 border-b border-surface-variant bg-surface-container-low flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error">warning</span>
+                            Interaction Analysis Results
+                        </h3>
+<span class="font-label-md text-label-md bg-error-container text-on-error-container px-2 py-1 rounded-full">2 Risks Found</span>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-variant font-label-md text-label-md text-on-surface-variant">
+<th class="p-4 font-medium w-[150px]">Drug A</th>
+<th class="p-4 font-medium w-[150px]">Drug B</th>
+<th class="p-4 font-medium w-[120px]">Risk Level</th>
+<th class="p-4 font-medium">Description &amp; Recommendation</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface divide-y divide-surface-variant bg-surface">
+<!-- High Risk Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 align-top">
+<div class="font-medium text-on-surface">Ibuprofen</div>
+<div class="text-on-surface-variant text-[12px] mt-1">NSAID</div>
+</td>
+<td class="p-4 align-top">
+<div class="font-medium text-on-surface">Warfarin</div>
+<div class="text-on-surface-variant text-[12px] mt-1">Anticoagulant</div>
+</td>
+<td class="p-4 align-top">
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container font-label-md text-label-md px-2 py-1 rounded-full whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+                                            Major
+                                        </span>
+</td>
+<td class="p-4">
+<p class="mb-2"><strong>Increased risk of bleeding.</strong> NSAIDs can cause GI mucosal damage and inhibit platelet function, enhancing the hypoprothrombinemic effect of warfarin.</p>
+<div class="bg-surface-variant p-3 rounded-lg text-on-surface-variant text-[13px] border border-outline-variant">
+<span class="font-medium text-primary block mb-1">Recommendation:</span>
+                                            Avoid combination if possible. If concomitant use is necessary, monitor INR closely and observe for signs of bleeding. Consider alternative analgesic (e.g., Acetaminophen).
+                                        </div>
+</td>
+</tr>
+<!-- Moderate Risk Row -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="p-4 align-top">
+<div class="font-medium text-on-surface">Lisinopril</div>
+<div class="text-on-surface-variant text-[12px] mt-1">ACE Inhibitor</div>
+</td>
+<td class="p-4 align-top">
+<div class="font-medium text-on-surface">Ibuprofen</div>
+<div class="text-on-surface-variant text-[12px] mt-1">NSAID</div>
+</td>
+<td class="p-4 align-top">
+<span class="inline-flex items-center gap-1 bg-secondary-container text-on-secondary-container font-label-md text-label-md px-2 py-1 rounded-full whitespace-nowrap">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                                            Moderate
+                                        </span>
+</td>
+<td class="p-4">
+<p class="mb-2"><strong>Decreased antihypertensive effect.</strong> NSAIDs may diminish the antihypertensive efficacy of ACE inhibitors and increase the risk of renal function deterioration.</p>
+<div class="bg-surface-variant p-3 rounded-lg text-on-surface-variant text-[13px] border border-outline-variant">
+<span class="font-medium text-primary block mb-1">Recommendation:</span>
+                                            Monitor blood pressure periodically. Assess renal function if therapy is prolonged or in patients with pre-existing renal impairment.
+                                        </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Empty State (Hidden in this view, included for structure) -->
+<div class="hidden bg-surface rounded-xl border border-dashed border-outline-variant p-12 flex flex-col items-center justify-center text-center">
+<img alt="Empty state illustration" class="w-32 h-32 mb-4 opacity-80" data-alt="A clean, minimalist vector illustration showing two abstract medication capsules overlapping slightly with a subtle checkmark floating above them. The style uses muted slate grays and light teal tones (#00685b) against a bright white background, conveying safety, systematic checking, and clinical precision in a corporate medical style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBidDheaMKVfwcoAKzDc-cXEXyAwFc1BNj-2t5kTsozo945khrwAWCn6lx09H9IP9jA1f8h6MEjxC6hfL97l1jLAhTsO-kff8ZfUz-lsF2t2y9yam7ucK1KSxCxlR-HG8IJslsp8iIAK7Uo0cAQ4QbBjWlcSDVosF-CPFuo0u7l_jUT61MplCm9jTpT2nDGO2mpgd0K84Cz1uYvGYiFhstAUeCJYZsEsoyMrEdm4XTVXmKZGZCBBvxKWQ">
+<h3 class="font-title-md text-title-md text-on-surface mb-2">No Drugs Selected</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm mx-auto">Add two or more medications to the list above to check for potential interactions and contraindications.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Error Snackbar (Positioned absolute) -->
+<div class="absolute bottom-margin-mobile left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-lg shadow-md flex items-center gap-3 z-50 animate-slide-up min-w-[300px] max-w-md">
+<span class="material-symbols-outlined text-error-container">error</span>
+<div class="flex-1 font-body-md text-body-md">
+            Major interaction detected: Warfarin + Ibuprofen.
+        </div>
+<button class="text-inverse-primary font-label-md text-label-md uppercase hover:bg-on-background/10 px-2 py-1 rounded transition-colors" onclick="this.parentElement.style.display='none'">
+            Dismiss
+        </button>
+</div>
+</body></html>

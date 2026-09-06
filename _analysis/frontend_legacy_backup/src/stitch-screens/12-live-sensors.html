@@ -1,0 +1,509 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Smart Eco-Pharma Hub - Live Sensors</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#bcc9c5",
+                    "surface-dim": "#d9dad9",
+                    "secondary-container": "#d2e7e3",
+                    "primary": "#00685b",
+                    "on-tertiary-fixed": "#021d32",
+                    "on-primary-fixed": "#00201b",
+                    "on-tertiary-fixed-variant": "#324960",
+                    "on-secondary-fixed-variant": "#384a48",
+                    "tertiary": "#475e76",
+                    "surface-tint": "#006b5d",
+                    "inverse-primary": "#64dac4",
+                    "primary-fixed-dim": "#64dac4",
+                    "outline": "#6d7a76",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#0c1f1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1a1c1b",
+                    "on-primary-fixed-variant": "#005046",
+                    "surface-bright": "#f9f9f8",
+                    "surface-variant": "#e2e3e1",
+                    "on-tertiary": "#ffffff",
+                    "surface": "#f9f9f8",
+                    "secondary-fixed": "#d2e7e3",
+                    "surface-container-low": "#f3f4f2",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#556865",
+                    "on-primary-container": "#f4fffb",
+                    "tertiary-container": "#607790",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#b1c9e4",
+                    "secondary-fixed-dim": "#b6cbc7",
+                    "on-surface": "#1a1c1b",
+                    "on-tertiary-container": "#fdfcff",
+                    "on-secondary": "#ffffff",
+                    "background": "#f9f9f8",
+                    "surface-container": "#edeeec",
+                    "tertiary-fixed": "#cfe5ff",
+                    "surface-container-high": "#e8e8e7",
+                    "inverse-surface": "#2f3130",
+                    "surface-container-highest": "#e2e3e1",
+                    "inverse-on-surface": "#f0f1ef",
+                    "on-error": "#ffffff",
+                    "primary-container": "#008373",
+                    "primary-fixed": "#82f6e0",
+                    "secondary": "#4f625f",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#3d4946"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "gutter": "16px",
+                    "default-padding": "16px",
+                    "margin-desktop": "24px",
+                    "unit": "4px",
+                    "compact-padding": "8px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "title-md": [
+                            "Inter"
+                    ],
+                    "label-lg": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "title-lg": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "title-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0.15px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.1px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "letterSpacing": "0.5px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "57px",
+                            {
+                                    "lineHeight": "64px",
+                                    "letterSpacing": "-0.25px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "letterSpacing": "0.25px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.5px",
+                                    "fontWeight": "500"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #00685b; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #00685b; /* primary */
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full flex overflow-hidden font-body-md text-body-md antialiased">
+<!-- SideNavBar (Hidden on Mobile, Flex on Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low w-72 flex-shrink-0 relative z-20">
+<!-- Header -->
+<div class="px-margin-desktop mb-8 flex items-center gap-4">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A minimalist, modern vector logo for a high-tech pharmacy. Clean geometric lines, utilizing a deep teal and subtle slate blue color palette. The logo should convey precision, health, and technological advancement, suitable for a corporate medical application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGMIPEmXE2ANvwG3jGJVuNvNdrEzKI6nPNxwxQT_scIUrgBPIIhjdWrhwKLh1ShfZcLoplkXXpcgT9swniIO-qw12jYbdwvKJP1Qsx0TLAmTTXfCz--3eQ_XDU9nMpa7a-LfIDjfq2dIWXDJZB6TAGuE0PaPm_Cj5isCcVxrspxWRV8IzdfoNu53-dSeW16pRYKTlLrRcAat4LFno41EhkOGbmaGLQX1vUNJ2Irp9FEwIcPvWmwqCgEg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight">Main Branch</h2>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-margin-desktop mb-6">
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg py-3 rounded-full flex items-center justify-center gap-2 hover:bg-surface-tint transition-colors shadow-sm">
+<span class="material-symbols-outlined">add</span>
+                New Prescription
+            </button>
+</div>
+<!-- Main Nav -->
+<div class="flex-1 overflow-y-auto space-y-1">
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full bg-secondary-container text-on-secondary-container transition-colors duration-200" href="#">
+<span class="material-symbols-outlined filled" data-icon="sensors">sensors</span>
+<span class="font-label-lg text-label-lg">Live Sensors</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">medication</span>
+<span class="font-label-lg text-label-lg">Prescriptions</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-lg text-label-lg">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</div>
+<!-- Footer Nav -->
+<div class="mt-auto space-y-1 pt-4">
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-lg text-label-lg">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-margin-desktop py-3 mx-2 rounded-full text-on-surface-variant hover:bg-surface-variant transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-lg text-label-lg">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full overflow-hidden relative bg-surface">
+<!-- TopNavBar (Web & Mobile) -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container z-10 flex-shrink-0">
+<!-- Mobile Menu & Brand -->
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Smart Eco-Pharma Hub</h1>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors cursor-pointer active:scale-95">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-4 w-8 h-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a pharmacist in a modern, brightly lit clinical setting. They are wearing a clean white lab coat over a light blue collared shirt. The background is slightly blurred, showing a high-tech pharmacy environment. Soft, flattering corporate lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCwJ4qU1nfIfa-7Jt3bOmAGNMcdCKdx6dQwQylX12C6hc7b9CQMyHNG_PUuNApkJ8gMvC19q4GUeAG7-MuCNokaRgD637mx-UuOK4EfOCghlZPoTG0Palv3W64aaFadVN3daBjd-dAyxTD4Rop_qs0ydaKjDOSWb_RuU4tQfVtobvxbWxrOvdLMjPREVG0DpCjKGSVQbUS_0xvRAckQYW159OuKUpnuGt1d3S_x1r_9S4QEsJcg6OafA">
+</div>
+</div>
+</header>
+<!-- Canvas Area -->
+<main class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop flex flex-col gap-6">
+<!-- Page Header & Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-1">Live Sensors</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time environmental monitoring across all storage zones.</p>
+</div>
+<div class="flex flex-wrap items-center gap-4">
+<!-- Filters -->
+<div class="flex items-center gap-3 bg-surface-container-low rounded-lg p-1 border border-outline-variant">
+<select class="bg-transparent border-none text-on-surface-variant font-label-lg text-label-lg focus:ring-0 cursor-pointer py-2 pl-3 pr-8 rounded-md hover:bg-surface-variant transition-colors">
+<option value="all">All Locations</option>
+<option value="cold_storage">Cold Storage A</option>
+<option value="vaccine_fridge">Vaccine Fridge 1</option>
+<option value="main_floor">Main Floor</option>
+<option value="quarantine">Quarantine Zone</option>
+</select>
+<div class="w-px h-6 bg-outline-variant"></div>
+<input class="bg-transparent border-none text-on-surface-variant font-label-lg text-label-lg focus:ring-0 cursor-pointer py-2 rounded-md hover:bg-surface-variant transition-colors" type="time" value="08:00">
+</div>
+<!-- Auto Refresh Toggle -->
+<div class="flex items-center gap-2 bg-surface-container-low py-2 px-4 rounded-lg border border-outline-variant">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Auto-Refresh</span>
+<div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer z-10 transition-transform duration-200 ease-in-out checked:translate-x-full checked:border-primary border-outline" id="toggle" name="toggle" type="checkbox">
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out" for="toggle"></label>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout for Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+<!-- Summary Card 1: Critical Alerts -->
+<div class="bg-error-container text-on-error-container rounded-xl p-6 flex flex-col justify-between shadow-sm relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10">
+<span class="material-symbols-outlined" style="font-size: 120px;">warning</span>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined">error</span>
+<h3 class="font-title-md text-title-md">Critical Alerts</h3>
+</div>
+<div>
+<p class="font-display-lg text-display-lg font-bold">2</p>
+<p class="font-label-md text-label-md mt-1">Requires immediate attention</p>
+</div>
+</div>
+<!-- Summary Card 2: Active Sensors -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between shadow-sm border border-outline-variant">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">sensors</span>
+<h3 class="font-title-md text-title-md text-on-surface">Active Sensors</h3>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg font-bold text-on-surface">124</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1"><span class="text-primary font-bold">99.2%</span> uptime today</p>
+</div>
+</div>
+<!-- Summary Card 3: Avg Temp (Cold Storage) -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between shadow-sm border border-outline-variant">
+<div class="flex items-center gap-2 mb-4 text-tertiary">
+<span class="material-symbols-outlined">thermostat</span>
+<h3 class="font-title-md text-title-md text-on-surface">Avg Cold Temp</h3>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg font-bold text-on-surface">4.2°C</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Target range: 2°C - 8°C</p>
+</div>
+</div>
+<!-- Summary Card 4: Network Status -->
+<div class="bg-surface-container rounded-xl p-6 flex flex-col justify-between shadow-sm border border-outline-variant hidden lg:flex">
+<div class="flex items-center gap-2 mb-4 text-primary">
+<span class="material-symbols-outlined">wifi</span>
+<h3 class="font-title-md text-title-md text-on-surface">Network Hub</h3>
+</div>
+<div>
+<p class="font-headline-lg text-headline-lg font-bold text-on-surface">Stable</p>
+<p class="font-label-md text-label-md text-on-surface-variant mt-1">Latency: 12ms</p>
+</div>
+</div>
+</div>
+<!-- Material DataTable Section -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant flex-1 flex flex-col overflow-hidden">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface-container-low">
+<h3 class="font-title-lg text-title-lg text-on-surface">Sensor Readings Feed</h3>
+<button class="text-primary hover:bg-surface-variant p-2 rounded-full transition-colors flex items-center gap-1 font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-size: 18px;">download</span> Export CSV
+                    </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-bright">
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Sensor ID</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Location</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Temp (°C)</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Humidity (%)</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Battery</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Signal</th>
+<th class="py-3 px-4 font-label-lg text-label-lg text-on-surface-variant font-medium">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<!-- Row 1: Critical Alert -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors bg-error-container/20">
+<td class="py-3 px-4 font-medium">S-Cold-A1</td>
+<td class="py-3 px-4">Cold Storage A</td>
+<td class="py-3 px-4 text-error font-bold flex items-center gap-1">
+                                    8.5 <span class="material-symbols-outlined" style="font-size: 16px;">arrow_upward</span>
+</td>
+<td class="py-3 px-4">45</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 80%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">80%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_4_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-error text-on-error font-label-md text-label-md">
+<span class="material-symbols-outlined" style="font-size: 14px;">warning</span> High Temp
+                                    </span>
+</td>
+</tr>
+<!-- Row 2: Normal -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-medium">S-Cold-A2</td>
+<td class="py-3 px-4">Cold Storage A</td>
+<td class="py-3 px-4">4.2</td>
+<td class="py-3 px-4">42</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 95%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">95%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_4_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+                                        Stable
+                                    </span>
+</td>
+</tr>
+<!-- Row 3: Normal -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-medium">S-Vac-01</td>
+<td class="py-3 px-4">Vaccine Fridge 1</td>
+<td class="py-3 px-4">3.8</td>
+<td class="py-3 px-4">38</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 45%"></div>
+</div>
+<span class="text-xs text-on-surface-variant">45%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_3_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+                                        Stable
+                                    </span>
+</td>
+</tr>
+<!-- Row 4: Low Battery Warning -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
+<td class="py-3 px-4 font-medium">S-Main-F1</td>
+<td class="py-3 px-4">Main Floor</td>
+<td class="py-3 px-4">22.1</td>
+<td class="py-3 px-4">50</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 15%"></div>
+</div>
+<span class="text-xs text-error font-medium">15%</span>
+</div>
+</td>
+<td class="py-3 px-4 text-primary"><span class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_4_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-error" style="font-size: 14px;">battery_alert</span> Low Batt
+                                    </span>
+</td>
+</tr>
+<!-- Row 5: Signal Lost -->
+<tr class="border-b border-outline-variant hover:bg-surface-container-low transition-colors bg-surface-variant/30">
+<td class="py-3 px-4 font-medium text-on-surface-variant">S-Quar-02</td>
+<td class="py-3 px-4 text-on-surface-variant">Quarantine Zone</td>
+<td class="py-3 px-4 text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-on-surface-variant">--</td>
+<td class="py-3 px-4 text-on-surface-variant"><span class="material-symbols-outlined" style="font-size: 20px;">signal_cellular_connected_no_internet_0_bar</span></td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md border border-outline-variant">
+<span class="material-symbols-outlined" style="font-size: 14px;">wifi_off</span> Offline
+                                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-3 border-t border-outline-variant flex justify-between items-center bg-surface-bright text-on-surface-variant font-label-md text-label-md">
+<span>Showing 1-5 of 124 sensors</span>
+<div class="flex gap-2">
+<button class="p-1 rounded hover:bg-surface-variant disabled:opacity-50"><span class="material-symbols-outlined" style="font-size: 20px;">chevron_left</span></button>
+<button class="p-1 rounded hover:bg-surface-variant"><span class="material-symbols-outlined" style="font-size: 20px;">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

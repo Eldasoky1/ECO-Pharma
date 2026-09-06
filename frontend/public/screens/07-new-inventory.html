@@ -1,0 +1,352 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>New Inventory Record - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#bcc9c5",
+                        "surface-dim": "#d9dad9",
+                        "secondary-container": "#d2e7e3",
+                        "primary": "#00685b",
+                        "on-tertiary-fixed": "#021d32",
+                        "on-primary-fixed": "#00201b",
+                        "on-tertiary-fixed-variant": "#324960",
+                        "on-secondary-fixed-variant": "#384a48",
+                        "tertiary": "#475e76",
+                        "surface-tint": "#006b5d",
+                        "inverse-primary": "#64dac4",
+                        "primary-fixed-dim": "#64dac4",
+                        "outline": "#6d7a76",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0c1f1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1a1c1b",
+                        "on-primary-fixed-variant": "#005046",
+                        "surface-bright": "#f9f9f8",
+                        "surface-variant": "#e2e3e1",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9f8",
+                        "secondary-fixed": "#d2e7e3",
+                        "surface-container-low": "#f3f4f2",
+                        "on-primary": "#ffffff",
+                        "on-secondary-container": "#556865",
+                        "on-primary-container": "#f4fffb",
+                        "tertiary-container": "#607790",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#b1c9e4",
+                        "secondary-fixed-dim": "#b6cbc7",
+                        "on-surface": "#1a1c1b",
+                        "on-tertiary-container": "#fdfcff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f8",
+                        "surface-container": "#edeeec",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-container-high": "#e8e8e7",
+                        "inverse-surface": "#2f3130",
+                        "surface-container-highest": "#e2e3e1",
+                        "inverse-on-surface": "#f0f1ef",
+                        "on-error": "#ffffff",
+                        "primary-container": "#008373",
+                        "primary-fixed": "#82f6e0",
+                        "secondary": "#4f625f",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#3d4946"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "default-padding": "16px",
+                        "margin-desktop": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "title-lg": ["Plus Jakarta Sans"],
+                        "title-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                        "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                        "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Floating label transition */
+        .peer:focus ~ .peer-focus\:top-2,
+        .peer:not(:placeholder-shown) ~ .peer-focus\:top-2 {
+            top: 0.5rem;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-4 border-r border-outline-variant bg-surface-container-low w-72 shrink-0">
+<div class="px-margin-desktop mb-8 flex items-center gap-4">
+<img alt="Pharmacy Logo" class="w-10 h-10 rounded-full bg-surface-variant object-cover" data-alt="A clean, modern medical or pharmacy logo featuring abstract geometric shapes in teal and slate blue. The design is simple, professional, and trustworthy, placed on a pure white background. Minimalist aesthetic, high quality, vector style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARCSJjkQpVgGcwSmirftM4Bh2mIoOlOX6gXYzCGLbEY08WQzLucaMIZHxYPL8naXepbosHdgsTY02EnLNLvyc-1r1PcEXxGJZbjGvrhJaCqk6NYlOn1gM4huc2SWhOReZSxH4YAF0iwxx_n0Lk34vpwtPWvCT1aLzMScg9n63zO0riMK9Rm4kf_ej1r7UJKdrXBeLQ4FC--DXJlvkAv9LP_sxuzl2Tdy6YFakHo7eL3UwBDTIgREbr6w">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary">Main Branch</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">System Active</p>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary hover:bg-surface-tint text-on-primary font-label-lg text-label-lg rounded-full py-3 px-6 flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Prescription
+            </button>
+</div>
+<ul class="flex-1 overflow-y-auto space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" data-weight="fill">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+<span class="font-label-lg text-label-lg">Prescriptions</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-lg text-label-lg">Patients</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto border-t border-outline-variant pt-4 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-lg text-label-lg">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-lg text-label-lg">Sign Out</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-surface-container border-b border-outline-variant shrink-0">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-sm text-headline-sm font-bold text-primary hidden md:block">Smart Eco-Pharma Hub</div>
+</div>
+<!-- Search Bar (on_left configuration) -->
+<div class="flex-1 max-w-xl mx-4">
+<div class="relative group">
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none" data-icon="search"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface placeholder:text-on-surface-variant rounded-full py-2 md:py-2.5 pl-12 pr-10 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/25 font-body-md text-body-md transition-all" placeholder="Search inventory, patients, or prescriptions..." type="search">
+<kbd class="absolute right-3 top-1/2 -translate-y-1/2 hidden md:flex w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-md text-[11px] items-center justify-center pointer-events-none">/</kbd>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-colors active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-colors active:scale-95 cursor-pointer relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border border-surface-container"></span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high rounded-full p-2 transition-colors active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-tertiary-container overflow-hidden border border-outline-variant cursor-pointer hover:opacity-90 transition-opacity">
+<img alt="Pharmacist profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a pharmacist in a clean, brightly lit pharmacy environment. They are wearing a white lab coat and smiling slightly. The background is slightly blurred showing shelves of medication. High quality, soft lighting, modern clinical aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeN5Olv8rck7rkUqtZNZ3nIILPdmpLogeSwkt8U_zV4aukmxWTNIsWuyQkVu7M6JQqzuiT91fMc2Jm70uC6ijKlvgKoNaLAB8ek0AtGaMtU8HrYRqsDsCef1MueblJYp2Efohn4ECfsGirPW7FZuuZj_K-JEMnqyBIG2IaAT5-VGP8LPAoqvC-Mn9lBcFpHKzfckRmGWeasRN5Q4Tzn_Tm0DWB_JpP_Q4OfPrAmgHb91LEoHHfXsX2_g">
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 overflow-y-auto bg-background p-margin-mobile md:p-margin-desktop">
+<div class="max-w-4xl mx-auto space-y-6">
+<!-- Header -->
+<div class="flex items-center gap-4 pb-4 border-b border-outline-variant">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-variant p-2 rounded-full inline-flex" href="#">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</a>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background">New Inventory Record</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Add a new material or drug to the central database.</p>
+</div>
+</div>
+<!-- Bento Grid Form Layout -->
+<form class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Primary Drug Info (Spans 8 cols on desktop) -->
+<div class="md:col-span-8 bg-surface-container-low rounded-xl p-default-padding space-y-6 border border-outline-variant/30">
+<h3 class="font-title-md text-title-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="medication">medication</span>
+                            Material Details
+                        </h3>
+<!-- Drug Picker Search -->
+<div class="relative">
+<label class="sr-only" for="drug-search">Search National Drug Database</label>
+<div class="relative">
+<span class="absolute left-1.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center pointer-events-none" data-icon="search"><span class="material-symbols-outlined" style="font-size:18px">search</span></span>
+<input class="w-full bg-surface-container-lowest text-on-surface border border-outline-variant hover:border-primary focus:border-primary focus:ring-2 focus:ring-primary/25 rounded-full py-3 pl-12 pr-12 font-body-lg text-body-lg transition-all shadow-sm" id="drug-search" placeholder="Search NDC, Generic, or Brand Name..." type="search">
+<button class="absolute right-2 top-1/2 -translate-y-1/2 bg-secondary-container text-on-secondary-container hover:bg-surface-tint hover:text-on-primary rounded-full p-2 transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="barcode_scanner">barcode_scanner</span>
+</button>
+</div>
+<!-- Simulated dropdown state (hidden by default) -->
+<div class="hidden absolute top-full left-0 right-0 mt-2 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg z-10 overflow-hidden">
+<!-- Dropdown items would go here -->
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+<!-- Floating Label Input: Generic Name -->
+<div class="relative">
+<input class="peer w-full bg-surface text-on-surface border border-outline hover:border-on-surface focus:border-primary focus:ring-1 focus:ring-primary rounded-full px-4 pt-6 pb-2 font-body-md text-body-md transition-all placeholder-transparent" id="generic-name" placeholder="Generic Name" type="text">
+<label class="absolute left-4 top-4 text-on-surface-variant font-body-md text-body-md transition-all peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:text-label-md cursor-text" for="generic-name">Generic Name</label>
+</div>
+<!-- Floating Label Input: Brand Name -->
+<div class="relative">
+<input class="peer w-full bg-surface text-on-surface border border-outline hover:border-on-surface focus:border-primary focus:ring-1 focus:ring-primary rounded-full px-4 pt-6 pb-2 font-body-md text-body-md transition-all placeholder-transparent" id="brand-name" placeholder="Brand Name" type="text">
+<label class="absolute left-4 top-4 text-on-surface-variant font-body-md text-body-md transition-all peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:text-label-md cursor-text" for="brand-name">Brand Name</label>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<!-- Floating Label Input: Strength -->
+<div class="relative col-span-2">
+<input class="peer w-full bg-surface text-on-surface border border-outline hover:border-on-surface focus:border-primary focus:ring-1 focus:ring-primary rounded-full px-4 pt-6 pb-2 font-body-md text-body-md transition-all placeholder-transparent" id="strength" placeholder="Strength (e.g. 500mg)" type="text">
+<label class="absolute left-4 top-4 text-on-surface-variant font-body-md text-body-md transition-all peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:text-label-md cursor-text" for="strength">Strength</label>
+</div>
+<!-- Form Select: Form -->
+<div class="relative col-span-2">
+<select class="w-full bg-surface text-on-surface border border-outline hover:border-on-surface focus:border-primary focus:ring-1 focus:ring-primary rounded-full px-4 pt-6 pb-2 font-body-md text-body-md appearance-none" id="form">
+<option disabled="" selected="" value=""></option>
+<option value="tablet">Tablet</option>
+<option value="capsule">Capsule</option>
+<option value="liquid">Liquid</option>
+<option value="injection">Injection</option>
+</select>
+<label class="absolute left-4 top-2 text-primary font-label-md text-label-md pointer-events-none" for="form">Form</label>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Stock & Control Info (Spans 4 cols on desktop) -->
+<div class="md:col-span-4 space-y-6">
+<!-- Stock Card -->
+<div class="bg-surface-container-low rounded-xl p-default-padding border border-outline-variant/30">
+<h3 class="font-title-md text-title-md text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="inventory">inventory</span>
+                                Stock Parameters
+                            </h3>
+<div class="space-y-4">
+<div class="relative">
+<input class="peer w-full bg-surface text-on-surface border border-outline hover:border-on-surface focus:border-primary focus:ring-1 focus:ring-primary rounded-full px-4 pt-6 pb-2 font-body-md text-body-md transition-all placeholder-transparent" id="initial-qty" placeholder="Initial Quantity" type="number">
+<label class="absolute left-4 top-4 text-on-surface-variant font-body-md text-body-md transition-all peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:text-label-md cursor-text" for="initial-qty">Initial Qty</label>
+</div>
+<div class="relative">
+<input class="peer w-full bg-surface text-on-surface border border-outline hover:border-on-surface focus:border-primary focus:ring-1 focus:ring-primary rounded-full px-4 pt-6 pb-2 font-body-md text-body-md transition-all placeholder-transparent" id="reorder-point" placeholder="Reorder Point" type="number">
+<label class="absolute left-4 top-4 text-on-surface-variant font-body-md text-body-md transition-all peer-focus:top-2 peer-focus:text-label-md peer-focus:text-primary peer-not-placeholder-shown:top-2 peer-not-placeholder-shown:text-label-md cursor-text" for="reorder-point">Reorder Point</label>
+</div>
+</div>
+</div>
+<!-- Eco/Classification Card -->
+<div class="bg-surface-container-low rounded-xl p-default-padding border border-outline-variant/30">
+<h3 class="font-title-md text-title-md text-secondary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+                                Classification
+                            </h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-5 h-5 border-2 border-outline rounded text-primary focus:ring-primary focus:ring-offset-background checked:border-primary checked:bg-primary transition-all" type="checkbox">
+<span class="material-symbols-outlined absolute text-on-primary text-[16px] opacity-0 peer-checked:opacity-100 pointer-events-none" data-icon="check">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Requires Refrigeration</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-5 h-5 border-2 border-outline rounded text-primary focus:ring-primary focus:ring-offset-background checked:border-primary checked:bg-primary transition-all" type="checkbox">
+<span class="material-symbols-outlined absolute text-on-primary text-[16px] opacity-0 peer-checked:opacity-100 pointer-events-none" data-icon="check">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Controlled Substance</span>
+</label>
+<label class="flex items-center gap-3 p-2 rounded-lg hover:bg-surface-variant transition-colors cursor-pointer">
+<div class="relative flex items-center justify-center">
+<input class="peer appearance-none w-5 h-5 border-2 border-outline rounded text-primary focus:ring-primary focus:ring-offset-background checked:border-primary checked:bg-primary transition-all" type="checkbox">
+<span class="material-symbols-outlined absolute text-on-primary text-[16px] opacity-0 peer-checked:opacity-100 pointer-events-none" data-icon="check">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface">Eco-Disposal Required</span>
+</label>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="md:col-span-12 flex items-center justify-end gap-4 mt-4 pt-4 border-t border-outline-variant">
+<button class="font-label-lg text-label-lg text-primary hover:bg-surface-variant rounded-full py-2.5 px-6 transition-colors" type="button">
+                            Cancel
+                        </button>
+<button class="bg-primary hover:bg-surface-tint text-on-primary font-label-lg text-label-lg rounded-full py-2.5 px-8 flex items-center gap-2 transition-all active:scale-95 shadow-sm hover:shadow" type="submit">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                            Save Record
+                        </button>
+</div>
+</form>
+</div>
+</main>
+</div>
+</body></html>

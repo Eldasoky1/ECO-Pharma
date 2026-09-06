@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(167, 100%, 74%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(198, 100%, 74%, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  /* Glassmorphism panel base */
+  .glass-panel {
+    @apply bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-white/40 dark:border-slate-700/50 shadow-sm rounded-xl transition-colors duration-300;
+  }
+  
+  /* Buttons Material + Glass */
+  .btn-primary {
+    @apply px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg shadow transition-colors font-medium dark:bg-primary-500 dark:hover:bg-primary-600;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-white/80 dark:bg-slate-800/80 hover:bg-white dark:hover:bg-slate-700 backdrop-blur border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-200 rounded-lg shadow-sm transition-colors font-medium;
+  }
+  
+  /* Status Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border transition-colors;
+  }
+  .badge-green { @apply bg-green-100 text-green-800 border-green-200 dark:bg-green-900/40 dark:text-green-300 dark:border-green-800; }
+  .badge-red { @apply bg-red-100 text-red-800 border-red-200 dark:bg-red-900/40 dark:text-red-300 dark:border-red-800; }
+  .badge-amber { @apply bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/40 dark:text-amber-300 dark:border-amber-800; }
+  .badge-blue { @apply bg-blue-100 text-blue-800 border-blue-200 dark:bg-blue-900/40 dark:text-blue-300 dark:border-blue-800; }
+  .badge-slate { @apply bg-slate-100 text-slate-800 border-slate-200 dark:bg-slate-800/60 dark:text-slate-300 dark:border-slate-700; }
+}

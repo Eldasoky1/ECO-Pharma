@@ -1,0 +1,313 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Edit Profile - Smart Eco-Pharma Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+
+<script id="tailwind-config">
+        tailwind.config = { darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
+                        "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
+                        "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
+                        "primary": "rgb(var(--c-primary) / <alpha-value>)",
+                        "on-tertiary-fixed": "rgb(var(--c-on-tertiary-fixed) / <alpha-value>)",
+                        "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)",
+                        "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
+                        "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
+                        "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
+                        "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
+                        "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
+                        "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
+                        "outline": "rgb(var(--c-outline) / <alpha-value>)",
+                        "error": "rgb(var(--c-error) / <alpha-value>)",
+                        "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
+                        "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
+                        "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
+                        "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
+                        "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
+                        "surface-variant": "rgb(var(--c-surface-variant) / <alpha-value>)",
+                        "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
+                        "surface": "rgb(var(--c-surface) / <alpha-value>)",
+                        "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
+                        "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
+                        "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
+                        "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
+                        "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
+                        "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
+                        "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
+                        "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
+                        "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
+                        "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
+                        "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
+                        "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
+                        "background": "rgb(var(--c-background) / <alpha-value>)",
+                        "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
+                        "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
+                        "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
+                        "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
+                        "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
+                        "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)",
+                        "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
+                        "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
+                        "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
+                        "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
+                        "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
+                        "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)"
+                    , "success": "rgb(var(--c-success) / <alpha-value>)", "warning": "rgb(var(--c-warning) / <alpha-value>)", "on-warning": "rgb(var(--c-on-warning) / <alpha-value>)"},
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "default-padding": "16px",
+                        "margin-desktop": "24px",
+                        "unit": "4px",
+                        "compact-padding": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["IBM Plex Sans"],
+                        "headline-sm": ["IBM Plex Sans"],
+                        "title-lg": ["IBM Plex Sans"],
+                        "title-md": ["IBM Plex Sans"],
+                        "label-lg": ["IBM Plex Sans"],
+                        "body-lg": ["IBM Plex Sans"],
+                        "display-lg": ["IBM Plex Sans"],
+                        "body-md": ["IBM Plex Sans"],
+                        "label-md": ["IBM Plex Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "400" }],
+                        "headline-sm": ["24px", { "lineHeight": "32px", "fontWeight": "500" }],
+                        "title-lg": ["22px", { "lineHeight": "28px", "fontWeight": "500" }],
+                        "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400" }],
+                        "display-lg": ["57px", { "lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Subtle entrance animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.4s ease-out forwards;
+        }
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+    </style>
+<script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();</script><style>:root{--c-background:249 249 248;--c-error:186 26 26;--c-error-container:255 218 214;--c-inverse-on-surface:240 241 239;--c-inverse-primary:100 218 196;--c-inverse-surface:47 49 48;--c-on-background:26 28 27;--c-on-error:255 255 255;--c-on-error-container:147 0 10;--c-on-primary:255 255 255;--c-on-primary-container:244 255 251;--c-on-primary-fixed:0 32 27;--c-on-primary-fixed-variant:0 80 70;--c-on-secondary:255 255 255;--c-on-secondary-container:85 104 101;--c-on-secondary-fixed:12 31 28;--c-on-secondary-fixed-variant:56 74 72;--c-on-surface:26 28 27;--c-on-surface-variant:61 73 70;--c-on-tertiary:255 255 255;--c-on-tertiary-container:253 252 255;--c-on-tertiary-fixed:2 29 50;--c-on-tertiary-fixed-variant:50 73 96;--c-on-warning:133 77 14;--c-outline:109 122 118;--c-outline-variant:188 201 197;--c-primary:0 104 91;--c-primary-container:0 131 115;--c-primary-fixed:130 246 224;--c-primary-fixed-dim:100 218 196;--c-secondary:79 98 95;--c-secondary-container:210 231 227;--c-secondary-fixed:210 231 227;--c-secondary-fixed-dim:182 203 199;--c-success:52 211 153;--c-surface:249 249 248;--c-surface-bright:249 249 248;--c-surface-container:237 238 236;--c-surface-container-high:232 232 231;--c-surface-container-highest:226 227 225;--c-surface-container-low:243 244 242;--c-surface-container-lowest:255 255 255;--c-surface-dim:217 218 217;--c-surface-tint:0 107 93;--c-surface-variant:226 227 225;--c-tertiary:71 94 118;--c-tertiary-container:96 119 144;--c-tertiary-fixed:207 229 255;--c-tertiary-fixed-dim:177 201 228;--c-warning:254 240 138}.dark{--c-background:16 20 19;--c-error:255 180 171;--c-error-container:147 0 10;--c-inverse-on-surface:47 49 48;--c-inverse-primary:0 104 91;--c-inverse-surface:225 227 224;--c-on-background:225 227 224;--c-on-error:105 0 5;--c-on-error-container:255 218 214;--c-on-primary:0 55 49;--c-on-primary-container:130 246 224;--c-on-primary-fixed:0 32 27;--c-on-primary-fixed-variant:0 80 70;--c-on-secondary:34 54 51;--c-on-secondary-container:210 231 227;--c-on-secondary-fixed:12 31 28;--c-on-secondary-fixed-variant:56 74 72;--c-on-surface:225 227 224;--c-on-surface-variant:190 201 197;--c-on-tertiary:28 51 73;--c-on-tertiary-container:207 229 255;--c-on-tertiary-fixed:2 29 50;--c-on-tertiary-fixed-variant:50 73 96;--c-on-warning:255 223 138;--c-outline:136 146 143;--c-outline-variant:63 73 70;--c-primary:100 218 196;--c-primary-container:0 80 70;--c-primary-fixed:130 246 224;--c-primary-fixed-dim:100 218 196;--c-secondary:182 203 199;--c-secondary-container:56 74 72;--c-secondary-fixed:210 231 227;--c-secondary-fixed-dim:182 203 199;--c-success:52 211 153;--c-surface:16 20 19;--c-surface-bright:54 59 57;--c-surface-container:29 33 31;--c-surface-container-high:39 43 42;--c-surface-container-highest:50 54 52;--c-surface-container-low:25 29 28;--c-surface-container-lowest:11 15 14;--c-surface-dim:16 20 19;--c-surface-tint:100 218 196;--c-surface-variant:63 73 70;--c-tertiary:177 201 228;--c-tertiary-container:50 73 96;--c-tertiary-fixed:207 229 255;--c-tertiary-fixed-dim:177 201 228;--c-warning:122 92 0}:focus-visible{outline:2px solid rgb(var(--c-primary));outline-offset:2px;border-radius:6px}@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}</style></head>
+<body class="bg-background text-on-background flex h-screen overflow-hidden antialiased">
+<!-- SideNavBar (from JSON) -->
+<nav class="bg-surface-container-low dark:bg-surface-dim flex flex-col h-full py-4 border-r border-outline-variant docked left-0 h-full w-72 hidden md:flex flex-shrink-0 z-20">
+<!-- Header -->
+<div class="px-margin-desktop mb-8">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover"  src="assets/img/img_1.jpg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Main Branch</h2>
+<p class="font-label-md text-label-md text-primary-fixed-dim">System Active</p>
+</div>
+</div>
+</div>
+<!-- Main Tabs -->
+<ul class="flex flex-col gap-2 px-2 flex-1">
+<!-- Active Tab -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 hover:bg-surface-container-high transition-all transition-colors duration-200 cursor-pointer" href="dashboard.html">
+<span aria-hidden="true" class="material-symbols-outlined icon-filled" data-icon="dashboard">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+</li>
+<!-- Inactive Tabs -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all transition-colors duration-200 cursor-pointer" href="drug-catalogue.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-lg text-label-lg">Inventory</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all transition-colors duration-200 cursor-pointer" href="interaction-checker.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+<span class="font-label-lg text-label-lg">Prescriptions</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all transition-colors duration-200 cursor-pointer" href="interaction-knowledge-base.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-lg text-label-lg">Patients</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all transition-colors duration-200 cursor-pointer" href="pv-reports.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all transition-colors duration-200 cursor-pointer" href="settings.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</li>
+</ul>
+<!-- Footer Tabs -->
+<div class="px-2 mt-auto">
+<a href="new-inventory-record.html" class="w-[calc(100%-16px)] mx-2 mb-4 bg-primary text-on-primary py-3 rounded-full font-label-lg text-label-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-sm">
+<span aria-hidden="true" class="material-symbols-outlined">add</span>
+                New Prescription
+            </a>
+<ul class="flex flex-col gap-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200 cursor-pointer" href="settings.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-colors duration-200 cursor-pointer" href="login.html">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-label-md text-label-md">Sign Out</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col min-w-0 h-full relative">
+<!-- TopNavBar (from JSON) -->
+<header class="bg-surface-container dark:bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-16 flex-shrink-0 z-10">
+<div class="flex items-center gap-4">
+<!-- Mobile Menu Trigger -->
+<button class="md:hidden text-on-surface-variant">
+<span aria-hidden="true" class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Smart Eco-Pharma Hub</h1>
+</div>
+<!-- Search (Left aligned relatively to actions) -->
+<div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+<span aria-hidden="true" class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 font-body-md text-body-md text-on-surface focus:ring-2 focus:ring-primary focus:bg-surface outline-none transition-all" placeholder="Search records, patients..." type="text" aria-label="Search">
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80 transition-colors rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80 transition-colors rounded-full relative">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80 transition-colors rounded-full">
+<span aria-hidden="true" class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<a class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-outline-variant block" href="edit-profile.html" aria-label="Edit profile">
+<img alt="Pharmacist profile avatar" class="w-full h-full object-cover"  src="assets/img/img_2.jpg">
+</a>
+</div>
+<button id="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors cursor-pointer active:opacity-80"><span class="material-symbols-outlined block dark:hidden" aria-hidden="true">dark_mode</span><span class="material-symbols-outlined hidden dark:block" aria-hidden="true">light_mode</span></button>
+</header>
+<div class="flex-1 overflow-y-auto p-margin-mobile md:p-margin-desktop">
+<div class="max-w-3xl mx-auto">
+<!-- Page Header -->
+<div class="mb-6">
+<h2 class="font-headline-sm text-headline-sm text-on-background">Edit Profile</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Update your personal details, role, and contact information.</p>
+</div>
+<div class="bg-surface-container rounded-xl border border-outline-variant p-default-padding md:p-6" id="profile-card">
+<div id="profile-summary" role="alert" tabindex="-1" class="hidden bg-error-container text-on-error-container rounded-lg p-3 font-body-md text-body-md mb-4"></div>
+<form class="space-y-5" id="profile-form" novalidate>
+<!-- Avatar -->
+<div class="flex items-center gap-4 mb-2">
+<div class="w-16 h-16 rounded-full bg-primary-container overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" alt="Profile avatar" src="assets/img/img_23.jpg">
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant mb-1">Profile photo</p>
+<button type="button" class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors cursor-pointer" onclick="alert('Photo upload is not wired in this prototype.')">Change photo</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<!-- Full Name -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="full-name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true" data-icon="person">person</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="full-name" name="full-name" placeholder="Dr. Sarah Jenkins" value="Dr. Sarah Jenkins" autocomplete="name" type="text">
+<p class="hidden font-body-md text-body-md text-error mt-1 ml-4" id="full-name-error"></p>
+</div>
+</div>
+<!-- Role -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="role">Role</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true" data-icon="badge">badge</span>
+<select class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors appearance-none" id="role" name="role">
+<option selected="">Lead Pharmacist</option>
+<option>Pharmacist</option>
+<option>Admin</option>
+<option>Manager</option>
+</select>
+</div>
+</div>
+<!-- Email -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true" data-icon="mail">mail</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="email" name="email" placeholder="sarah@example.com" value="sarah.jenkins@ecopharma.example" autocomplete="email" type="email">
+<p class="hidden font-body-md text-body-md text-error mt-1 ml-4" id="email-error"></p>
+</div>
+</div>
+<!-- Phone -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="phone">Phone</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant" aria-hidden="true" data-icon="call">call</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-full py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" id="phone" name="phone" placeholder="+20 100 000 0000" autocomplete="tel" type="tel">
+<p class="hidden font-body-md text-body-md text-error mt-1 ml-4" id="phone-error"></p>
+</div>
+</div>
+</div>
+<!-- Bio -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1 ml-4" for="bio">Bio</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant text-on-surface font-body-lg text-body-lg rounded-2xl py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none" id="bio" name="bio" rows="3" placeholder="Short professional summary">Lead Pharmacist with 15+ years of experience in clinical and community pharmacy, managing inventory and pharmacovigilance at Main Branch.</textarea>
+</div>
+<!-- Save -->
+<div class="flex items-center justify-end gap-3 pt-2">
+<button type="button" class="px-6 h-10 rounded-full border border-outline-variant font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-variant transition-colors cursor-pointer" onclick="history.back()">Cancel</button>
+<button type="submit" class="px-6 h-10 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-surface-tint active:opacity-80 transition-all duration-200 cursor-pointer flex items-center gap-2">
+<span>Save Changes</span>
+<span class="material-symbols-outlined" aria-hidden="true" data-icon="save">save</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</main>
+<script>(function(){var b=document.getElementById('theme-toggle');if(b){function s(){var d=document.documentElement.classList.contains('dark');b.setAttribute('aria-pressed',String(d));}b.addEventListener('click',function(){var d=document.documentElement.classList.toggle('dark');try{localStorage.setItem('theme',d?'dark':'light')}catch(e){}s();});s();}})();</script></body></html>
