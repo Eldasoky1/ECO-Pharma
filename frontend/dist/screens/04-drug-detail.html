@@ -1,0 +1,448 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Smart Eco-Pharma Hub - Drug Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#bcc9c5",
+                      "surface-dim": "#d9dad9",
+                      "secondary-container": "#d2e7e3",
+                      "primary": "#00685b",
+                      "on-tertiary-fixed": "#021d32",
+                      "on-primary-fixed": "#00201b",
+                      "on-tertiary-fixed-variant": "#324960",
+                      "on-secondary-fixed-variant": "#384a48",
+                      "tertiary": "#475e76",
+                      "surface-tint": "#006b5d",
+                      "inverse-primary": "#64dac4",
+                      "primary-fixed-dim": "#64dac4",
+                      "outline": "#6d7a76",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed": "#0c1f1c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-background": "#1a1c1b",
+                      "on-primary-fixed-variant": "#005046",
+                      "surface-bright": "#f9f9f8",
+                      "surface-variant": "#e2e3e1",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f9f9f8",
+                      "secondary-fixed": "#d2e7e3",
+                      "surface-container-low": "#f3f4f2",
+                      "on-primary": "#ffffff",
+                      "on-secondary-container": "#556865",
+                      "on-primary-container": "#f4fffb",
+                      "tertiary-container": "#607790",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#b1c9e4",
+                      "secondary-fixed-dim": "#b6cbc7",
+                      "on-surface": "#1a1c1b",
+                      "on-tertiary-container": "#fdfcff",
+                      "on-secondary": "#ffffff",
+                      "background": "#f9f9f8",
+                      "surface-container": "#edeeec",
+                      "tertiary-fixed": "#cfe5ff",
+                      "surface-container-high": "#e8e8e7",
+                      "inverse-surface": "#2f3130",
+                      "surface-container-highest": "#e2e3e1",
+                      "inverse-on-surface": "#f0f1ef",
+                      "on-error": "#ffffff",
+                      "primary-container": "#008373",
+                      "primary-fixed": "#82f6e0",
+                      "secondary": "#4f625f",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#3d4946"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "default-padding": "16px",
+                      "margin-desktop": "24px",
+                      "unit": "4px",
+                      "compact-padding": "8px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Plus Jakarta Sans"],
+                      "headline-sm": ["Plus Jakarta Sans"],
+                      "title-lg": ["Plus Jakarta Sans"],
+                      "title-md": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Plus Jakarta Sans"],
+                      "body-md": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "title-lg": ["22px", {"lineHeight": "28px", "fontWeight": "500"}],
+                      "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0.15px", "fontWeight": "500"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1px", "fontWeight": "500"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0.5px", "fontWeight": "400"}],
+                      "display-lg": ["57px", {"lineHeight": "64px", "letterSpacing": "-0.25px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.25px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.5px", "fontWeight": "500"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom scrollbar for data tables */
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 6px;
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #bcc9c5;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-full flex flex-col antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-16 z-20 sticky top-0">
+<div class="flex items-center gap-4">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary">Smart Eco-Pharma Hub</h1>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search Bar on Left of Actions -->
+<div class="hidden md:flex items-center bg-surface-container-high rounded-full px-4 py-2 w-64 border border-outline-variant focus-within:border-primary transition-colors">
+<span class="flex-shrink-0 w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center" data-icon="search"><span class="material-symbols-outlined" style="font-size:16px">search</span></span>
+<input class="flex-1 min-w-0 bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:ring-0" placeholder="Search inventory..." type="search">
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:scale-95 transition-transform relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant ml-2 cursor-pointer">
+<img alt="Pharmacist profile avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a female pharmacist wearing a clean white lab coat over a light blue shirt, with short brown hair, looking approachable in a bright, modern clinical setting with soft natural light. The aesthetic is clean, corporate, and high-trust, matching the teal-accented light-mode UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk0whWogtXv2tFPM9O_8GE4IkwOLovBuz2kFF5LwVaeVVKvXJr1uXjtllVrirCOcT7QC2K17jQoEkKFeVNoSDC2k_YFjft7TUMYY6V4m1MChnqvjfeCzR0JgdXmVhsiITYG0DP6rc-hYsn1QxabkvypemeD3wM8PP_G_RDxu3_5xp2N_EI4vldDa6i-jHXwtFVIuJVZelHycd7npiV3D6AUh0BueKHpMmKZ2QF9bG1KZdIj9oR-0XCiw">
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-low border-r border-outline-variant flex flex-col h-full py-4 w-72 hidden md:flex shrink-0 z-10">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-lg">
+<span class="material-symbols-outlined fill" data-icon="local_pharmacy">local_pharmacy</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface">Main Branch</div>
+<div class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1 mt-0.5">
+<div class="w-1.5 h-1.5 rounded-full bg-[#34d399]"></div>
+                        System Active
+                    </div>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full bg-primary text-on-primary font-label-lg text-label-lg rounded-full py-3 px-4 flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                    New Prescription
+                </button>
+</div>
+<div class="flex-1 overflow-y-auto px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200 font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-full mx-2 font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined fill" data-icon="inventory_2">inventory_2</span>
+                    Inventory
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200 font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="prescriptions">prescriptions</span>
+                    Prescriptions
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200 font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    Patients
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200 font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+                    Analytics
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 hover:bg-surface-container-high transition-all duration-200 font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</div>
+<div class="mt-auto px-2 pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                    Help Center
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant rounded-full mx-2 transition-all font-label-lg text-label-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                    Sign Out
+                </a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto bg-surface p-default-padding md:p-margin-desktop">
+<!-- Breadcrumb & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_back">arrow_back</span>
+                        Back to Inventory
+                    </a>
+<span>/</span>
+<span>Cardiovascular</span>
+<span>/</span>
+<span class="text-on-surface font-medium">Lisinopril 10mg</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline rounded-full text-on-surface font-label-lg text-label-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="analytics">analytics</span>
+                        View AI Reports
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-error-container text-on-error-container rounded-full font-label-lg text-label-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+                        Delete
+                    </button>
+</div>
+</div>
+<!-- Header Section -->
+<div class="bg-surface-container rounded-xl p-6 mb-gutter border border-outline-variant/30 flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="w-24 h-24 rounded-lg bg-surface flex items-center justify-center border border-outline-variant shrink-0">
+<span class="material-symbols-outlined text-[48px] text-primary-container opacity-50" data-icon="medication">medication</span>
+</div>
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<h2 class="font-headline-lg text-headline-lg text-on-surface m-0">Lisinopril 10mg Tablets</h2>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label-md text-label-md flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                            In Stock
+                        </span>
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full font-label-md text-label-md">
+                            Rx Only
+                        </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl">
+                        ACE inhibitor used to treat high blood pressure, heart failure, and improve survival after a heart attack. Manufactured by Zestril Pharmaceuticals.
+                    </p>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column (Active Ingredients & Admin) -->
+<div class="lg:col-span-7 flex flex-col gap-gutter">
+<!-- Active Ingredients Card -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/50">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="science">science</span>
+                            Active Ingredients &amp; Formulation
+                        </h3>
+<div class="bg-surface-container rounded-lg p-4 mb-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-title-md text-title-md text-on-surface">Lisinopril (as lisinopril dihydrate)</span>
+<span class="font-title-md text-title-md text-primary font-bold">10 mg</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 mb-1">
+<div class="bg-primary h-1.5 rounded-full" style="width: 100%"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Primary Active Compound</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="border border-outline-variant/50 rounded-lg p-3 bg-surface">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Drug Class</div>
+<div class="font-body-md text-body-md text-on-surface">ACE Inhibitor</div>
+</div>
+<div class="border border-outline-variant/50 rounded-lg p-3 bg-surface">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Format</div>
+<div class="font-body-md text-body-md text-on-surface">Oral Tablet (Uncoated)</div>
+</div>
+<div class="border border-outline-variant/50 rounded-lg p-3 bg-surface">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Color / Shape</div>
+<div class="font-body-md text-body-md text-on-surface">Pink / Round</div>
+</div>
+<div class="border border-outline-variant/50 rounded-lg p-3 bg-surface">
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Imprint Code</div>
+<div class="font-body-md text-body-md text-on-surface">L 10</div>
+</div>
+</div>
+</div>
+<!-- Administration & Dosage -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/50">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="medical_information">medical_information</span>
+                            Administration &amp; Guidelines
+                        </h3>
+<div class="space-y-4">
+<div class="flex gap-4 p-4 bg-surface rounded-lg border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary shrink-0 mt-0.5" data-icon="info">info</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface mb-1">Standard Adult Dosage</div>
+<div class="font-body-md text-body-md text-on-surface-variant">Initial: 10 mg orally once a day. Maintenance: 20 to 40 mg orally once a day.</div>
+</div>
+</div>
+<div class="flex gap-4 p-4 bg-surface rounded-lg border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary shrink-0 mt-0.5" data-icon="restaurant">restaurant</span>
+<div>
+<div class="font-title-md text-title-md text-on-surface mb-1">Food Interactions</div>
+<div class="font-body-md text-body-md text-on-surface-variant">May be administered with or without food. Absorption is not influenced by the presence of food in the gastrointestinal tract.</div>
+</div>
+</div>
+<div class="flex gap-4 p-4 bg-error-container text-on-error-container rounded-lg border-l-4 border-error">
+<span class="material-symbols-outlined text-error shrink-0 mt-0.5" data-icon="warning">warning</span>
+<div>
+<div class="font-title-md text-title-md mb-1">Black Box Warning</div>
+<div class="font-body-md text-body-md">Fetal Toxicity: Discontinue as soon as pregnancy is detected. Drugs that act directly on the renin-angiotensin system can cause injury and death to the developing fetus.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Metadata, Inventory, Interactions) -->
+<div class="lg:col-span-5 flex flex-col gap-gutter">
+<!-- Linked Inventory Mini-table -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/50">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+                                Current Inventory
+                            </h3>
+<a class="text-primary hover:text-primary-container font-label-md text-label-md transition-colors flex items-center" href="#">
+                                View Full <span class="material-symbols-outlined text-[16px] ml-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low">
+<th class="py-2 px-2 font-label-lg text-label-lg font-semibold uppercase tracking-wider text-primary">Batch No.</th>
+<th class="py-2 px-2 font-label-lg text-label-lg font-semibold uppercase tracking-wider text-primary">Location</th>
+<th class="py-2 px-2 font-label-lg text-label-lg font-semibold uppercase tracking-wider text-primary">Qty</th>
+<th class="py-2 px-2 font-label-lg text-label-lg font-semibold uppercase tracking-wider text-primary">Expiry</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-outline-variant/30 hover:bg-surface-variant/30 transition-colors">
+<td class="py-3 px-2 text-on-surface">BT-8492A</td>
+<td class="py-3 px-2 text-on-surface-variant">Shelf A-12</td>
+<td class="py-3 px-2"><span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-xs">450</span></td>
+<td class="py-3 px-2 text-on-surface-variant">Oct 2025</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-surface-variant/30 transition-colors">
+<td class="py-3 px-2 text-on-surface">BT-9104C</td>
+<td class="py-3 px-2 text-on-surface-variant">Shelf B-04</td>
+<td class="py-3 px-2"><span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full text-xs">1,200</span></td>
+<td class="py-3 px-2 text-on-surface-variant">Mar 2026</td>
+</tr>
+<tr class="hover:bg-surface-variant/30 transition-colors">
+<td class="py-3 px-2 text-on-surface">BT-7731F</td>
+<td class="py-3 px-2 text-on-surface-variant">Cold Storage</td>
+<td class="py-3 px-2"><span class="bg-error-container text-on-error-container px-2 py-0.5 rounded-full text-xs">50</span></td>
+<td class="py-3 px-2 text-error font-medium">Dec 2024</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Related Interactions Card -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/50">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="compare_arrows">compare_arrows</span>
+                            Known Interactions
+                        </h3>
+<div class="space-y-3">
+<div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="priority_high">priority_high</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                                        Aliskiren
+                                        <span class="text-[10px] uppercase tracking-wider bg-error text-on-error px-1.5 py-0.5 rounded">Major</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">Increased risk of hypotension, hyperkalemia, and renal impairment.</div>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-[#fef08a] text-[#854d0e] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                                        NSAIDs (e.g., Ibuprofen)
+                                        <span class="text-[10px] uppercase tracking-wider bg-[#fef08a] text-[#854d0e] px-1.5 py-0.5 rounded">Moderate</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">May reduce antihypertensive effect; increased risk of renal dysfunction.</div>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 bg-surface rounded-lg border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-[#fef08a] text-[#854d0e] flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+</div>
+<div>
+<div class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+                                        Potassium Supplements
+                                        <span class="text-[10px] uppercase tracking-wider bg-[#fef08a] text-[#854d0e] px-1.5 py-0.5 rounded">Moderate</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant mt-1">Increased risk of hyperkalemia. Monitor serum potassium closely.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Metadata Card -->
+<div class="bg-surface-container-low rounded-xl p-6 border border-outline-variant/50">
+<h3 class="font-title-md text-title-md text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="info">info</span>
+                            System Metadata
+                        </h3>
+<div class="grid grid-cols-2 gap-y-3 gap-x-4">
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant">NDC Code</div>
+<div class="font-body-md text-body-md text-on-surface font-mono">00310-0131-10</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant">SKU</div>
+<div class="font-body-md text-body-md text-on-surface font-mono">LIS-10-TAB-ZES</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant">Last Updated</div>
+<div class="font-body-md text-body-md text-on-surface">Today, 09:41 AM</div>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant">Updated By</div>
+<div class="font-body-md text-body-md text-on-surface">Auto-Sync (AI)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
